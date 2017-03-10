@@ -20,7 +20,7 @@ class Classifica extends Controller
 
         if (func_num_args() == 0) 
         {
-            header('location: ' . URL . 'classifica/index');
+            header('location: ' . URL . 'problem');
         }
         else 
         {
@@ -34,15 +34,14 @@ class Classifica extends Controller
             } 
             else 
             {
-                header('location: ' . URL . 'classifica/index');
+                header('location: ' . URL . 'problem');
             }
         }
     }
 
-    public function index() 
-    {
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/_templates/footer.php';
-    }
-    
+    // public function index() 
+    // {
+    //     require APP . 'view/_templates/header.php';
+    //     require APP . 'view/_templates/footer.php';
+    // }
 }
