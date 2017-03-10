@@ -1,5 +1,3 @@
-![MINI - A naked barebone PHP application](_install/mini-logo.png)
-
 # MINI
 
 MINI is an extremely simple and easy to understand skeleton PHP application, reduced to the max.
