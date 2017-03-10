@@ -38,13 +38,18 @@ class Application
             // check for method: does such a method exist in the controller ?
             if (method_exists($this->url_controller, $this->url_action)) {
 
-                if (!empty($this->url_params)) {
-                    // Call the method and pass arguments to it
-                    call_user_func_array(array($this->url_controller, $this->url_action), $this->url_params);
-                } else {
-                    // If no parameters are given, just call the method without parameters, like $this->home->method();
-                    $this->url_controller->{$this->url_action}();
-                }
+                try {
+                    if (!empty($this->url_params)) {
+                        // Call the method and pass arguments to it
+                        call_user_func_array(array($this->url_controller, $this->url_action), $this->url_params);
+                    } else {
+                        // If no parameters are given, just call the method without parameters, like $this->home->method();
+                        $this->url_controller->{$this->url_action}();
+                    }
+                } catch (Exception $e) {
+                    // If the method is not public, then go to the problem page
+                    header('location: ' . URL . 'problem');
+                } 
 
             } else {
 
@@ -56,6 +61,9 @@ class Application
                     header('location: ' . URL . 'problem');
                 }
             }
+
+        } elseif ($this->url_controller == "auth" && $this->url_params) {
+            // If the controller is called auth, which doesn't really exist (it's not a file) then authenticate using private metohd auth() and then go to a header which also doens't exist (aka 'classifica')
         } else {
             header('location: ' . URL . 'problem');
         }
@@ -90,5 +98,9 @@ class Application
             //echo 'Action: ' . $this->url_action . '<br>';
             //echo 'Parameters: ' . print_r($this->url_params, true) . '<br>';
         }
+    }
+
+    private function auth() {
+
     }
 }

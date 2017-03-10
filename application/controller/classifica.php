@@ -28,9 +28,7 @@ class Classifica extends Controller
 
             if ($password == "12345678") 
             {
-                require APP . 'view/_templates/header.php';
-                require APP . 'view/classifica/index.php';   
-                require APP . 'view/_templates/footer.php';
+                $this->mostra();
             } 
             else 
             {
@@ -39,9 +37,10 @@ class Classifica extends Controller
         }
     }
 
-    // public function index() 
-    // {
-    //     require APP . 'view/_templates/header.php';
-    //     require APP . 'view/_templates/footer.php';
-    // }
+    private function mostra() 
+    {
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/classifica/index.php';
+        require APP . 'view/_templates/footer.php';
+    }
 }
