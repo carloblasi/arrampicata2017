@@ -25,7 +25,7 @@
 	<title>Seleziona Punteggio</title>
 </head>
 <body>
-	<?php echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
+	<?php //echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
 	<form action="" method="POST">
 		<div class="container" id="container">
 			<?php
@@ -42,12 +42,12 @@
 
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
+						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>/2"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
 					</div>
 				</div>
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<button type="submit" class="pure-button button-passato">PASSATO <i id="check" class="fa fa-check fa-sm"></i></button>
+						<button type="submit" class="pure-button button-passato"><i class="fa fa-check fa-sm"></i> PASSATO</button>
 					</div>
 				</div>
 				

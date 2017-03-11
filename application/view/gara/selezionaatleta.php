@@ -25,7 +25,7 @@
 	<title>Seleziona Atleta</title>
 </head>
 <body>
-	<?php echo 'boulder: ' . $selected_boulder . ' tentativo: ' . $selected_tentativo; ?>
+	<?php //echo 'boulder: ' . $selected_boulder; ?>
 	<form action="<?php echo URL; ?>gara/selezionapunteggio/<?php echo $selected_boulder;?>" method="POST">
 		<div class="container" id="container">
 			<?php

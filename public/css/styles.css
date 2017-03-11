@@ -7,12 +7,11 @@ label {
 }
 
 body {
-    background-color: white;
+    background-color: #FEFDFC;
 }
 
 a {
 	text-align: center;
-	/*vertical-align: middle;*/
 }
 
 input[type="radio"] {
@@ -32,22 +31,23 @@ input[type="radio"]:checked + label {
 	right: 0px;
 	width: 100%;
 	z-index: 9999;
-	background-color: white;
+	background-color: #FEFDFC;
 }
 
 .pure-button {
 
 	width: 100%;
 	padding: 4vh;
-	color: white;
+	color: #F6F1ED;
 	border-radius: 6px;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	background: rgb(66, 184, 221);
 	font-size: 130%;
+	font-weight: 800;
 }
 
 .button-passato {
-	background: #2ecc71;
+	background: #A3E539;
 }
 
 .padding {
@@ -67,7 +67,12 @@ input[type="radio"]:checked + label {
 }
 
 .fa-chevron-right {
-	margin-right: -10px
+	margin-right: -10px;
+}
+
+.fa-check {
+	margin-left: -10px;
+	margin-right: -2px;
 }
 
 .description {
@@ -77,5 +82,5 @@ input[type="radio"]:checked + label {
     margin-bottom: 0.6vh;
     padding-bottom: 2px;
     text-align: center;
-    color: rgb(66, 184, 221);
+    color: #605F5D;
 }
