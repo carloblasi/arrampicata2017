@@ -53,7 +53,7 @@ class Application
 
             } else {
 
-                if (strlen($this->url_action) == 0 && method_exists($this->url_controller, "index")) {
+                if (strlen($this->url_action) == 0 && method_exists($this->url_controller, 'index')) {
                     // no action defined: call the default index() method of a selected controller
                     $this->url_controller->index();
                 }
