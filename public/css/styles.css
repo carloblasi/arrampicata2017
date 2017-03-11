@@ -1,0 +1,77 @@
+label {
+
+	font-size: 30vw;
+	color: #666;
+	line-height: 1.2em;
+	cursor: pointer;
+}
+
+body {
+    background-color: white;
+}
+
+a {
+	text-align: center;
+	/*vertical-align: middle;*/
+}
+
+input[type="radio"] {
+
+	float: right;
+	visibility: hidden;
+}
+
+input[type="radio"]:checked + label {
+	color: rgb(66, 184, 221);
+}
+
+.navbar {
+
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	width: 100%;
+	z-index: 9999;
+	background-color: white;
+}
+
+.pure-button {
+
+	width: 100%;
+	padding: 4vh;
+	color: white;
+	border-radius: 6px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	background: rgb(66, 184, 221);
+	font-size: 130%;
+}
+
+.padding {
+	padding: 6px;
+}
+
+.container {
+
+	margin-top: 20px;
+	margin-bottom: 120px;
+	margin-left: 12px;
+	text-align: center;
+}
+
+.fa-chevron-left {
+	margin-left: -6px;
+}
+
+.fa-chevron-right {
+	margin-right: -10px
+}
+
+.description {
+    
+    font-size: 4vh;
+    margin-top: 0.6vh;
+    margin-bottom: 0.6vh;
+    padding-bottom: 2px;
+    text-align: center;
+    color: rgb(66, 184, 221);
+}
