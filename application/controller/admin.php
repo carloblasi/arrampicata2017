@@ -34,4 +34,19 @@ class Admin extends Controller
         require APP . 'view/admin/aggiungi_studente.php';
     }
 
+    public function classifica()
+    {
+        require APP . 'view/admin/classifica.php';
+    }
+
+    public function generaPettorine()
+    {
+
+    }
+
+    public function generaElenchi()
+    {
+        
+    }
+
 }
