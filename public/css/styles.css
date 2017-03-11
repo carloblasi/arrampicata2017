@@ -46,6 +46,10 @@ input[type="radio"]:checked + label {
 	font-size: 130%;
 }
 
+.button-passato {
+	background: #2ecc71;
+}
+
 .padding {
 	padding: 6px;
 }

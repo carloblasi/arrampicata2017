@@ -15,24 +15,24 @@
     	scrollTop: $("#target-element").offset().top
 	}, 1000); -->
 
-	<!--<script type="text/javascript" src="js/jquery.js"></script>-->
+	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
 	
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/styles.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
-	<link rel="stylesheet" href="<?php echo URL; ?>css/spin-select.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/font-awesome.min.css" type="text/css">
 
 	<title>Seleziona Atleta</title>
 </head>
 <body>
-	<form action="" method="POST">
+	<?php echo 'boulder: ' . $selected_boulder . ' tentativo: ' . $selected_tentativo; ?>
+	<form action="<?php echo URL; ?>gara/selezionapunteggio/<?php echo $selected_boulder;?>" method="POST">
 		<div class="container" id="container">
 			<?php
 			
 				$i = 1;
 				while ($i <= 100) {
-					echo "<input type='radio' name='radio' id='radio", $i, "' required/>", "<label for='radio", $i, "'>", $i, '</label><br>';
+					echo "<input type='radio' name='atleta' id='radio", $i, "' value='", $i, "' required/>", "<label for='radio", $i, "'>", $i, '</label><br>';
 					$i += 1;
 				}
 			?>
@@ -47,7 +47,7 @@
 				</div>
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<button type="submit" class="pure-button">AVANTI <i class="fa fa-chevron-right fa-sm"></i></button>
+						<button type="submit" class="pure-button" name="submit_atleta">AVANTI <i class="fa fa-chevron-right fa-sm"></i></button>
 					</div>
 				</div>
 				
@@ -58,5 +58,27 @@
 			</div>
 		</div>
 	</form>
+
+	<script type="text/javascript">
+
+		// Controlla che sia stato selezionato un radio button, perché Apple merda non supporta ancora l'attributo 'required'
+		$('form').submit(function() {
+
+			var required = $('[required]'); // Array degli elementi che hanno l'attributo 'required'
+			var error = true;
+
+			for (var i = 0; i <= (required.length - 1); i++) {
+
+				if (required[i].checked) { // Se nessun radio button è stato selezionato lancia l'errore
+					error = false;
+				}
+			}
+
+			if (error) {
+				return false; // Non inviare il form
+			}
+		});
+
+	</script>
 </body>
 </html>
