@@ -72,6 +72,7 @@ input[type="radio"]:checked + label {
 }
 
 .fa-check {
+
 	margin-left: -10px;
 	margin-right: -2px;
 }
@@ -83,7 +84,7 @@ input[type="radio"]:checked + label {
     margin-bottom: 0.6vh;
     padding-bottom: 2px;
     text-align: center;
-    color: #605F5D;
+    color: #666;
     font-weight: 800;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
