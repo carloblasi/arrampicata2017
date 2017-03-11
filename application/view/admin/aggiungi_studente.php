@@ -34,23 +34,19 @@
 				<div class="pure-control-group">
 					<label for="scuola">Scuola</label>
 					<select name="scuola">
+						<!-- perche' questo non funziona-->
 						<?php
 							$lista_scuole = $this->model->getAllScuole();
 							foreach ($lista_scuole as $lista) {
-								echo "<option value=\"$lista->nome_scuola\">" + $lista->nome_scuola +"</option>";
+								echo "<option value=\"$lista->id\">" + $lista->nome_scuola +"</option>";
 							}
 						?>
+						<!-- mentre questo si?-->
+						<?php $lista_scuole = $this->model->getAllScuole(); ?>
+						<?php foreach($lista_scuole as $lista): ?>
+							<option value="<?php echo $lista->id; ?>"><?php echo $lista->nome_scuola; ?></option>
+						<?php endforeach; ?>
 					</select>
-					<?php
-							echo "<br>";
-							echo "<br>";
-							echo "<br>";
-							$lista_scuole = $this->model->getAllScuole();
-							var_dump($lista_scuole);
-							foreach ($lista_scuole as $lista) {
-								echo $lista->nome_scuola;
-							}
-						?>
 				</div>
 				<div class="pure-controls">
 					<button type="submit" class="pure-button pure-button-primary" name="aggiunta_studente">Invia</button>

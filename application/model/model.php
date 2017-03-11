@@ -32,11 +32,24 @@ class Model
      */
     public function getAllScuole()
     {
-        $sql = "SELECT nome_scuola FROM scuola";
+        $sql = "SELECT * FROM scuola";
         $query = $this->db->prepare($sql);
         $query->execute();
-        
+
         return $query->fetchAll();
+    }
+
+    /**
+     *Aggiunge uno atleta nel database
+     */
+    public function addAtleta($nome, $cognome,$data_nascita, $sesso, $id_scuola)
+    {
+        $sql = "INSERT INTO atleta (nome, cognome, data_nascita,sesso,id_scuola) 
+        VALUES (:nome, :cognome, :data_nascita, :sesso, :id_scuola)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':nome'=>$nome, ':cognome'=>$cognome, ':data_nascita'=>$data_nascita,
+            ':sesso'=>$sesso, ':id_scuola'=>$id_scuola);
+        $query->execute($parameters);
     }
 
     /**

@@ -23,12 +23,13 @@ class Admin extends Controller
 
     public function aggiungistudente()
     {
-        if(isset($_POST["aggiunta_studente"])){
+        if(isset($_POST["name"]) && isset($_POST["cognome"])){
             $nome = $_POST["name"];
             $cognome = $_POST["cognome"];
             $sesso = $_POST["sesso"];
-            //$data_nascita = $_POST["data_nascita"];
-            //$scuola = $_POST["scuola"];
+            $data_nascita = $_POST["data_nascita"];
+            $id_scuola = $_POST["scuola"];
+            $this->model->addAtleta($nome, $cognome, $data_nascita, $sesso, $id_scuola);
         }
         require APP . 'view/admin/aggiungi_studente.php';
     }
