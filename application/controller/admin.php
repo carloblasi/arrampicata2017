@@ -41,12 +41,12 @@ class Admin extends Controller
 
     public function generaPettorine()
     {
-
+        require APP . 'view/admin/genera_pettorine.php';
     }
 
     public function generaElenchi()
     {
-        
+        require APP . 'view/admin/genera_elenchi.php';
     }
 
 }
