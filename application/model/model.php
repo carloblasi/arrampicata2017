@@ -17,12 +17,25 @@ class Model
     /**
      * Prendi tutti gli atleti dal database
      */
-    public function getAllAtleti() {
+    public function getAllAtleti() 
+    {
 
         $sql = "query che non conosco";
         $query = $this->db->prepare($sql);
         $query->execute();
 
+        return $query->fetchAll();
+    }
+
+    /**
+     *Prende il nome di tutte le scuole dal database
+     */
+    public function getAllScuole()
+    {
+        $sql = "SELECT nome_scuola FROM scuola";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        
         return $query->fetchAll();
     }
 
