@@ -12,10 +12,10 @@
 
 	<!-- Script per scorrere all'elemento precedentemente selezionato -->
 	<!-- $('html, body').animate({
-    	scrollTop: $("#target-element").offset().top
+		scrollTop: $("#target-element").offset().top
 	}, 1000); -->
 
-	<!--<script type="text/javascript" src="js/jquery.js"></script>-->
+	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
 	
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/styles.css">
@@ -53,5 +53,27 @@
 			</div>
 		</div>
 	</form>
+
+	<script type="text/javascript">
+
+		// Controlla che sia stato selezionato un radio button, perché Apple merda non supporta ancora l'attributo 'required'
+		$('form').submit(function() {
+
+			var required = $('[required]'); // Array degli elementi che hanno l'attributo 'required'
+			var error = true;
+
+			for (var i = 0; i <= (required.length - 1); i++) {
+
+				if (required[i].checked) { // Se nessun radio button è stato selezionato lancia l'errore
+					error = false;
+				}
+			}
+
+			if (error) {
+				return false; // Non inviare il form
+			}
+		});
+
+	</script>
 </body>
 </html>
