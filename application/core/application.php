@@ -47,7 +47,7 @@ class Application
                         $this->url_controller->{$this->url_action}();
                     }
                 } catch (Exception $e) {
-                    // If the method is not public, then go to the problem page
+                    // If the method is not public, then go to the error page
                     header('location: ' . URL . 'problem');
                 } 
 
@@ -62,8 +62,6 @@ class Application
                 }
             }
 
-        } elseif ($this->url_controller == "auth" && $this->url_params) {
-            // If the controller is called auth, which doesn't really exist (it's not a file) then authenticate using private metohd auth() and then go to a header which also doens't exist (aka 'classifica')
         } else {
             header('location: ' . URL . 'problem');
         }
@@ -100,7 +98,4 @@ class Application
         }
     }
 
-    private function auth() {
-
-    }
 }
