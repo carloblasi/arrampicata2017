@@ -40,7 +40,7 @@ class Model
     }
 
     /**
-     *Aggiunge uno atleta nel database
+     *Aggiunge un atleta nel database
      */
     public function addAtleta($nome, $cognome,$data_nascita, $sesso, $id_scuola)
     {
@@ -82,9 +82,9 @@ class Model
      *  Stabilito un certo Boulder e l'anno entro il quale è valido il punteggio
      *  ritorna il numero di alunni che hanno passato quel boulder
      */
-    public function countAtletiPassati($nome_boulder,$anno_limite)
+    public function getAtletiPassati($nome_boulder,$anno_limite)
     {
-        $sql = 'SELECT COUNT(passato)
+        $sql = 'SELECT COUNT(passato) as numero
                 FROM atleta_boulder,boulder,atleta
                 WHERE atleta_boulder.id_studente=atleta.id AND atleta_boulder.id_boulder=boulder.id
                 AND atleta_boulder.passato=\'Y\'
@@ -94,7 +94,23 @@ class Model
         $parameters = array(':anno_limite'=>$anno_limite,
                             ':nome_boulder'=>$nome_boulder);
         $query -> execute($parameters);
-        return $query -> fetch();
+        $n=$query -> fetch();
+        return $n->numero;
+    }
+
+    //Restituisce oggetti con attributi nome,boulder,n_tentativi
+    public function getTentativi($casacca)
+    {
+        $sql = 'SELECT atleta.nome AS nome,boulder.nome AS boulder, atleta_boulder.n_tentativi AS tentativi
+                FROM atleta_boulder,atleta,boulder
+                WHERE atleta_boulder.id_studente=atleta.id AND atleta_boulder.id_boulder=boulder.id
+                AND atleta.casacca=:casacca
+                AND atleta_boulder.passato=\'Y\'';
+        $query = $this->db->prepare($sql);
+        $parameters = array(':casacca'=>$casacca);
+        $query -> execute($parameters);
+        return $query -> fetchAll();
+
     }
 
     /**

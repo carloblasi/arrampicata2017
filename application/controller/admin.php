@@ -40,13 +40,22 @@ class Admin extends Controller
 		require APP . 'view/admin/classifica.php';
 	}
 
-	public function aggiornaPunteggi()
+	//funzione che calcola il punteggio data una casacca come parametro nell'URL
+	//AGGIORNAMENTO NEL DB DA AGGIUNGERE
+	public function aggiornaPunteggio($casacca)
 	{
-		$tmp=$this->model->countAtletiPassati(1,1997);
-		foreach ($tmp as $key => $value) {
+		$tentativi = $this->model->getTentativi($casacca);
+		$valBoulder = 0;
+		$punteggio = 0;
+		foreach ($tentativi as $prova)
+		{
+			$valBoulder = (100/$this->model->getAtletiPassati($prova->boulder,1997));
+			$punteggio+=$valBoulder/$prova->tentativi;
+			// in caso serva vedere come vengono eseguiti i calcoli
+			// echo "boulder".$prova->boulder."  valore:".$valBoulder."  Punteggio atleta:".$punteggio."</br>";
 			# code...
-			echo $value;
 		}
+		echo $punteggio;
 	}
 
 	public function generaPettorine()
