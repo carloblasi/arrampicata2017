@@ -82,3 +82,82 @@ SELECT atleta.casacca AS casacca, atleta.nome, atleta.cognome, atleta.punteggio,
 atleta_boulder.n_tentativi, atleta_boulder.passato 
 FROM atleta,atleta_boulder,boulder
 WHERE atleta.id = atleta_boulder.id_studente AND boulder.id = atleta_boulder.id_boulder;
+
+
+
+
+INSERT INTO atleta (nome, cognome, data_nascita, sesso, id_scuola) 
+VALUES ('Aurelio', 'Pennacchio', '1998-12-22', 'M', 1);
+
+INSERT INTO atleta (nome, cognome, data_nascita, sesso, id_scuola) 
+VALUES ('Matteo', 'Regazzi', '1998-01-23', 'M', 1);
+
+INSERT INTO atleta (nome, cognome, data_nascita, sesso, id_scuola) 
+VALUES ('Ilary', 'Blasi', '2000-12-22', 'F', 2);
+
+INSERT INTO atleta (nome, cognome, data_nascita, sesso, id_scuola) 
+VALUES ('Denise', 'Peli', '2001-07-13', 'F', 2);
+
+INSERT INTO atleta (nome, cognome, data_nascita, sesso, id_scuola) 
+VALUES ('Desiree', 'Dusi', '1999-07-02', 'F', 3);
+
+INSERT INTO atleta (nome, cognome, data_nascita, sesso, id_scuola) 
+VALUES ('Amelia', 'Odierna', '2002-04-27', 'F', 3);
+
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola;
+
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M';
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F';
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola, 
+YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F';
+
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola, 
+YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M';
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
+YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' 
+AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>=15 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=16);
+
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
+YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' 
+AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>=15 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=16);
+
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
+YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' 
+AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19);
+
+
+SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
+YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+FROM atleta, scuola
+WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' 
+AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19);
+
+
+
+
+
+
