@@ -53,26 +53,17 @@ class Model
     }
 
     /**
-     *Aggiunge un tentativo, dovrebbe fare update se è già presente un record, da sistemare
+     *Aggiunge un tentativo, partendo da casacca e boulder, se già presente UPDATE
      */
     public function addTentativo($id_boulder, $casacca, $tentativo, $passato)
     {
-        try{
         $sql = 'INSERT INTO atleta_boulder (id_boulder, id_studente, n_tentativi, passato)
-        VALUES (:id_boulder,(SELECT id FROM atleta WHERE casacca=:casacca),:n_tentativi,:passato)';
+        VALUES (:id_boulder,(SELECT id FROM atleta WHERE casacca=:casacca),:n_tentativi,:passato)
+        ON DUPLICATE KEY UPDATE n_tentativi=:n_tentativi,passato=:passato';
         $query = $this->db->prepare($sql);
         $parameters = array(':id_boulder'=>$id_boulder, ':casacca'=>$casacca, ':n_tentativi'=>$tentativo,
             ':passato'=>$passato);
         $query->execute($parameters);
-        }
-        catch( PDOException $Exception ){
-            $sql = "UPDATE atleta_boulder
-            SET n_tentativi=:n_tentativi, passato=:passato
-            WHERE (SELECT id FROM atleta WHERE casacca=:casacca) AND id_boulder=:id_boulder";
-            $query = $this->db->prepare($sql);
-            $parameters=array(':n_tentativi'=>$tentativo,':passato'=>$passato,':casacca'=>$casacca,':id_boulder'=>$id_boulder);
-            $query->execute($parameters);
-        }
     }
     /**
      *  Associa una casacca ad un dato id
