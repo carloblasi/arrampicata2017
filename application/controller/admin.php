@@ -23,7 +23,7 @@ class Admin extends Controller
 
 	public function aggiungistudente()
 	{
-		if (isset($_POST["name"]) && isset($_POST["cognome"])) 
+		if (isset($_POST["name"]) && isset($_POST["cognome"]))
 		{
 			$nome = $_POST["name"];
 			$cognome = $_POST["cognome"];
@@ -37,6 +37,7 @@ class Admin extends Controller
 
 	public function classifica()
 	{
+    echo this->model->countAtletiPassati("1","1997");
 		require APP . 'view/admin/classifica.php';
 	}
 
@@ -64,7 +65,7 @@ class Admin extends Controller
 
 		$array = explode(' ', $names_m);
 		$array1 = explode(' ', $surnames);
-		for ($i = 1; $i <= 200; $i++) 
+		for ($i = 1; $i <= 200; $i++)
 		{
 			/** $nome=$array[rand(0,count($array))];
 			*$cognome=$array1[rand(0,count($array1))];

@@ -58,8 +58,8 @@ class Model
     public function addTentativo($id_boulder, $casacca, $tentativo, $passato)
     {
         $sql = 'INSERT INTO atleta_boulder (id_boulder, id_studente, n_tentativi, passato)
-        VALUES (:id_boulder,(SELECT id FROM atleta WHERE casacca=:casacca),:n_tentativi,:passato)
-        ON DUPLICATE KEY UPDATE n_tentativi=:n_tentativi,passato=:passato';
+                VALUES (:id_boulder,(SELECT id FROM atleta WHERE casacca=:casacca),:n_tentativi,:passato)
+                ON DUPLICATE KEY UPDATE n_tentativi=:n_tentativi,passato=:passato';
         $query = $this->db->prepare($sql);
         $parameters = array(':id_boulder'=>$id_boulder, ':casacca'=>$casacca, ':n_tentativi'=>$tentativo,
             ':passato'=>$passato);
@@ -71,11 +71,30 @@ class Model
     public function addCasacca($id,$casacca)
     {
         $sql = "UPDATE atleta
-        SET casacca=:casacca
-        WHERE id=:id";
+                SET casacca=:casacca
+                WHERE id=:id";
         $query = $this->db->prepare($sql);
         $parameters=array(':casacca'=>$casacca,':id'=>$id);
         $query->execute($parameters);
+    }
+
+    /**
+     *  Stabilito un certo Boulder e l'anno entro il quale è valido il punteggio
+     *  ritorna il numero di alunni che hanno passato quel boulder
+     */
+    public function countAtletiPassati($nome_boulder,$anno_limite)
+    {
+        $sql="SELECT COUNT(passato)
+              FROM atleta_boulder,boulder,atleta
+              WHERE atleta_boulder.id_studente=atleta.id AND atleta_boulder.id_boulder=boulder.id
+              AND atleta_boulder.passato=\'Y\'
+              AND (YEAR(atleta.data_nascita)>=:anno_limite)
+              AND boulder.nome=:nome_boulder;"
+        $query = this->db->prepare($sql)
+        $parameters=array(':anno_limite'=>$anno_limite,
+                          ':nome_boulder'=>$nome_boulder);
+        $query-execute($parameters;
+        return $query->fetchAll;
     }
 
     /**
