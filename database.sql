@@ -104,19 +104,22 @@ VALUES ('Desiree', 'Dusi', '1999-07-02', 'F', 3);
 INSERT INTO atleta (nome, cognome, data_nascita, sesso, id_scuola) 
 VALUES ('Amelia', 'Odierna', '2002-04-27', 'F', 3);
 
-
+//permette di trovare tutti gli atleti
 SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
 FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola;
 
-
+//permette di trovare tutti gli atleti maschi
 SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
 FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M';
 
+//permette di trovare tutte le atlete femmine
 SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
 FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F';
+
+
 
 SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola, 
 YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
@@ -129,27 +132,29 @@ YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
 FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M';
 
+
+//permette di trovare tutte le atlete femmine che corrispondono alla categoria giovanissimi
 SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
 YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
 FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' 
 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>=15 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=16);
 
-
+//permette di trovare tutti gli atleti maschi che corrispondono alla categoria giovanissimi
 SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
 YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
 FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' 
 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>=15 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=16);
 
-
+//permette di trovare tutte le atlete femmine che corrispondono alla categoria juniores
 SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
 YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
 FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' 
 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19);
 
-
+//permette di trovare tutti gli atleti maschi che corrispondono alla categoria juniores
 SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
 YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
 FROM atleta, scuola
