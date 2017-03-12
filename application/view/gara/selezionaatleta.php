@@ -16,6 +16,7 @@
 	}, 1000); -->
 
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo URL; ?>js/fastclick.js"></script>
 	
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/styles.css">
@@ -25,7 +26,7 @@
 	<title>Seleziona Atleta</title>
 </head>
 <body>
-	<?php //echo 'boulder: ' . $selected_boulder; ?>
+	<?php echo 'boulder: ' . $selected_boulder; ?>
 	<form action="<?php echo URL; ?>gara/selezionapunteggio/<?php echo $selected_boulder;?>" method="POST">
 		<div class="container" id="container">
 			<?php
@@ -60,6 +61,10 @@
 	</form>
 
 	<script type="text/javascript">
+
+		// Toglie il delay che c'è tra il click fisico e il firing degli eventi per quando il sito è una webapp su iOS
+		var attachFastClick = Origami.fastclick;
+		attachFastClick(document.body);
 
 		// Controlla che sia stato selezionato un radio button, perché Apple merda non supporta ancora l'attributo 'required'
 		$('form').submit(function() {
