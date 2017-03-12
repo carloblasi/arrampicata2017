@@ -37,8 +37,16 @@ class Admin extends Controller
 
 	public function classifica()
 	{
-    echo this->model->countAtletiPassati("1","1997");
 		require APP . 'view/admin/classifica.php';
+	}
+
+	public function aggiornaPunteggi()
+	{
+		$tmp=$this->model->countAtletiPassati(1,1997);
+		foreach ($tmp as $key => $value) {
+			# code...
+			echo $value;
+		}
 	}
 
 	public function generaPettorine()
