@@ -84,17 +84,17 @@ class Model
      */
     public function countAtletiPassati($nome_boulder,$anno_limite)
     {
-        $sql = 'SELECT COUNT(passato)
+        $sql="SELECT COUNT(passato)
               FROM atleta_boulder,boulder,atleta
               WHERE atleta_boulder.id_studente=atleta.id AND atleta_boulder.id_boulder=boulder.id
               AND atleta_boulder.passato=\'Y\'
               AND (YEAR(atleta.data_nascita)>=:anno_limite)
-              AND boulder.nome=:nome_boulder';
-        $query = $this->db->prepare($sql);
+              AND boulder.nome=:nome_boulder;"
+        $query = this->db->prepare($sql)
         $parameters=array(':anno_limite'=>$anno_limite,
                           ':nome_boulder'=>$nome_boulder);
-        $query->execute($parameters);
-        return $query->fetch();
+        $query-execute($parameters;
+        return $query->fetchAll;
     }
 
     /**
