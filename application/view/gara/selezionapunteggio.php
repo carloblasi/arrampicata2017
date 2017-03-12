@@ -26,7 +26,7 @@
 	<title>Seleziona Punteggio</title>
 </head>
 <body>
-	<?php //echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
+	<?php echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
 	<form action="" method="POST">
 		<div class="container" id="container">
 			<?php
