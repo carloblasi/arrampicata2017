@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/font-awesome.min.css" type="text/css">
-	<title>Aggiungi uno studente</title>
+	<title>Aggiungi Studente</title>
 </head>
 <body>
 	<div class="contenitore">
