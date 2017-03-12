@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="mobile-web-app-capable" content="yes"/>
@@ -16,6 +16,7 @@
 	}, 1000); -->
 
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo URL; ?>js/fastclick.js"></script>
 	
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/styles.css">
@@ -54,6 +55,10 @@
 	</form>
 
 	<script type="text/javascript">
+
+		// Toglie il delay che c'è tra il click fisico e il firing degli eventi per quando il sito è una webapp su iOS
+		var attachFastClick = Origami.fastclick;
+		attachFastClick(document.body);
 
 		// Controlla che sia stato selezionato un radio button, perché Apple merda non supporta ancora l'attributo 'required'
 		$('form').submit(function() {

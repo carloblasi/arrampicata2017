@@ -16,6 +16,7 @@
 	}, 1000); -->
 
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo URL; ?>js/fastclick.js"></script>
 	
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/styles.css">
@@ -32,7 +33,7 @@
 			
 				$i = 1;
 				while ($i <= 5) {
-					echo "<input type='radio' name='radio' id='radio", $i, "' required/>", "<label for='radio", $i, "'>", $i, '</label><br>';
+					echo "<input type='radio' name='radio' id='radio", $i, "'/>", "<label for='radio", $i, "'>", $i, '</label><br>';
 					$i += 1;
 				}
 			?>
@@ -47,7 +48,7 @@
 				</div>
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<button type="submit" class="pure-button button-passato"><i class="fa fa-check fa-sm"></i> PASSATO</button>
+						<button type="checkbox" class="pure-button button-passato"><i class="fa fa-check fa-sm"></i> PASSATO</button>
 					</div>
 				</div>
 				
@@ -60,6 +61,10 @@
 	</form>
 
 	<script type="text/javascript">
+
+		// Toglie il delay che c'è tra il click fisico e il firing degli eventi per quando il sito è una webapp su iOS
+		var attachFastClick = Origami.fastclick;
+		attachFastClick(document.body);
 
 		// Controlla che sia stato selezionato un radio button, perché Apple merda non supporta ancora l'attributo 'required'
 		$('form').submit(function() {
