@@ -177,7 +177,7 @@ class Model
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
                 YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
                 FROM atleta, scuola
-                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' 
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' 
                 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19)";
         $query = $this->db->prepare($sql);
         $query->execute();
