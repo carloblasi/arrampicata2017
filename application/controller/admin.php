@@ -37,7 +37,6 @@ class Admin extends Controller
 
 	public function classifica()
 	{
-    echo this->model->countAtletiPassati("1","1997");
 		require APP . 'view/admin/classifica.php';
 	}
 
