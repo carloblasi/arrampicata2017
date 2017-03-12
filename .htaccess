@@ -2,7 +2,7 @@
 # But, for fallback reasons (if you don't route your vhost to /public), it will stay here.
 RewriteEngine on
 RewriteRule ^(.*) public/$1 [L]
-Options -Indexes
+#Options -Indexes
 
 #<ifModule mod_gzip.c>
 #mod_gzip_on Yes
