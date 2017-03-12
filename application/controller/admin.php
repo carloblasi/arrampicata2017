@@ -37,11 +37,15 @@ class Admin extends Controller
 
 	public function classifica()
 	{
+		foreach ($this->model->getAllAtleti() as $row)
+		{
+			$this->aggiornaPunteggio($row->casacca);
+		}
+		$classifica=$this->model->getClassifica(1997,2002,"F");
 		require APP . 'view/admin/classifica.php';
 	}
 
 	//funzione che calcola il punteggio data una casacca come parametro nell'URL
-	//AGGIORNAMENTO NEL DB DA AGGIUNGERE
 	public function aggiornaPunteggio($casacca)
 	{
 		$tentativi = $this->model->getTentativi($casacca);
@@ -53,9 +57,9 @@ class Admin extends Controller
 			$punteggio+=$valBoulder/$prova->tentativi;
 			// in caso serva vedere come vengono eseguiti i calcoli
 			// echo "boulder".$prova->boulder."  valore:".$valBoulder."  Punteggio atleta:".$punteggio."</br>";
-			# code...
 		}
-		echo $punteggio;
+		//echo $punteggio;
+		$this->model->addPunteggio($casacca,$punteggio);
 	}
 
 	public function generaPettorine()
@@ -72,7 +76,7 @@ class Admin extends Controller
 	 * CODICE PER LA POPOLAZIONE AUTOMATICA DEL DB
 	 * NON USARE! NON GUARDARE! NON TOCCARE!
 	 */
-	public function test_populate()
+	private function test_populate()
 	{
 		$names_m = 'Francesco Alessandro Mattia Lorenzo Leonardo Andrea Gabriele Matteo Tommaso Riccardo Davide Giuseppe Edoardo Antonio Federico Giovanni Marco Diego Samuele Pietro Christian Nicolo\' Luca Simone Filippo Alessio Gabriel Michele Emanuele Jacopo Daniele Cristian Giacomo Vincenzo Salvatore Gioele Giulio Manuel Thomas Samuel Daniel Giorgio Stefano Elia Luigi Nicola Angelo Mario Raffaele Domenico';
 
