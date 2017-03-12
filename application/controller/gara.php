@@ -46,7 +46,11 @@ class Gara extends Controller
     	{
     		// Altrimenti si proviene dalla schermata di inserimento del punteggio, quindi il numero del boulder sarà stato passato come argomento della funzione; una funzione del genere si chiama 'a parametri variabili' e con il metodo func_get_arg() si possono recuperare i parametri passati, in questo caso il primo (il n°0)
     		$selected_boulder = func_get_arg(0);
-    		$selected_tentativo = func_get_arg(1);
+
+    		if (func_num_args() == 2) 
+    		{
+    			$selected_tentativo = func_get_arg(1);
+    		}
     	}
     	// Dalla vista posso accedere alla variabile $selected_boulder
     	require APP . 'view/gara/selezionaatleta.php';

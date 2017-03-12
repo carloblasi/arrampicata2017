@@ -42,7 +42,7 @@
 
 				<div class="pure-u-1">
 					<div class="padding">
-						<button type="submit" class="pure-button" name="submit_boulder">AVANTI <i class="fa fa-chevron-right fa-sm"></i></button>
+						<button type="submit" class="needsclick pure-button" name="submit_boulder">AVANTI <i class="fa fa-chevron-right fa-sm"></i></button>
 					</div>
 				</div>
 				

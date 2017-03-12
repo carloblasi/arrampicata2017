@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="mobile-web-app-capable" content="yes"/>
@@ -26,7 +26,7 @@
 	<title>Seleziona Atleta</title>
 </head>
 <body>
-	<?php echo 'boulder: ' . $selected_boulder; ?>
+	<?php //echo 'boulder: ' . $selected_boulder; ?>
 	<form action="<?php echo URL; ?>gara/selezionapunteggio/<?php echo $selected_boulder;?>" method="POST">
 		<div class="container" id="container">
 			<?php
@@ -43,7 +43,7 @@
 
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaboulder"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
+						<a class="needsclick pure-button" href="<?php echo URL; ?>gara/selezionaboulder"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
 					</div>
 				</div>
 				<div class="pure-u-1-2">

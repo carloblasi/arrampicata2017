@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="mobile-web-app-capable" content="yes"/>
@@ -26,7 +26,7 @@
 	<title>Seleziona Punteggio</title>
 </head>
 <body>
-	<?php echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
+	<?php //echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
 	<form action="" method="POST">
 		<div class="container" id="container">
 			<?php
@@ -43,12 +43,14 @@
 
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>/2"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
+						<!-- Questo deve diventare il button di submit, che porta alla funzione di inserimento del punteggio, ma prima si devono controllare i parametri passati -->
+						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
 					</div>
 				</div>
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<button type="checkbox" class="pure-button button-passato"><i class="fa fa-check fa-sm"></i> PASSATO</button>
+						<!-- Questo deve diventare un checkbox, che sembri un button -->
+						<button type="submit" class="pure-button button-passato"><i class="fa fa-check fa-sm"></i> PASSATO</button>
 					</div>
 				</div>
 				
@@ -65,6 +67,12 @@
 		// Toglie il delay che c'è tra il click fisico e il firing degli eventi per quando il sito è una webapp su iOS
 		var attachFastClick = Origami.fastclick;
 		attachFastClick(document.body);
+
+		// Per qualche motivo il link per tornare indietro lo apre in safari invece che restare nella web app, questa funzione risolve il problema
+		$("a").click(function (event) {
+    		event.preventDefault();
+    		window.location = $(this).attr("href");
+		});
 
 		// Controlla che sia stato selezionato un radio button, perché Apple merda non supporta ancora l'attributo 'required'
 		$('form').submit(function() {
