@@ -118,7 +118,12 @@ class Model
     */
     public function getAllAtletiMaschi()
     {
-
+        $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
+                FROM atleta, scuola
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' ";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query -> fetchAll();
     }
 
     /*
@@ -126,7 +131,12 @@ class Model
     */
     public function getAllAtletiFemmine()
     {
-
+        $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
+                FROM atleta, scuola
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' ";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query -> fetchAll();
     }
 
     /* 
@@ -134,7 +144,14 @@ class Model
     */
     public function getAllAtletiMaschiGiovanissimi()
     {
-
+        $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
+                YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+                FROM atleta, scuola
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' 
+                AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>=15 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=16)";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query -> fetchAll();
     }
 
     /*
@@ -142,7 +159,14 @@ class Model
     */
     public function getAllAtletiFemmineGiovanissime()
     {
-
+        $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
+                YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+                FROM atleta, scuola
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' 
+                AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>=15 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=16)";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query -> fetchAll();
     }
 
     /*
@@ -150,7 +174,14 @@ class Model
     */
     public function getAllAtletiMaschiJuniores()
     {
-
+        $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
+                YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+                FROM atleta, scuola
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' 
+                AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19)";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query -> fetchAll();
     }
 
     /*
@@ -158,7 +189,14 @@ class Model
     */
     public function getAllAtletiFemmineJuniores()
     {
-
+        $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
+                YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
+                FROM atleta, scuola
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' 
+                AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19)";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query -> fetchAll();
     }
 
     /**
