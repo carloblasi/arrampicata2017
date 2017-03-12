@@ -113,6 +113,54 @@ class Model
 
     }
 
+    /*
+    ** Funzione che ritorna tutti gli atleti maschi
+    */
+    public function getAllAtletiMaschi()
+    {
+
+    }
+
+    /*
+    ** Funzione che ritorna tutti gli atleti femmine
+    */
+    public function getAllAtletiFemmine()
+    {
+
+    }
+
+    /* 
+    ** Funzione che ritorna tutti gli atleti maschi giovanissimi
+    */
+    public function getAllAtletiMaschiGiovanissimi()
+    {
+
+    }
+
+    /*
+    ** Funzione che ritorna tutti gli atleti femmine giovanissime
+    */
+    public function getAllAtletiFemmineGiovanissime()
+    {
+
+    }
+
+    /*
+    ** Funzione che ritorna tutti gli atleti maschi juniores
+    */
+    public function getAllAtletiMaschiJuniores()
+    {
+
+    }
+
+    /*
+    ** Funzione che ritorna tutti gli atleti femmine juniores
+    */
+    public function getAllAtletiFemmineJuniores()
+    {
+
+    }
+
     /**
      * Add a song to database
      * TODO put this explanation into readme and remove it from here
