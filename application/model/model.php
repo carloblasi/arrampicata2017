@@ -17,7 +17,7 @@ class Model
     /**
      * Prendi tutti gli atleti dal database
      */
-    public function getAllAtleti() 
+    public function getAllAtleti()
     {
 
         $sql = "query che non conosco";
@@ -44,11 +44,46 @@ class Model
      */
     public function addAtleta($nome, $cognome,$data_nascita, $sesso, $id_scuola)
     {
-        $sql = "INSERT INTO atleta (nome, cognome, data_nascita,sesso,id_scuola) 
+        $sql = "INSERT INTO atleta (nome, cognome, data_nascita,sesso,id_scuola)
         VALUES (:nome, :cognome, :data_nascita, :sesso, :id_scuola)";
         $query = $this->db->prepare($sql);
         $parameters = array(':nome'=>$nome, ':cognome'=>$cognome, ':data_nascita'=>$data_nascita,
             ':sesso'=>$sesso, ':id_scuola'=>$id_scuola);
+        $query->execute($parameters);
+    }
+
+    /**
+     *Aggiunge un tentativo, dovrebbe fare update se è già presente un record, da sistemare
+     */
+    public function addTentativo($id_boulder, $casacca, $tentativo, $passato)
+    {
+        try{
+        $sql = 'INSERT INTO atleta_boulder (id_boulder, id_studente, n_tentativi, passato)
+        VALUES (:id_boulder,(SELECT id FROM atleta WHERE casacca=:casacca),:n_tentativi,:passato)';
+        $query = $this->db->prepare($sql);
+        $parameters = array(':id_boulder'=>$id_boulder, ':casacca'=>$casacca, ':n_tentativi'=>$tentativo,
+            ':passato'=>$passato);
+        $query->execute($parameters);
+        }
+        catch( PDOException $Exception ){
+            $sql = "UPDATE atleta_boulder
+            SET n_tentativi=:n_tentativi, passato=:passato
+            WHERE (SELECT id FROM atleta WHERE casacca=:casacca) AND id_boulder=:id_boulder";
+            $query = $this->db->prepare($sql);
+            $parameters=array(':n_tentativi'=>$tentativo,':passato'=>$passato,':casacca'=>$casacca,':id_boulder'=>$id_boulder);
+            $query->execute($parameters);
+        }
+    }
+    /**
+     *  Associa una casacca ad un dato id
+     */
+    public function addCasacca($id,$casacca)
+    {
+        $sql = "UPDATE atleta
+        SET casacca=:casacca
+        WHERE id=:id";
+        $query = $this->db->prepare($sql);
+        $parameters=array(':casacca'=>$casacca,':id'=>$id);
         $query->execute($parameters);
     }
 

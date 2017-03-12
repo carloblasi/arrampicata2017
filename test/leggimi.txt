@@ -1,0 +1,2 @@
+-Crea il db arrampicata
+-importa il file .sql (PHPmyAdmin o query "SOURCE arrampicata.sql")
