@@ -32,7 +32,13 @@ class Admin extends Controller
 			$id_scuola = $_POST["scuola"];
 			$this->model->addAtleta($nome, $cognome, $data_nascita, $sesso, $id_scuola);
 		}
+		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/aggiungi_studente.php';
+	}
+
+	public function menu()
+	{
+		require APP . 'view/admin/menu.php';
 	}
 
 	public function classifica()
@@ -46,11 +52,17 @@ class Admin extends Controller
 		{
 			$this->aggiornaPunteggio($row->casacca);
 		}
+<<<<<<< HEAD
 		$classificaGiovaniF=$this->model->getClassifica(1997,1999,"F");
 		$classificaGiovaniM=$this->model->getClassifica(1997,1999,"M");
 		$classificaJunionresF=$this->model->getClassifica(2000,2002,"F");
 	  $classificaJunionresM=$this->model->getClassifica(2000,2002,"M");
 		require APP . 'view/admin/generaClassifica.php';
+=======
+		$classifica=$this->model->getClassifica(1997,2002,"F");
+		require APP . 'view/admin/menu.php';
+		require APP . 'view/admin/classifica.php';
+>>>>>>> 50878932ed9cb1c8581a18a78dad773a3043267c
 	}
 
 	//funzione che calcola il punteggio data una casacca come parametro nell'URL
@@ -72,11 +84,13 @@ class Admin extends Controller
 
 	public function generaPettorine()
 	{
+		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/genera_pettorine.php';
 	}
 
 	public function generaElenchi()
 	{
+		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/genera_elenchi.php';
 	}
 

@@ -51,6 +51,10 @@ input[type="radio"]:checked + label {
 	background: #A3E539;
 }
 
+.button-non-passato {
+	background: #EE6060;
+}
+
 .padding {
 	padding: 6px;
 }
@@ -74,7 +78,12 @@ input[type="radio"]:checked + label {
 .fa-check {
 
 	margin-left: -10px;
-	margin-right: -2px;
+	margin-right: -0px;
+}
+
+.fa-times {
+	margin-left: -12px;
+	margin-right: 
 }
 
 .description {
@@ -87,4 +96,20 @@ input[type="radio"]:checked + label {
     color: #666;
     font-weight: 800;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.description-top {
+	
+	font-size: 4vh;
+    text-align: center;
+    color: #666;
+    font-weight: 800;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.tentativo {
+
+	margin-top: -40px;
+	font-size: 50vh;
+	color: #666;
 }

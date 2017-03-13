@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Elenchi</title>
-	<meta charset="utf-8">
-	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
-	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
-	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
-	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/font-awesome.min.css" type="text/css">
-</head>
-<body>
-	<div class="contenitore">
+	<div class="contenitore2">
 		<h1>Elenco di tutti gli atleti maschi</h1>
 		<table class="pure-table">
 			<thead>
