@@ -182,6 +182,14 @@ class Model
     }
 
     /**
+    * Funzione che corregge il punteggio di un atleta
+    */
+    public function aggiustaPunteggio($idAtleta, $n_boulder,$n_tentativi, $passato)
+    {
+        
+    }
+
+    /**
      * Funzione che ritorna tutti gli atleti maschi
      */
     public function getAllAtletiMaschi()
