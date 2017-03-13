@@ -30,32 +30,44 @@
 	<form action="" method="POST">
 		<div class="container" id="container">
 			<?php
-			
-				$i = 1;
-				while ($i <= 5) {
-					echo "<input type='radio' name='radio' id='radio", $i, "'/>", "<label for='radio", $i, "'>", $i, '</label><br>';
-					$i += 1;
-				}
+				
+				// Prendere da database il tentativo a cui si è arrivati e mostrarlo, ma la funzione non va eseguita qui, il controller deve passarlo alla vista
+				// $i = 1;
+				// while ($i <= 5) {
+				// 	echo "<input type='radio' name='radio' id='radio", $i, "'/>", "<label for='radio", $i, "'>", $i, '</label><br>';
+				// 	$i += 1;
+				// }
 			?>
+			<p class="description-top">TENTATIVO</p>
+			<h1 class="tentativo">1<span style="margin-left: -50px;">°</span></h1>
 		</div>
 		<div class="navbar">
 			<div class="pure-g">
 
-				<div class="pure-u-1-2">
-					<div class="padding">
-						<!-- Questo deve diventare il button di submit, che porta alla funzione di inserimento del punteggio, ma prima si devono controllare i parametri passati -->
-						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
-					</div>
-				</div>
+				
 				<div class="pure-u-1-2">
 					<div class="padding">
 						<!-- Questo deve diventare un checkbox, che sembri un button -->
 						<button type="submit" class="pure-button button-passato"><i class="fa fa-check fa-sm"></i> PASSATO</button>
 					</div>
 				</div>
+
+				<div class="pure-u-1-2">
+					<div class="padding">
+						<!-- Questo deve diventare un checkbox, che sembri un button -->
+						<button type="submit" class="pure-button button-non-passato"><i class="fa fa-times fa-sm"></i> NON PASSATO</button>
+					</div>
+				</div>
+
+				<div class="pure-u-1">
+					<div class="padding">
+						<!-- Questo deve diventare il button di submit, che porta alla funzione di inserimento del punteggio, ma prima si devono controllare i parametri passati -->
+						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
+					</div>
+				</div>
 				
 				<div class="pure-u-1">
-					<p class="description">SELEZIONA TENTATIVO</p>
+					<p class="description">SELEZIONA ESITO</p>
 				</div>
 
 			</div>
