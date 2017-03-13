@@ -56,7 +56,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php $liste = $this->model->getAllAtletiMaschiGiovanissimi(); ?>
+				<?php $liste = $this->model->getAllAtletiMaschiAllievi(); ?>
 				<?php foreach ($liste as $lista): ?>
 				<tr>
 					<td><?php echo $lista->nome; ?></td>
@@ -79,7 +79,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php $liste = $this->model->getAllAtletiFemmineGiovanissime(); ?>
+				<?php $liste = $this->model->getAllAtletiFemmineAllievi(); ?>
 				<?php foreach ($liste as $lista): ?>
 				<tr>
 					<td><?php echo $lista->nome; ?></td>

@@ -15,7 +15,7 @@ class Model
     }
 
     /**
-     * Prendi tutti gli atleti dal database
+     * Prende tutti gli atleti dal database
      */
     public function getAllAtleti()
     {
@@ -151,7 +151,7 @@ class Model
     }
 
     /**
-     * Restituisce oggetti con attributi nome,boulder,n_tentativi
+     * Restituisce oggetti con attributi nome, boulder, n_tentativi
      */
     public function getTentativi($casacca)
     {
@@ -200,9 +200,9 @@ class Model
     }
 
     /**
-     * Funzione che ritorna tutti gli atleti maschi giovanissimi
+     * Funzione che ritorna tutti gli atleti maschi della categoria 'allievi'
      */
-    public function getAllAtletiMaschiGiovanissimi()
+    public function getAllAtletiMaschiAllievi()
     {
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
                 YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
@@ -217,9 +217,9 @@ class Model
     }
 
     /**
-     * Funzione che ritorna tutti gli atleti femmine giovanissime
+     * Funzione che ritorna tutti gli atleti femmine della categoria 'allievi'
      */
-    public function getAllAtletiFemmineGiovanissime()
+    public function getAllAtletiFemmineAllievi()
     {
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
                 YEAR(CURDATE())-YEAR(atleta.data_nascita) AS anni
@@ -234,7 +234,7 @@ class Model
     }
 
     /**
-     * Funzione che ritorna tutti gli atleti maschi della categoria 'juniores'\
+     * Funzione che ritorna tutti gli atleti maschi della categoria 'juniores'
      */
     public function getAllAtletiMaschiJuniores()
     {
