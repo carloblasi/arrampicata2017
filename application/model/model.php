@@ -175,7 +175,7 @@ class Model
 	}
 
 	/**
-	 * Restituisce oggetti con attributi nome, boulder, n_tentativi
+	 * Ritorna oggetti con attributi nome, boulder, n_tentativi
 	 */
 	public function getTentativi($casacca)
 	{
@@ -187,16 +187,35 @@ class Model
 				AND atleta_boulder.passato='Y'";
 
 		$query = $this->db->prepare($sql);
-		$parameters = array(':casacca'=>$casacca);
-		$query -> execute($parameters);
+		$parameters = array(':casacca' => $casacca);
+		$query->execute($parameters);
 
-		return $query -> fetchAll();
+		return $query->fetchAll();
 	}
 
 	/**
-	* Funzione che corregge il punteggio di un atleta
+	* Funzione che ritorna il numero di tentativi di un determinato atleta in un determinato boulder
 	*/
-	public function aggiustaPunteggio($idAtleta, $n_boulder,$n_tentativi, $passato)
+	public function getTentativoAtleta($casacca, $boulder) 
+	{
+		$sql = "SELECT n_tentativi as tentativi
+				FROM atleta_boulder
+				WHERE atleta_boulder.id_studente=(SELECT id FROM atleta WHERE casacca=:casacca) 
+				AND atleta_boulder.id_boulder=:boulder";
+
+		$query = $this->db->prepare($sql);
+		$parameters = array(':casacca' => $casacca,
+							':boulder' => $boulder);
+		$query->execute($parameters);
+		$result = $query->fetch();
+
+		return $result->tentativi;
+	}
+
+	/**
+	 * Funzione che corregge il punteggio di un atleta
+	 */
+	public function aggiustaPunteggio($idAtleta, $n_boulder, $n_tentativi, $passato)
 	{
 		
 	}
