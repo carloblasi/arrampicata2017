@@ -6,17 +6,22 @@
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/classifica.css" type="text/css">
 	<title>Classifica</title>
 </head>
 <body>
-	<div id="container">
-
+	<div>
+		<div class="pure-g">
+			<div class="pure-u-1-2" id="classifica1"> </div>
+			<div class="pure-u-1-2" id="classifica2"> </div>
+		</div>
 	</div>
 	<script>
 		function refreshData()
 		{
 	  	// Load the content of "path/to/script.php" into an element with ID "#container".
-	  	$('#container').load('generaClassifica');
+	  	$('#classifica1').load('generaClassifica/giovanissimiM');
+			$('#classifica2').load('generaClassifica/giovanissimiF');
 		}
 			// Execute every 5 seconds
 			window.setInterval(refreshData, 5000);

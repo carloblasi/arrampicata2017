@@ -32,13 +32,7 @@ class Admin extends Controller
 			$id_scuola = $_POST["scuola"];
 			$this->model->addAtleta($nome, $cognome, $data_nascita, $sesso, $id_scuola);
 		}
-		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/aggiungi_studente.php';
-	}
-
-	public function menu()
-	{
-		require APP . 'view/admin/menu.php';
 	}
 
 	public function classifica()
@@ -46,27 +40,25 @@ class Admin extends Controller
 		require APP . 'view/admin/classifica.php';
 	}
 
-	public function generaClassifica()
+	public function generaClassifica($categoria)
 	{
 		foreach ($this->model->getAllAtleti() as $row)
 		{
-			$this->aggiornaPunteggio($row->casacca);
+			$this->aggiornaPunteggioAtleta($row->casacca);
 		}
-<<<<<<< HEAD
-		$classificaGiovaniF=$this->model->getClassifica(1997,1999,"F");
-		$classificaGiovaniM=$this->model->getClassifica(1997,1999,"M");
-		$classificaJunionresF=$this->model->getClassifica(2000,2002,"F");
-	  $classificaJunionresM=$this->model->getClassifica(2000,2002,"M");
+		if($categoria=="giovanissimiM")
+			$classifica=$this->model->getClassifica(1997,1999,"M");
+		if($categoria=="giovanissimiF")
+			$classifica=$this->model->getClassifica(1997,1999,"F");
+		if($categoria=="junioresM")
+			$classifica=$this->model->getClassifica(2000,2001,"M");
+		if($categoria=="junioresF")
+			$classifica=$this->model->getClassifica(2000,2001,"F");
 		require APP . 'view/admin/generaClassifica.php';
-=======
-		$classifica=$this->model->getClassifica(1997,2002,"F");
-		require APP . 'view/admin/menu.php';
-		require APP . 'view/admin/classifica.php';
->>>>>>> 50878932ed9cb1c8581a18a78dad773a3043267c
 	}
 
-	//funzione che calcola il punteggio data una casacca come parametro nell'URL
-	public function aggiornaPunteggio($casacca)
+	//funzione che calcola il punteggio di un atleta data una casacca come parametro nell'URL
+	public function aggiornaPunteggioAtleta($casacca)
 	{
 		$tentativi = $this->model->getTentativi($casacca);
 		$valBoulder = 0;
@@ -84,13 +76,11 @@ class Admin extends Controller
 
 	public function generaPettorine()
 	{
-		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/genera_pettorine.php';
 	}
 
 	public function generaElenchi()
 	{
-		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/genera_elenchi.php';
 	}
 
