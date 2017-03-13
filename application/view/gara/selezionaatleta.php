@@ -31,10 +31,10 @@
 		<div class="container" id="container">
 			<?php
 			
-				$i = 1;
-				while ($i <= 100) {
-					echo "<input type='radio' name='atleta' id='radio", $i, "' value='", $i, "' required/>", "<label for='radio", $i, "'>", $i, '</label><br>';
-					$i += 1;
+				foreach ($pettorineAtleti as $pettorina) {
+
+					$numeroPettorina = $pettorina->casacca;
+					echo "<input type='radio' name='atleta' id='radio", $numeroPettorina, "' value='", $numeroPettorina, "' required/>", "<label for='radio", $numeroPettorina, "'>", $numeroPettorina, '</label><br>';
 				}
 			?>
 		</div>

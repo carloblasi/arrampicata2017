@@ -33,7 +33,8 @@
 				foreach ($boulders as $boulder) {
 
 					$nomeBoulder = $boulder->nome;
-					echo "<input type='radio' name='boulder' id='radio", $nomeBoulder, "' value='", $nomeBoulder, "' required/>", "<label for='radio", $nomeBoulder, "'>", $nomeBoulder, '</label><br>';
+					echo "<input type='radio' name='boulder' id='radio", $nomeBoulder, "' value='", $nomeBoulder, "' required/>", 
+						"<label for='radio", $nomeBoulder, "'>", $nomeBoulder, '</label><br>';
 				}
 			?>
 		</div>

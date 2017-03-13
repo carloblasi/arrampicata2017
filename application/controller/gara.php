@@ -53,6 +53,7 @@ class Gara extends Controller
 				$selected_tentativo = func_get_arg(1);
 			}
 		}
+		$pettorineAtleti = $this->model->getAllPettorine();
 		// Dalla vista posso accedere alla variabile $selected_boulder
 		require APP . 'view/gara/selezionaatleta.php';
 	}
