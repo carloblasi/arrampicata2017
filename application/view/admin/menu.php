@@ -23,6 +23,13 @@
     		margin-top: 10%
 		}
 
+		.contenitore2{
+			margin-left: 35%;
+			margin-right: 35%;
+			text-align: center;
+			margin-top: 2%;
+		}
+
 	</style>
 </head>
 <body>
