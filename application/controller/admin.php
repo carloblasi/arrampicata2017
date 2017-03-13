@@ -52,7 +52,7 @@ class Admin extends Controller
 		{
 			$this->aggiornaPunteggio($row->casacca);
 		}
-<<<<<<< HEAD
+<<<<<< HEAD
 		$classificaGiovaniF=$this->model->getClassifica(1997,1999,"F");
 		$classificaGiovaniM=$this->model->getClassifica(1997,1999,"M");
 		$classificaJunionresF=$this->model->getClassifica(2000,2002,"F");
