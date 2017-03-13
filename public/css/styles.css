@@ -72,6 +72,13 @@ input[type="radio"]:checked + label {
 	text-align: center;
 }
 
+.container-tentativo {
+
+	margin-top: 2px;
+	margin-bottom: 120px;
+	text-align: center;
+}
+
 .fa-chevron-left {
 	margin-left: -6px;
 }

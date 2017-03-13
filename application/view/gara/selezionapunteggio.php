@@ -28,7 +28,7 @@
 <body>
 	<?php //echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
 	<form action="" method="POST">
-		<div class="container" id="container">
+		<div class="container-tentativo">
 			<?php
 				
 				// Prendere da database il tentativo a cui si è arrivati e mostrarlo, ma la funzione non va eseguita qui, il controller deve passarlo alla vista
@@ -38,7 +38,7 @@
 				// 	$i += 1;
 				// }
 			?>
-			<p class="description-top">TENTATIVO</p>
+			<p class="description-top">TENTATIVO ATTUALE</p>
 			<h1 class="tentativo">1</h1>
 		</div>
 		<div class="navbar">
@@ -46,13 +46,13 @@
 
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<a class="pure-button button-passato"><!-- <i class="fa fa-check fa-sm"></i> -->PASSATO</a>
+						<a class="pure-button button-passato" href=""><!-- <i class="fa fa-check fa-sm"></i> -->PASSATO</a>
 					</div>
 				</div>
 
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<a class="pure-button button-non-passato"><!-- <i class="fa fa-times fa-sm"></i> --><span style="font-size: 90%; margin-left: -16px; margin-right: -16px;">NON PASSATO</span></a>
+						<a class="pure-button button-non-passato" href=""><!-- <i class="fa fa-times fa-sm"></i> --><span style="font-size: 90%; margin-left: -16px; margin-right: -16px;">NON PASSATO</span></a>
 					</div>
 				</div>
 
