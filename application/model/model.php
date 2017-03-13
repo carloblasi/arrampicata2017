@@ -209,6 +209,10 @@ class Model
 		$query->execute($parameters);
 		$result = $query->fetch();
 
+		// Se non esiste ancora l'entry nella tabella atleta_boulder allora restituisci 1, il numero di tentativi da cui partire
+		if (!is_object($result)) {
+			return 1;
+		}
 		return $result->tentativi;
 	}
 
