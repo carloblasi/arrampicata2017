@@ -29,11 +29,11 @@
 	<form action="<?php echo URL; ?>gara/selezionaatleta" method="POST">
 		<div class="container" id="container">
 			<?php
-			
-				$i = 1;
-				while ($i <= 10) {
-					echo "<input type='radio' name='boulder' id='radio", $i, "' value='", $i, "' required/>", "<label for='radio", $i, "'>", $i, '</label><br>';
-					$i += 1;
+				
+				foreach ($boulders as $boulder) {
+
+					$nomeBoulder = $boulder->nome;
+					echo "<input type='radio' name='boulder' id='radio", $nomeBoulder, "' value='", $nomeBoulder, "' required/>", "<label for='radio", $nomeBoulder, "'>", $nomeBoulder, '</label><br>';
 				}
 			?>
 		</div>
