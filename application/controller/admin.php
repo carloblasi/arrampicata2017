@@ -34,6 +34,7 @@ class Admin extends Controller
 			$id_scuola = $_POST["scuola"];
 			$this->model->addAtleta($nome, $cognome, $data_nascita, $sesso, $id_scuola);
 		}
+		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/aggiungi_studente.php';
 	}
 
@@ -42,6 +43,7 @@ class Admin extends Controller
 	 */
 	public function classifica()
 	{
+		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/classifica.php';
 	}
 
@@ -96,6 +98,7 @@ class Admin extends Controller
 	 */
 	public function generaPettorine()
 	{
+		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/genera_pettorine.php';
 	}
 
@@ -104,6 +107,7 @@ class Admin extends Controller
 	 */
 	public function generaElenchi()
 	{
+		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/genera_elenchi.php';
 	}
 
