@@ -39,7 +39,7 @@
 				// }
 			?>
 			<p class="description-top">TENTATIVO ATTUALE</p>
-			<h1 class="tentativo">1</h1>
+			<h1 class="tentativo"><?php echo $tentativo; ?></h1>
 		</div>
 		<div class="navbar">
 			<div class="pure-g">

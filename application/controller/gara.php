@@ -69,6 +69,8 @@ class Gara extends Controller
 			// L'atleta selezionato sarà sicuramente nel vettore $_POST, il boulder selezionato invece verrà sempre passato come argomento
 			$selected_atleta = $_POST['atleta'];
 			$selected_boulder = $selected_boulder;
+
+			$tentativo = $this->model->getTentativoAtleta($selected_atleta, $selected_boulder);
 		}
 		// Da questa vista posso accedere alle variabili $selected_boulder e $selected_atleta
 		require APP . 'view/gara/selezionapunteggio.php';
