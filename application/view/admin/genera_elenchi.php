@@ -1,5 +1,4 @@
 	<div class="contenitore2">
-		
 		<form class="pure-form pure-form-aligned" action="<?php echo URL; ?>/admin/generaElenchi" method="POST">
 			<fieldset>
 				<div class="pure-control-group">
@@ -72,29 +71,6 @@
 					} 
 					 
 				?>
-				<?php foreach ($liste as $lista): ?>
-				<tr>
-					<td><?php echo $lista->nome; ?></td>
-					<td><?php echo $lista->cognome; ?></td>
-					<td><?php echo $lista->data_nascita; ?></td>
-					<td><?php echo $lista->nome_scuola; ?></td>
-				</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
-
-		<h1>Elenco di tutte le atlete femmine</h1>
-		<table class="pure-table">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Cognome</th>
-					<th>Data di nascita</th>
-					<th>Scuola</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php $liste = $this->model->getAllAtletiFemmine(); ?>
 				<?php foreach ($liste as $lista): ?>
 				<tr>
 					<td><?php echo $lista->nome; ?></td>

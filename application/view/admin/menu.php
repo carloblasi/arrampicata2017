@@ -28,6 +28,7 @@
 			margin-right: 34%;
 			text-align: center;
 			margin-top: 2%;
+			margin-bottom: 1%;
 		}
 		tr, td{
 			text-align: center;
