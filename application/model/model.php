@@ -3,6 +3,7 @@
 class Model
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * @param object $db A PDO database connection
      */
@@ -376,6 +377,8 @@ class Model
     //     return $query->fetch()->amount_of_songs;
     // }
 =======
+=======
+>>>>>>> origin/master
 	/**
 	 * @param object $db A PDO database connection
 	 */
@@ -750,5 +753,8 @@ class Model
 	//     // fetch() is the PDO method that get exactly one result
 	//     return $query->fetch()->amount_of_songs;
 	// }
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 }
