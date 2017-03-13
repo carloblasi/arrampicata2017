@@ -39,6 +39,18 @@ class Model
     }
 
     /**
+     * Prende il nome di tutti boulder
+     */
+    public function getAllBoulders()
+    {
+        $sql = 'SELECT nome FROM boulder';
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    /**
      * Aggiunge un atleta nel database
      */
     public function addAtleta($nome, $cognome, $data_nascita, $sesso, $id_scuola)
