@@ -39,7 +39,7 @@
 				// }
 			?>
 			<p class="description-top">TENTATIVO</p>
-			<h1 class="tentativo">1<span style="margin-left: -50px;">°</span></h1>
+			<h1 class="tentativo">0</h1>
 		</div>
 		<div class="navbar">
 			<div class="pure-g">

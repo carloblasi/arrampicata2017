@@ -48,7 +48,7 @@ input[type="radio"]:checked + label {
 }
 
 .button-passato {
-	background: #A3E539;
+	background: #79D863;
 }
 
 .button-non-passato {
@@ -67,7 +67,7 @@ input[type="radio"]:checked + label {
 	text-align: center;
 }
 
-.fa-chevron-left {
+/*.fa-chevron-left {
 	margin-left: -6px;
 }
 
@@ -84,7 +84,7 @@ input[type="radio"]:checked + label {
 .fa-times {
 	margin-left: -12px;
 	margin-right: 
-}
+}*/
 
 .description {
     
