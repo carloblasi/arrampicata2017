@@ -9,29 +9,17 @@
 	<title>Classifica</title>
 </head>
 <body>
-	<h1>Questa e' la classifica</h1>
-	<table class="pure-table">
-		<thead>
-			<tr>
-				<th>punteggio</th>
-				<th>nome</th>
-				<th>cognome</th>
-				<th>anno</th>
-			</tr>
-		</thead
-		<?php
-			foreach ($classifica as $row)
-			{
-				echo <<<EOT
-				<tr>
-					<td>$row->punteggio</td>
-					<td>$row->nome</td>
-					<td>$row->cognome</td>
-					<td>$row->anno</td>
-				</tr>
-EOT;
-			}
-		?>
-	</table>
+	<div id="container">
+
+	</div>
+	<script>
+		function refreshData()
+		{
+	  	// Load the content of "path/to/script.php" into an element with ID "#container".
+	  	$('#container').load('generaClassifica');
+		}
+			// Execute every 5 seconds
+			window.setInterval(refreshData, 5000);
+		</script>
 </body>
 </html>

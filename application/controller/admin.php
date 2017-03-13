@@ -37,12 +37,20 @@ class Admin extends Controller
 
 	public function classifica()
 	{
+		require APP . 'view/admin/classifica.php';
+	}
+
+	public function generaClassifica()
+	{
 		foreach ($this->model->getAllAtleti() as $row)
 		{
 			$this->aggiornaPunteggio($row->casacca);
 		}
-		$classifica=$this->model->getClassifica(1997,2002,"F");
-		require APP . 'view/admin/classifica.php';
+		$classificaGiovaniF=$this->model->getClassifica(1997,1999,"F");
+		$classificaGiovaniM=$this->model->getClassifica(1997,1999,"M");
+		$classificaJunionresF=$this->model->getClassifica(2000,2002,"F");
+	  $classificaJunionresM=$this->model->getClassifica(2000,2002,"M");
+		require APP . 'view/admin/generaClassifica.php';
 	}
 
 	//funzione che calcola il punteggio data una casacca come parametro nell'URL
