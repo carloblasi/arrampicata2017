@@ -94,7 +94,7 @@ class Admin extends Controller
 	}
 
 	/**
-	 * commentateeee
+	 * Questa funzione reindirizza alla pagina di creazione e visione delle pettorine
 	 */
 	public function generaPettorine()
 	{
@@ -103,7 +103,7 @@ class Admin extends Controller
 	}
 
 	/**
-	 * commentateeee
+	 * Questa funzione reindirizza alla pagina degli elenchi degli atleti
 	 */
 	public function generaElenchi()
 	{
@@ -112,7 +112,7 @@ class Admin extends Controller
 	}
 
 	/**
-	 * commentateeee
+	 * Questa funzione reindirizza alla pagina di correzione
 	 */
 	public function correzione()
 	{
