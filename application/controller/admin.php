@@ -84,6 +84,12 @@ class Admin extends Controller
 		require APP . 'view/admin/genera_elenchi.php';
 	}
 
+	public function correzione()
+	{
+		require APP . 'view/admin/menu.php';
+		require APP . 'view/admin/correzione.php';
+	}
+
 	/**
 	 * CODICE PER LA POPOLAZIONE AUTOMATICA DEL DB
 	 * NON USARE! NON GUARDARE! NON TOCCARE!

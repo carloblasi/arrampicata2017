@@ -45,14 +45,19 @@ input[type="radio"]:checked + label {
 	background: rgb(66, 184, 221);
 	font-size: 130%;
 	font-weight: 800;
+	text-align: center;
 }
 
 .button-passato {
-	background: #A3E539;
+
+	font-size: 130%;
+	background: #79D863;
 }
 
 .button-non-passato {
-	background: #EE6060;
+
+	background: #F25454;
+	font-size: 130%;
 }
 
 .padding {
@@ -67,6 +72,13 @@ input[type="radio"]:checked + label {
 	text-align: center;
 }
 
+.container-tentativo {
+
+	margin-top: 2px;
+	margin-bottom: 120px;
+	text-align: center;
+}
+
 .fa-chevron-left {
 	margin-left: -6px;
 }
@@ -75,7 +87,7 @@ input[type="radio"]:checked + label {
 	margin-right: -10px;
 }
 
-.fa-check {
+/*.fa-check {
 
 	margin-left: -10px;
 	margin-right: -0px;
@@ -84,7 +96,7 @@ input[type="radio"]:checked + label {
 .fa-times {
 	margin-left: -12px;
 	margin-right: 
-}
+}*/
 
 .description {
     
@@ -109,7 +121,7 @@ input[type="radio"]:checked + label {
 
 .tentativo {
 
-	margin-top: -40px;
+	margin-top: -6vh;
 	font-size: 50vh;
 	color: #666;
 }

@@ -161,8 +161,3 @@ FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' 
 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19);
 
-
-
-
-
-

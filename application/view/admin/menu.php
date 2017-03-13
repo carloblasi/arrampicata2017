@@ -17,6 +17,19 @@
 			background-color: #F6F1ED;
 		}
 
+		.contenitore1{
+			margin-left: 30%;
+    		margin-right: 30%;
+    		margin-top: 10%
+		}
+
+		.contenitore2{
+			margin-left: 35%;
+			margin-right: 35%;
+			text-align: center;
+			margin-top: 2%;
+		}
+
 	</style>
 </head>
 <body>
@@ -27,5 +40,6 @@
         <li class="pure-menu-item"><a href="<?php echo URL; ?>admin/classifica" class="pure-menu-link">Classifica</a></li>
         <li class="pure-menu-item"><a href="<?php echo URL; ?>admin/aggiungistudente" class="pure-menu-link">Pettorine</a></li>
         <li class="pure-menu-item"><a href="<?php echo URL; ?>admin/generaElenchi" class="pure-menu-link">Elenchi</a></li>
+        <li class="pure-menu-item"><a href="<?php echo URL; ?>admin/correzione" class="pure-menu-link">Correzione</a></li>
     </ul>
 </div>
