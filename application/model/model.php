@@ -19,9 +19,7 @@ class Model
      */
     public function getAllAtleti()
     {
-
-        $sql = 'SELECT *
-                FROM atleta';
+        $sql = 'SELECT * FROM atleta';
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -29,11 +27,11 @@ class Model
     }
 
     /**
-     *Prende il nome di tutte le scuole dal database
+     * Prende il nome di tutte le scuole dal database
      */
     public function getAllScuole()
     {
-        $sql = "SELECT * FROM scuola";
+        $sql = 'SELECT * FROM scuola';
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -41,137 +39,169 @@ class Model
     }
 
     /**
-     *Aggiunge un atleta nel database
+     * Aggiunge un atleta nel database
      */
-    public function addAtleta($nome, $cognome,$data_nascita, $sesso, $id_scuola)
+    public function addAtleta($nome, $cognome, $data_nascita, $sesso, $id_scuola)
     {
-        $sql = "INSERT INTO atleta (nome, cognome, data_nascita,sesso,id_scuola)
-        VALUES (:nome, :cognome, :data_nascita, :sesso, :id_scuola)";
+        $sql = 'INSERT INTO atleta (nome, cognome, data_nascita, sesso, id_scuola)
+                VALUES (:nome, :cognome, :data_nascita, :sesso, :id_scuola)';
+
         $query = $this->db->prepare($sql);
-        $parameters = array(':nome'=>$nome, ':cognome'=>$cognome, ':data_nascita'=>$data_nascita,
-            ':sesso'=>$sesso, ':id_scuola'=>$id_scuola);
+        $parameters = array(':nome' => $nome, 
+                            ':cognome'=>$cognome, 
+                            ':data_nascita' => $data_nascita,
+                            ':sesso' => $sesso, 
+                            ':id_scuola' => $id_scuola);
+
         $query->execute($parameters);
     }
 
     /**
-     *Ritorna classifica dato un certo sesso e range di anni
+     * Ritorna classifica dato un certo sesso e range di anni
      */
-    public function getClassifica($anno_min,$anno_max,$sesso)
+    public function getClassifica($anno_min, $anno_max, $sesso)
     {
-       $sql = 'SELECT nome,cognome,YEAR(data_nascita) AS anno,punteggio
+       $sql = 'SELECT nome, cognome, YEAR(data_nascita) AS anno, punteggio
                FROM atleta
                WHERE YEAR(data_nascita) BETWEEN :anno_min and :anno_max
                AND sesso=:sesso
                ORDER BY punteggio DESC';
+
        $query = $this->db->prepare($sql);
-       $parameters = array(':anno_min'=>$anno_min, ':anno_max'=>$anno_max, ':sesso'=>$sesso);
+       $parameters = array(':anno_min' => $anno_min, 
+                            ':anno_max' => $anno_max, 
+                            ':sesso' => $sesso);
+
        $query->execute($parameters);
        return $query->fetchAll();
     }
+
     /**
-     *Aggiunge il punteggio a un dato atleta partendo dal numero della casacca
+     * Aggiunge il punteggio a un dato atleta partendo dal numero della casacca
      */
-    public function addPunteggio($casacca,$punteggio)
+    public function addPunteggio($casacca, $punteggio)
     {
       $sql = 'UPDATE atleta
               SET punteggio=:punteggio
               WHERE casacca=:casacca';
+
       $query = $this->db->prepare($sql);
       $parameters = array(':punteggio' => $punteggio,
                           ':casacca' => $casacca);
+
       $query->execute($parameters);
     }
+
     /**
-     *Aggiunge un tentativo, partendo da casacca e boulder, se la coppia atleta-boulder è già presente UPDATE
+     * Aggiunge un tentativo, partendo da casacca e boulder, se la coppia atleta-boulder è già presente UPDATE
      */
     public function addTentativo($id_boulder, $casacca, $tentativo, $passato)
     {
         $sql = 'INSERT INTO atleta_boulder (id_boulder, id_studente, n_tentativi, passato)
-                VALUES (:id_boulder,(SELECT id FROM atleta WHERE casacca=:casacca),:n_tentativi,:passato)
-                ON DUPLICATE KEY UPDATE n_tentativi=:n_tentativi,passato=:passato';
+                VALUES (:id_boulder, (SELECT id FROM atleta WHERE casacca=:casacca), :n_tentativi, :passato)
+                ON DUPLICATE KEY UPDATE n_tentativi=:n_tentativi, passato=:passato';
+
         $query = $this->db->prepare($sql);
-        $parameters = array(':id_boulder'=>$id_boulder, ':casacca'=>$casacca, ':n_tentativi'=>$tentativo,
-            ':passato'=>$passato);
+
+        $parameters = array(':id_boulder' => $id_boulder, 
+                            ':casacca' => $casacca, 
+                            ':n_tentativi' => $tentativo,
+                            ':passato' => $passato);
+
         $query->execute($parameters);
     }
+
     /**
-     *  Associa una casacca ad un dato id
+     * Associa una casacca ad un dato id
      */
-    public function addCasacca($id,$casacca)
+    public function addCasacca($id, $casacca)
     {
-        $sql = "UPDATE atleta
+        $sql = 'UPDATE atleta
                 SET casacca=:casacca
-                WHERE id=:id";
+                WHERE id=:id';
+
         $query = $this->db->prepare($sql);
-        $parameters=array(':casacca'=>$casacca,':id'=>$id);
+        $parameters = array(':casacca' => $casacca,
+                            ':id' => $id);
+
         $query->execute($parameters);
     }
 
 
     /**
-     *  Stabilito un certo Boulder e l'anno entro il quale è valido il punteggio
-     *  ritorna il numero di alunni che hanno passato quel boulder
+     * Stabilito un certo Boulder e l'anno entro il quale è valido il punteggio
+     * ritorna il numero di alunni che hanno passato quel boulder
      */
-    public function getAtletiPassati($nome_boulder,$anno_limite)
+    public function getAtletiPassati($nome_boulder, $anno_limite)
     {
-        $sql = 'SELECT COUNT(passato) as numero
+        $sql = "SELECT COUNT(passato) as numero
                 FROM atleta_boulder,boulder,atleta
                 WHERE atleta_boulder.id_studente=atleta.id AND atleta_boulder.id_boulder=boulder.id
-                AND atleta_boulder.passato=\'Y\'
+                AND atleta_boulder.passato='Y'
                 AND (YEAR(atleta.data_nascita)>=:anno_limite)
-                AND boulder.nome=:nome_boulder';
+                AND boulder.nome=:nome_boulder";
+
         $query = $this->db->prepare($sql);
-        $parameters = array(':anno_limite'=>$anno_limite,
-                            ':nome_boulder'=>$nome_boulder);
+        $parameters = array(':anno_limite' => $anno_limite,
+                            ':nome_boulder' => $nome_boulder);
         $query -> execute($parameters);
-        $n=$query -> fetch();
+        $n = $query -> fetch();
+
         return $n->numero;
     }
 
-    //Restituisce oggetti con attributi nome,boulder,n_tentativi
+    /**
+     * Restituisce oggetti con attributi nome,boulder,n_tentativi
+     */
     public function getTentativi($casacca)
     {
-        $sql = 'SELECT atleta.nome AS nome,boulder.nome AS boulder, atleta_boulder.n_tentativi AS tentativi
-                FROM atleta_boulder,atleta,boulder
-                WHERE atleta_boulder.id_studente=atleta.id AND atleta_boulder.id_boulder=boulder.id
+        $sql = "SELECT atleta.nome AS nome, boulder.nome AS boulder, atleta_boulder.n_tentativi AS tentativi
+                FROM atleta_boulder, atleta, boulder
+                WHERE atleta_boulder.id_studente=atleta.id 
+                AND atleta_boulder.id_boulder=boulder.id
                 AND atleta.casacca=:casacca
-                AND atleta_boulder.passato=\'Y\'';
+                AND atleta_boulder.passato='Y'";
+
         $query = $this->db->prepare($sql);
         $parameters = array(':casacca'=>$casacca);
         $query -> execute($parameters);
-        return $query -> fetchAll();
 
+        return $query -> fetchAll();
     }
 
-    /*
-    ** Funzione che ritorna tutti gli atleti maschi
-    */
+    /**
+     * Funzione che ritorna tutti gli atleti maschi
+     */
     public function getAllAtletiMaschi()
     {
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
                 FROM atleta, scuola
-                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' ";
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M'";
+
         $query = $this->db->prepare($sql);
         $query->execute();
+
         return $query -> fetchAll();
     }
 
-    /*
-    ** Funzione che ritorna tutti gli atleti femmine
-    */
+    /**
+     * Funzione che ritorna tutti gli atleti femmine
+     */
     public function getAllAtletiFemmine()
     {
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola
                 FROM atleta, scuola
-                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F' ";
+                WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F'";
+
         $query = $this->db->prepare($sql);
         $query->execute();
+
         return $query -> fetchAll();
     }
 
-    /*
-    ** Funzione che ritorna tutti gli atleti maschi giovanissimi
-    */
+    /**
+     * Funzione che ritorna tutti gli atleti maschi giovanissimi
+     */
     public function getAllAtletiMaschiGiovanissimi()
     {
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
@@ -179,14 +209,16 @@ class Model
                 FROM atleta, scuola
                 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M'
                 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>=15 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=16)";
+
         $query = $this->db->prepare($sql);
         $query->execute();
+
         return $query -> fetchAll();
     }
 
-    /*
-    ** Funzione che ritorna tutti gli atleti femmine giovanissime
-    */
+    /**
+     * Funzione che ritorna tutti gli atleti femmine giovanissime
+     */
     public function getAllAtletiFemmineGiovanissime()
     {
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
@@ -194,14 +226,16 @@ class Model
                 FROM atleta, scuola
                 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F'
                 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>=15 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=16)";
+
         $query = $this->db->prepare($sql);
         $query->execute();
+
         return $query -> fetchAll();
     }
 
-    /*
-    ** Funzione che ritorna tutti gli atleti maschi juniores
-    */
+    /**
+     * Funzione che ritorna tutti gli atleti maschi della categoria 'juniores'\
+     */
     public function getAllAtletiMaschiJuniores()
     {
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
@@ -209,14 +243,16 @@ class Model
                 FROM atleta, scuola
                 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M'
                 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19)";
+
         $query = $this->db->prepare($sql);
         $query->execute();
+
         return $query -> fetchAll();
     }
 
-    /*
-    ** Funzione che ritorna tutti gli atleti femmine juniores
-    */
+    /**
+     * Funzione che ritorna tutti gli atleti femmine della categoria 'juniores'
+     */
     public function getAllAtletiFemmineJuniores()
     {
         $sql = "SELECT atleta.nome, atleta.cognome, atleta.data_nascita, atleta.sesso, scuola.nome_scuola,
@@ -224,8 +260,10 @@ class Model
                 FROM atleta, scuola
                 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'F'
                 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19)";
+
         $query = $this->db->prepare($sql);
         $query->execute();
+
         return $query -> fetchAll();
     }
 
