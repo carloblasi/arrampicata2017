@@ -6,7 +6,6 @@
  * Please note:
  * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
- *
  */
 class Admin extends Controller
 {
@@ -21,6 +20,9 @@ class Admin extends Controller
 		header('location: ' . URL . 'admin/aggiungistudente');
 	}
 
+	/**
+	 * commentateeee
+	 */
 	public function aggiungistudente()
 	{
 		if (isset($_POST["name"]) && isset($_POST["cognome"]))
@@ -35,55 +37,79 @@ class Admin extends Controller
 		require APP . 'view/admin/aggiungi_studente.php';
 	}
 
+	/**
+	 * commentateeee
+	 */
 	public function classifica()
 	{
 		require APP . 'view/admin/classifica.php';
 	}
 
+	/**
+	 * commentateeee
+	 */
 	public function generaClassifica($categoria)
 	{
 		foreach ($this->model->getAllAtleti() as $row)
 		{
 			$this->aggiornaPunteggioAtleta($row->casacca);
 		}
-		if($categoria=="giovanissimiM")
-			$classifica=$this->model->getClassifica(1997,1999,"M");
-		if($categoria=="giovanissimiF")
-			$classifica=$this->model->getClassifica(1997,1999,"F");
-		if($categoria=="junioresM")
-			$classifica=$this->model->getClassifica(2000,2001,"M");
-		if($categoria=="junioresF")
-			$classifica=$this->model->getClassifica(2000,2001,"F");
+
+		// Un switch no, eh?
+		if ($categoria == "giovanissimiM")
+			$classifica = $this->model->getClassifica(1997, 1999, "M");
+
+		if ($categoria == "giovanissimiF")
+			$classifica = $this->model->getClassifica(1997, 1999, "F");
+
+		if ($categoria == "junioresM")
+			$classifica = $this->model->getClassifica(2000, 2001, "M");
+
+		if ($categoria == "junioresF")
+			$classifica = $this->model->getClassifica(2000, 2001, "F");
+
 		require APP . 'view/admin/generaClassifica.php';
 	}
 
-	//funzione che calcola il punteggio di un atleta data una casacca come parametro nell'URL
+	/**
+	 * Funzione che calcola il punteggio di un atleta data una casacca come parametro nell'URL
+	 */
 	public function aggiornaPunteggioAtleta($casacca)
 	{
 		$tentativi = $this->model->getTentativi($casacca);
 		$valBoulder = 0;
 		$punteggio = 0;
+
 		foreach ($tentativi as $prova)
 		{
-			$valBoulder = (100/$this->model->getAtletiPassati($prova->boulder,1997));
-			$punteggio+=$valBoulder/$prova->tentativi;
+			$valBoulder = (100 / $this->model->getAtletiPassati($prova->boulder, 1997));
+			$punteggio += $valBoulder / $prova->tentativi;
 			// in caso serva vedere come vengono eseguiti i calcoli
 			// echo "boulder".$prova->boulder."  valore:".$valBoulder."  Punteggio atleta:".$punteggio."</br>";
 		}
 		//echo $punteggio;
-		$this->model->addPunteggio($casacca,$punteggio);
+		$this->model->addPunteggio($casacca, $punteggio);
 	}
 
+	/**
+	 * commentateeee
+	 */
 	public function generaPettorine()
 	{
 		require APP . 'view/admin/genera_pettorine.php';
 	}
 
+	/**
+	 * commentateeee
+	 */
 	public function generaElenchi()
 	{
 		require APP . 'view/admin/genera_elenchi.php';
 	}
 
+	/**
+	 * commentateeee
+	 */
 	public function correzione()
 	{
 		require APP . 'view/admin/menu.php';
