@@ -17,6 +17,12 @@
 			background-color: #F6F1ED;
 		}
 
+		.contenitore1{
+			margin-left: 30%;
+    		margin-right: 30%;
+    		margin-top: 10%
+		}
+
 	</style>
 </head>
 <body>
