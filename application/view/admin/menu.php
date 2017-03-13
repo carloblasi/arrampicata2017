@@ -17,17 +17,20 @@
 			background-color: #F6F1ED;
 		}
 
-		.contenitore1{
+		.contenitore1, .contenitore-ultimo{
 			margin-left: 30%;
     		margin-right: 30%;
     		margin-top: 10%
 		}
 
 		.contenitore2{
-			margin-left: 35%;
-			margin-right: 35%;
+			margin-left: 34%;
+			margin-right: 34%;
 			text-align: center;
 			margin-top: 2%;
+		}
+		tr, td{
+			text-align: center;
 		}
 
 	</style>
