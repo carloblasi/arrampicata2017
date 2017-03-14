@@ -66,15 +66,26 @@ class Gara extends Controller
 			$selected_boulder = $selected_boulder;
 
 			$esito = $this->model->getEsitoAtleta($selected_atleta, $selected_boulder);
-			if ($esito == 'N') {
+			if ($esito == 'N') 
+			{	
 				$tentativo = $this->model->getTentativoAtleta($selected_atleta, $selected_boulder);
+				// Da questa vista posso accedere alle variabili $selected_boulder e $selected_atleta
+				if ($tentativo == 5)
+				{
+					require APP . 'view/gara/esito.php';
+				}
+				else 
+				{
+					require APP . 'view/gara/selezionapunteggio.php';
+				}
 			} 
-			else {
+			else 
+			{
 				//Aggiungere un'altra pagina per quando è già completato o ha finito i tentativi, con solo il pulsante indietro, quindi una pagina per quando non si può più inserire un punteggio
+				require APP . 'view/gara/esito.php';
 			}
 		}
-		// Da questa vista posso accedere alle variabili $selected_boulder e $selected_atleta
-		require APP . 'view/gara/selezionapunteggio.php';
+		
 	}
 
 	/**
