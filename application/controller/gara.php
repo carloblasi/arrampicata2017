@@ -74,7 +74,7 @@ class Gara extends Controller
 				{
 					require APP . 'view/gara/esito.php';
 				}
-				else 
+				else 
 				{
 					require APP . 'view/gara/selezionapunteggio.php';
 				}
