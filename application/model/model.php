@@ -56,8 +56,7 @@ class Model
 	public function getAllPettorine()
 	{
 		$sql = 'SELECT casacca FROM atleta';
-		$query = $this->db->prepare($sql);
-		$query->execute();
+		$query = $this->db->query($sql);
 
 		return $query->fetchAll();
 	}
@@ -172,6 +171,18 @@ class Model
 		$n = $query -> fetch();
 
 		return $n->numero;
+	}
+
+	/**
+	 * Ritorna un array contenente TUTTI boulder e i rispettivi "valori" array(NumeroBoulder=>Valore)
+	 * il "valore" di un boulder è dato dalla formula: 100/numero atleti che hanno passato quel boulder
+	 */
+	public function getValBoulders()
+	{
+		$sql = "SELECT boulder as nome,valboulder as valore
+						FROM `valboulders`";
+		$query = $this->db->query($sql);
+		return $query->fetchAll(PDO::FETCH_KEY_PAIR);
 	}
 
 	/**

@@ -24,7 +24,7 @@
 			$('#classifica2').load('generaClassifica/giovanissimiF');
 		}
 			// Execute every 5 seconds
-		window.setInterval(refreshData, 1000);
+		window.setInterval(refreshData, 5000);
 	</script>
 </body>
 </html>

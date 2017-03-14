@@ -52,10 +52,11 @@ class Admin extends Controller
 	 */
 	public function generaClassifica($categoria)
 	{
-		$atleti=$this->model->getAllAtleti();
-		foreach ( $atleti as $atleta)
+    $valBoulders = $this->model->getValBoulders();
+		$pettorine=$this->model->getAllPettorine();
+		foreach ( $pettorine as $pettorina)
 		{
-			$this->aggiornaPunteggioAtleta($atleta->casacca);
+			$this->aggiornaPunteggioAtleta($pettorina->casacca,$valBoulders);
 		}
 
 		// Un switch no, eh?
@@ -75,20 +76,17 @@ class Admin extends Controller
 	}
 
 	/**
-	 * Funzione che calcola il punteggio di un atleta data una casacca come parametro nell'URL
+	 * Funzione che calcola il punteggio di un atleta data una casacca e un array nome_boulder=>valore come parametri nell'URL
 	 */
-	public function aggiornaPunteggioAtleta($casacca)
+	public function aggiornaPunteggioAtleta($casacca,$valBoulders)
 	{
 		$tentativi = $this->model->getTentativi($casacca);
-		$valBoulder = 0;
 		$punteggio = 0;
-
 		foreach ($tentativi as $prova)
 		{
-			$valBoulder = (100 / $this->model->getAtletiPassati($prova->boulder, 1997));
-			$punteggio += $valBoulder / $prova->tentativi;
+			$punteggio += $valBoulders[$prova->boulder] / $prova->tentativi;
 			// in caso serva vedere come vengono eseguiti i calcoli
-			// echo "boulder".$prova->boulder."  valore:".$valBoulder."  Punteggio atleta:".$punteggio."</br>";
+			 //echo "boulder".$prova->boulder."  valore:".$valBoulders[$prova->boulder]."  Punteggio atleta:".$punteggio."</br>";
 		}
 		//echo $punteggio;
 		$this->model->addPunteggio($casacca, $punteggio);
