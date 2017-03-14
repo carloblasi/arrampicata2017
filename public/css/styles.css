@@ -50,14 +50,14 @@ input[type="radio"]:checked + label {
 
 .button-passato {
 
-	font-size: 130%;
+	/*font-size: 130%;*/
 	background: #79D863;
 }
 
 .button-non-passato {
 
 	background: #F25454;
-	font-size: 130%;
+	/*font-size: 130%;*/
 }
 
 .padding {
@@ -124,4 +124,21 @@ input[type="radio"]:checked + label {
 	margin-top: -6vh;
 	font-size: 50vh;
 	color: #666;
+}
+
+.esito {
+
+	text-align: center;
+	font-size: 10vh;
+	color: #666;
+}
+
+.esito-positivo {
+	margin-top: 34vh;
+	/*color: #79D863;*/
+}
+
+.esito-negativo {
+	margin-top: 26vh;
+	/*color: #F25454;*/
 }

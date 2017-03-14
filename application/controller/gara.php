@@ -81,11 +81,9 @@ class Gara extends Controller
 			} 
 			else 
 			{
-				//Aggiungere un'altra pagina per quando è già completato o ha finito i tentativi, con solo il pulsante indietro, quindi una pagina per quando non si può più inserire un punteggio
 				require APP . 'view/gara/esito.php';
 			}
 		}
-		
 	}
 
 	/**

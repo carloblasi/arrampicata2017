@@ -27,15 +27,15 @@
 		if ($esito == 'N') {
 			
 			echo "<div class='container-tentativo'>",
-				     "<p class='description-top'>TENTATIVO ATTUALE</p>",
-					 "<h1 class='tentativo'>" . ($tentativo + 1) . '</h1>',
+				     "<p class='description-top'>TENTATIVI FINITI</p>",
+					 "<h1 class='esito esito-negativo'>NON<br>PASSATO</h1>",
 				 '</div>';
 		}
 		else {
 
 			echo "<div class='container-tentativo'>",
-				     "<p class='description-top'>PASSATO</p>",
-					 //"<h1 class='tentativo'>" . ($tentativo + 1) . '</h1>',
+				     //"<p class='description-top'>PASSATO</p>",
+					 "<h1 class='esito esito-positivo'>PASSATO</h1>",
 				 '</div>';
 		}
 	?>
@@ -50,7 +50,7 @@
 			</div>
 			
 			<div class="pure-u-1">
-				<p class="description">SELEZIONA ESITO</p>
+				<p class="description">NIENTE DA FARE QUI</p>
 			</div>
 
 		</div>
