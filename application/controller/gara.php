@@ -47,11 +47,6 @@ class Gara extends Controller
 		{
 			// Altrimenti si proviene dalla schermata di inserimento del punteggio, quindi il numero del boulder sarà stato passato come argomento della funzione; una funzione del genere si chiama 'a parametri variabili' e con il metodo func_get_arg() si possono recuperare i parametri passati, in questo caso il primo (il n°0)
 			$selected_boulder = func_get_arg(0);
-
-			if (func_num_args() == 2) 
-			{
-				$selected_tentativo = func_get_arg(1);
-			}
 		}
 		$pettorineAtleti = $this->model->getAllPettorine();
 		// Dalla vista posso accedere alla variabile $selected_boulder
@@ -70,9 +65,28 @@ class Gara extends Controller
 			$selected_atleta = $_POST['atleta'];
 			$selected_boulder = $selected_boulder;
 
-			$tentativo = $this->model->getTentativoAtleta($selected_atleta, $selected_boulder);
+			$esito = $this->model->getEsitoAtleta($selected_atleta, $selected_boulder);
+			if ($esito == 'N') {
+				$tentativo = $this->model->getTentativoAtleta($selected_atleta, $selected_boulder);
+			} 
+			else {
+				//Aggiungere un'altra pagina per quando è già completato o ha finito i tentativi, con solo il pulsante indietro, quindi una pagina per quando non si può più inserire un punteggio
+			}
 		}
 		// Da questa vista posso accedere alle variabili $selected_boulder e $selected_atleta
 		require APP . 'view/gara/selezionapunteggio.php';
 	}
+
+	/**
+	 * PAGINA: selezionapunteggio
+	 * Questo metodo aggiorna il punteggio di un atleta, questo metodo viene chiamata
+	 */
+	public function aggiornaPunteggioAtleta($selected_atleta, $selected_boulder, $tentativo, $passato)
+	{
+		$e = ($passato == 1) ? 'Y' : 'N';
+		$t = (String) ($tentativo + 1);
+		$this->model->addTentativo($selected_boulder, $selected_atleta, $t, $e);
+
+		header('location: ' . URL . 'gara/selezionaatleta/' . $selected_boulder);
+	}	
 }
