@@ -103,12 +103,12 @@ class Admin extends Controller
 	}
 
 	/**
-	 * Questa funzione reindirizza alla pagina degli elenchi degli atleti
-	 */
-	public function generaElenchi()
+	* Generazione dell'elenco
+	*/
+	public function elenco()
 	{
 		require APP . 'view/admin/menu.php';
-		require APP . 'view/admin/genera_elenchi.php';
+		require APP . 'view/admin/elenco.php';
 	}
 
 	/**
@@ -118,6 +118,14 @@ class Admin extends Controller
 	{
 		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/correzione.php';
+	}
+
+	/** 
+	* Funzione che permette l'accesso allo script per la generazione dell'elenco
+	*/
+	public function prova()
+	{
+		require APP . 'view/admin/generaElenco.php';
 	}
 
 	/**

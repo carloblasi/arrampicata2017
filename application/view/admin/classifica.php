@@ -20,11 +20,11 @@
 		function refreshData()
 		{
 	  	// Load the content of "path/to/script.php" into an element with ID "#container".
-	  	$('#classifica1').load('generaClassifica/giovanissimiM');
+	  		$('#classifica1').load('generaClassifica/giovanissimiM');
 			$('#classifica2').load('generaClassifica/giovanissimiF');
 		}
 			// Execute every 5 seconds
-			window.setInterval(refreshData, 5000);
-		</script>
+		window.setInterval(refreshData, 5000);
+	</script>
 </body>
 </html>

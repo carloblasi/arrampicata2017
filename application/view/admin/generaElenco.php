@@ -1,21 +1,4 @@
-	<div class="contenitore2">
-		<form class="pure-form pure-form-aligned" action="<?php echo URL; ?>/admin/generaElenchi" method="POST">
-			<fieldset>
-				<div class="pure-control-group">
-					<label for="elenco">Elenco</label>
-					<select name="elenco">
-						<option value="m-giovanissimi">Maschi giovanissimi</option>
-						<option value="m-juniores">Maschi juniores</option>
-						<option value="f-giovanissime">Femmine giovanissime</option>
-						<option value="f-juniores">Femmine juniores</option>
-					</select>
-				</div>
-				<div class="pure-controls">
-					<button type="submit" class="pure-button pure-button-primary" name="g-elenco">Genera elenco</button>
-				</div>
-			</fieldset>
-		</form>
-		<?php 
+<?php 
 			$modo = 'm-giovanissimi';
 			if(isset($_POST['elenco'])){
 				$modo = $_POST['elenco'];
@@ -81,6 +64,3 @@
 				<?php endforeach; ?>
 			</tbody>
 		</table>
-	</div>
-</body>
-</html>
