@@ -1,0 +1,8 @@
+AuthName "Admin Only"
+AuthType Basic
+AuthUserFile /Applications/MAMP/htdocs/arrampicata2017/application/view/admin/.htpasswd
+require valid-user
+
+<Files "aggiungi_studente.php">
+  Require valid-user
+</Files>
