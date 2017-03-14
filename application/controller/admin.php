@@ -21,7 +21,7 @@ class Admin extends Controller
 	}
 
 	/**
-	 * commentateeee
+	 * La funzione permette di aggiungere uno studente
 	 */
 	public function aggiungistudente()
 	{
@@ -39,7 +39,7 @@ class Admin extends Controller
 	}
 
 	/**
-	 * commentateeee
+	 * La funzione mostra la classifica
 	 */
 	public function classifica()
 	{
@@ -48,7 +48,7 @@ class Admin extends Controller
 	}
 
 	/**
-	 * commentateeee
+	 * La funzione permette di generare la classifica
 	 */
 	public function generaClassifica($categoria)
 	{
