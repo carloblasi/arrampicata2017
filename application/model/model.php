@@ -71,10 +71,10 @@ class Model
 				VALUES (:nome, :cognome, :data_nascita, :sesso, :id_scuola)';
 
 		$query = $this->db->prepare($sql);
-		$parameters = array(':nome' => $nome, 
-							':cognome'=>$cognome, 
+		$parameters = array(':nome' => $nome,
+							':cognome'=>$cognome,
 							':data_nascita' => $data_nascita,
-							':sesso' => $sesso, 
+							':sesso' => $sesso,
 							':id_scuola' => $id_scuola);
 
 		$query->execute($parameters);
@@ -92,8 +92,8 @@ class Model
 			   ORDER BY punteggio DESC';
 
 	   $query = $this->db->prepare($sql);
-	   $parameters = array(':anno_min' => $anno_min, 
-							':anno_max' => $anno_max, 
+	   $parameters = array(':anno_min' => $anno_min,
+							':anno_max' => $anno_max,
 							':sesso' => $sesso);
 
 	   $query->execute($parameters);
@@ -121,14 +121,14 @@ class Model
 	 */
 	public function addTentativo($id_boulder, $casacca, $tentativo, $passato)
 	{
-		$sql = 'INSERT INTO atleta_boulder (id_boulder, id_studente, n_tentativi, passato)
+		$sql = 'INSERT INTO atleta_boulder (id_boulder, id_atleta, n_tentativi, passato)
 				VALUES (:id_boulder, (SELECT id FROM atleta WHERE casacca=:casacca), :n_tentativi, :passato)
 				ON DUPLICATE KEY UPDATE n_tentativi=:n_tentativi, passato=:passato';
 
 		$query = $this->db->prepare($sql);
 
-		$parameters = array(':id_boulder' => $id_boulder, 
-							':casacca' => $casacca, 
+		$parameters = array(':id_boulder' => $id_boulder,
+							':casacca' => $casacca,
 							':n_tentativi' => $tentativo,
 							':passato' => $passato);
 
@@ -160,7 +160,7 @@ class Model
 	{
 		$sql = "SELECT COUNT(passato) as numero
 				FROM atleta_boulder,boulder,atleta
-				WHERE atleta_boulder.id_studente=atleta.id AND atleta_boulder.id_boulder=boulder.id
+				WHERE atleta_boulder.id_atleta=atleta.id AND atleta_boulder.id_boulder=boulder.id
 				AND atleta_boulder.passato='Y'
 				AND (YEAR(atleta.data_nascita)>=:anno_limite)
 				AND boulder.nome=:nome_boulder";
@@ -181,7 +181,7 @@ class Model
 	{
 		$sql = "SELECT atleta.nome AS nome, boulder.nome AS boulder, atleta_boulder.n_tentativi AS tentativi
 				FROM atleta_boulder, atleta, boulder
-				WHERE atleta_boulder.id_studente=atleta.id 
+				WHERE atleta_boulder.id_atleta=atleta.id
 				AND atleta_boulder.id_boulder=boulder.id
 				AND atleta.casacca=:casacca
 				AND atleta_boulder.passato='Y'";
@@ -196,12 +196,12 @@ class Model
 	/**
 	* Funzione che ritorna il numero di tentativi di un determinato atleta in un determinato boulder
 	*/
-	public function getTentativoAtleta($casacca, $boulder) 
+	public function getTentativoAtleta($casacca, $boulder)
 	{
 		// DOMANDA: nella tabella atleta_boulder il n_tentativi è il numero di tentativi già usati, no? Se è cosi, il n_tentativi passati alla vista deve essere incrementato di 1, così come fa adesso
 		$sql = "SELECT n_tentativi as tentativi
 				FROM atleta_boulder
-				WHERE atleta_boulder.id_studente=(SELECT id FROM atleta WHERE casacca=:casacca) 
+				WHERE atleta_boulder.id_atleta=(SELECT id FROM atleta WHERE casacca=:casacca)
 				AND atleta_boulder.id_boulder=:boulder";
 
 		$query = $this->db->prepare($sql);
@@ -221,12 +221,12 @@ class Model
 	/**
 	* Funzione che ritorna se un determinato atleta ha passato un determinato boulder ('Y' o 'N')
 	*/
-	public function getEsitoAtleta($casacca, $boulder) 
+	public function getEsitoAtleta($casacca, $boulder)
 	{
 		// DOMANDA: nella tabella atleta_boulder il n_tentativi è il numero di tentativi già usati, no? Se è cosi, il n_tentativi passati alla vista deve essere incrementato di 1, così come fa adesso
 		$sql = "SELECT passato
 				FROM atleta_boulder
-				WHERE atleta_boulder.id_studente=(SELECT id FROM atleta WHERE casacca=:casacca) 
+				WHERE atleta_boulder.id_atleta=(SELECT id FROM atleta WHERE casacca=:casacca)
 				AND atleta_boulder.id_boulder=:boulder";
 
 		$query = $this->db->prepare($sql);
@@ -246,7 +246,7 @@ class Model
 	/**
 	* Funzione che ritorna l'id di un atleta data la casacca, mannaggia a voi
 	*/
-	public function getAtletaID($casacca) 
+	public function getAtletaID($casacca)
 	{
 		$sql = 'SELECT id FROM atleta WHERE casacca=:casacca';
 
@@ -268,7 +268,7 @@ class Model
 	 */
 	public function aggiustaPunteggio($idAtleta, $n_boulder, $n_tentativi, $passato)
 	{
-		
+
 	}
 
 	/**
