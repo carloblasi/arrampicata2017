@@ -52,7 +52,8 @@ class Admin extends Controller
 	 */
 	public function generaClassifica($categoria)
 	{
-		foreach ($this->model->getAllAtleti() as $atleta)
+		$atleti=$this->model->getAllAtleti();
+		foreach ( $atleti as $atleta)
 		{
 			$this->aggiornaPunteggioAtleta($atleta->casacca);
 		}
@@ -120,7 +121,7 @@ class Admin extends Controller
 		require APP . 'view/admin/correzione.php';
 	}
 
-	/** 
+	/**
 	* Funzione che permette l'accesso allo script per la generazione dell'elenco
 	*/
 	public function prova()
