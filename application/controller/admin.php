@@ -52,9 +52,9 @@ class Admin extends Controller
 	 */
 	public function generaClassifica($categoria)
 	{
-		foreach ($this->model->getAllAtleti() as $row)
+		foreach ($this->model->getAllAtleti() as $atleta)
 		{
-			$this->aggiornaPunteggioAtleta($row->casacca);
+			$this->aggiornaPunteggioAtleta($atleta->casacca);
 		}
 
 		// Un switch no, eh?
