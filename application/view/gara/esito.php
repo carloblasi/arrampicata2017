@@ -10,11 +10,6 @@
 	<!-- <link rel="icon" sizes="192x192" href="icon.png"> -->
 	<!-- <link rel="apple-touch-icon" sizes="128x128" href="icon.png"> -->
 
-	<!-- Script per scorrere all'elemento precedentemente selezionato -->
-	<!-- $('html, body').animate({
-    	scrollTop: $("#target-element").offset().top
-	}, 1000); -->
-
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo URL; ?>js/fastclick.js"></script>
 	
@@ -23,62 +18,43 @@
 	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/font-awesome.min.css" type="text/css">
 
-	<title>Seleziona Punteggio</title>
+	<title>Esito</title>
 </head>
 <body>
-	<?php //echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
-<!-- 	<form action="" method="POST"> -->
-		<?php 
 
-			if ($esito == 'N') {
-				
-				echo "<div class='container-tentativo'>",
-					     "<p class='description-top'>TENTATIVO ATTUALE</p>",
-						 "<h1 class='tentativo'>" . ($tentativo + 1) . '</h1>',
-					 '</div>';
-			}
-			else {
+	<?php 
 
-				echo "<div class='container-tentativo'>",
-					     "<p class='description-top'>PASSATO</p>",
-						 //"<h1 class='tentativo'>" . ($tentativo + 1) . '</h1>',
-					 '</div>';
-			}
-		?>
+		if ($esito == 'N') {
+			
+			echo "<div class='container-tentativo'>",
+				     "<p class='description-top'>TENTATIVO ATTUALE</p>",
+					 "<h1 class='tentativo'>" . ($tentativo + 1) . '</h1>',
+				 '</div>';
+		}
+		else {
 
-		<div class="navbar">
-			<div class="pure-g">
+			echo "<div class='container-tentativo'>",
+				     "<p class='description-top'>PASSATO</p>",
+					 //"<h1 class='tentativo'>" . ($tentativo + 1) . '</h1>',
+				 '</div>';
+		}
+	?>
 
-				<div class="pure-u-1-2">
-					<div class="padding">
-						<a class="pure-button button-passato" href="<?php echo URL; ?>gara/aggiornapunteggioatleta/<?php echo $selected_atleta; ?>/<?php echo $selected_boulder; ?>/<?php echo $tentativo; ?>/1">
-							<!-- <i class="fa fa-check fa-sm"></i> -->PASSATO
-						</a>
-					</div>
+	<div class="navbar">
+		<div class="pure-g">
+
+			<div class="pure-u-1">
+				<div class="padding">
+					<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
 				</div>
-
-				<div class="pure-u-1-2">
-					<div class="padding">
-						<a class="pure-button button-non-passato" href="<?php echo URL; ?>gara/aggiornapunteggioatleta/<?php echo $selected_atleta; ?>/<?php echo $selected_boulder; ?>/<?php echo $tentativo; ?>/0">
-							<!-- <i class="fa fa-times fa-sm"></i> -->
-							<span style="font-size: 90%; margin-left: -16px; margin-right: -16px;">NON PASSATO</span>
-						</a>
-					</div>
-				</div>
-
-				<div class="pure-u-1">
-					<div class="padding">
-						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
-					</div>
-				</div>
-				
-				<div class="pure-u-1">
-					<p class="description">SELEZIONA ESITO</p>
-				</div>
-
 			</div>
+			
+			<div class="pure-u-1">
+				<p class="description">SELEZIONA ESITO</p>
+			</div>
+
 		</div>
-	<!-- </form> -->
+	</div>
 
 	<script type="text/javascript">
 

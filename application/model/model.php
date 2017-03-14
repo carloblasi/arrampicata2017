@@ -219,6 +219,51 @@ class Model
 	}
 
 	/**
+	* Funzione che ritorna se un determinato atleta ha passato un determinato boulder ('Y' o 'N')
+	*/
+	public function getEsitoAtleta($casacca, $boulder) 
+	{
+		// DOMANDA: nella tabella atleta_boulder il n_tentativi è il numero di tentativi già usati, no? Se è cosi, il n_tentativi passati alla vista deve essere incrementato di 1, così come fa adesso
+		$sql = "SELECT passato
+				FROM atleta_boulder
+				WHERE atleta_boulder.id_studente=(SELECT id FROM atleta WHERE casacca=:casacca) 
+				AND atleta_boulder.id_boulder=:boulder";
+
+		$query = $this->db->prepare($sql);
+		$parameters = array(':casacca' => $casacca,
+							':boulder' => $boulder);
+		$query->execute($parameters);
+		$result = $query->fetch();
+
+		// Se non esiste ancora l'entry nella tabella atleta_boulder allora restituisci 0, il numero di tentativi da cui partire
+		if (!is_object($result)) {
+			return 'N';
+		}
+		// Aggiungere controlli per quando sono finiti i tentativi o è gia passato
+		return $result->passato;
+	}
+
+	/**
+	* Funzione che ritorna l'id di un atleta data la casacca, mannaggia a voi
+	*/
+	public function getAtletaID($casacca) 
+	{
+		$sql = 'SELECT id FROM atleta WHERE casacca=:casacca';
+
+		$query = $this->db->prepare($sql);
+		$parameters = array(':casacca' => $casacca);
+		$query->execute($parameters);
+		$result = $query->fetch();
+
+		// Se non esiste ancora l'entry nella tabella atleta_boulder allora restituisci 0, il numero di tentativi da cui partire
+		// if (!is_object($result)) {
+		// 	return 0;
+		// }
+		// Aggiungere controlli per quando sono finiti i tentativi o è gia passato
+		return $result->id;
+	}
+
+	/**
 	 * Funzione che corregge il punteggio di un atleta
 	 */
 	public function aggiustaPunteggio($idAtleta, $n_boulder, $n_tentativi, $passato)
