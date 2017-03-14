@@ -175,7 +175,7 @@ class Model
 	}
 
 	/**
-	 * Ritorna oggetti con attributi nome, boulder, n_tentativi
+	 * Ritorna un array con il n° di tentativi per ogni boulder che un determinato atleta ha passato, SOLO quelli che ha passato
 	 */
 	public function getTentativi($casacca)
 	{
