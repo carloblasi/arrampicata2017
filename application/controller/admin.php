@@ -10,6 +10,7 @@
 class Admin extends Controller
 {
 	/**
+	 * NON CREDO FACCIA QUESTO...
 	 * PAGINA: selezionaboulder
 	 * Questo metodo reindirizza l'arbitro alla selezione del boulder, ho aggiunto questo metodo invece che lasciare solo
 	 * selezionaboulder() così l'arbitro raggiunge quella pagina usando un URL più breve (http://<indirizzo>:<porta>/gara), e il metodo
@@ -35,7 +36,7 @@ class Admin extends Controller
 			$this->model->addAtleta($nome, $cognome, $data_nascita, $sesso, $id_scuola);
 		}
 		require APP . 'view/admin/menu.php';
-		require APP . 'view/admin/aggiungi_studente.php';
+		require APP . 'view/admin/aggiungistudente.php';
 	}
 
 	/**
@@ -67,14 +68,14 @@ class Admin extends Controller
 				break;
 		}
 
-		require APP . 'view/admin/generaClassifica.php';
+		require APP . 'view/admin/generaclassifica.php';
 	}
 
 	/**
 	 * Funzione che calcola il punteggio di un atleta data una casacca e un array nome_boulder=>valore come parametri
 	 * Non più necessaria si può rimuovere?
 	 */
-		public function aggiornaPunteggioAtleta($casacca,$valBoulders)
+	public function aggiornaPunteggioAtleta($casacca,$valBoulders)
 	{
 		$tentativi = $this->model->getTentativi($casacca);
 		$punteggio = 0;
@@ -94,7 +95,7 @@ class Admin extends Controller
 	public function generaPettorine()
 	{
 		require APP . 'view/admin/menu.php';
-		require APP . 'view/admin/genera_pettorine.php';
+		require APP . 'view/admin/generapettorine.php';
 	}
 
 	/**
@@ -120,7 +121,7 @@ class Admin extends Controller
 	*/
 	public function prova()
 	{
-		require APP . 'view/admin/generaElenco.php';
+		require APP . 'view/admin/generaelenco.php';
 	}
 
 	/**

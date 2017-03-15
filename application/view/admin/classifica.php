@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/classifica.css" type="text/css">
 	<title>Classifica</title>
 </head>
-<body onload="">
+<body>
 	<div>
 		<div class="pure-g">
 			<div class="pure-u-1-2" id="classifica1"> </div>
