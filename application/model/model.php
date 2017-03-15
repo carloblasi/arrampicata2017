@@ -245,7 +245,7 @@ class Model
 	}
 
 	/**
-	* Funzione che ritorna se un determinato atleta ha passato un determinato boulder ('Y' o 'N')
+	* Funzione che ritorna se un determinato atleta ha passato ('Y') oppure no ('N') un determinato boulder
 	*/
 	public function getEsitoAtleta($casacca, $boulder)
 	{
