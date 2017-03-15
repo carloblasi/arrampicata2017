@@ -43,7 +43,6 @@ class Admin extends Controller
 	 */
 	public function classifica()
 	{
-		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/classifica.php';
 	}
 

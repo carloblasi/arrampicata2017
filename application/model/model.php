@@ -85,7 +85,7 @@ class Model
 	 */
 	public function getClassifica($anno_min, $anno_max, $sesso)
 	{
-	   $sql = 'SELECT nome, cognome, YEAR(data_nascita) AS anno, punteggio
+	   $sql = 'SELECT nome, cognome, punteggio
 			   FROM atleta
 			   WHERE YEAR(data_nascita) BETWEEN :anno_min and :anno_max
 			   AND sesso=:sesso
@@ -214,7 +214,11 @@ class Model
 	 */
 	public function getClassificaGlobal()
 	{
-		$sql = 'SELECT * FROM classifica_global';
+		$sql = 'SET @rank=0';
+		$query = $this->db->query($sql);
+		$sql = 'SELECT @rank:=@rank+1 AS posizione,
+						nome,cognome,punteggio
+						FROM classifica_global';
 		$query = $this->db->query($sql);
 		return $query->fetchAll();
 	}

@@ -1,4 +1,10 @@
-.center {
-          margin-top: 30%;
+.center
+{
+  margin: auto;
+  width: 80%;
+}
 
-        }
+th
+{
+  text-align: center;
+}
