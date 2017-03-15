@@ -52,7 +52,7 @@ class Admin extends Controller
 	 */
 	public function generaClassifica($categoria)
 	{
-    $valBoulders = $this->model->getValBoulders();
+		$valBoulders = $this->model->getValBoulders();
 		$pettorine=$this->model->getAllPettorine();
 		foreach ( $pettorine as $pettorina)
 		{
@@ -60,17 +60,24 @@ class Admin extends Controller
 		}
 
 		// Un switch no, eh?
-		if ($categoria == "giovanissimiM")
-			$classifica = $this->model->getClassifica(1997, 1999, "M");
+		switch ($categoria) 
+		{
+			case "giovanissimiM":
+				$classifica = $this->model->getClassifica(1997, 1999, "M");
+				break;
 
-		if ($categoria == "giovanissimiF")
-			$classifica = $this->model->getClassifica(1997, 1999, "F");
+			case "giovanissimiF":
+				$classifica = $this->model->getClassifica(1997, 1999, "F");
+				break;
 
-		if ($categoria == "junioresM")
-			$classifica = $this->model->getClassifica(2000, 2001, "M");
+			case "junioresM":
+				$classifica = $this->model->getClassifica(2000, 2001, "M");
+				break;
 
-		if ($categoria == "junioresF")
-			$classifica = $this->model->getClassifica(2000, 2001, "F");
+			case "junioresF":
+				$classifica = $this->model->getClassifica(2000, 2001, "F");
+				break;
+		}
 
 		require APP . 'view/admin/generaClassifica.php';
 	}
@@ -82,7 +89,7 @@ class Admin extends Controller
 	{
 		$tentativi = $this->model->getTentativi($casacca);
 		$punteggio = 0;
-		foreach ($tentativi as $prova)
+		foreach ($tentativi as $prova) 
 		{
 			$punteggio += $valBoulders[$prova->boulder] / $prova->tentativi;
 			// in caso serva vedere come vengono eseguiti i calcoli
