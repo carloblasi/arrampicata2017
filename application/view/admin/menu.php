@@ -23,6 +23,10 @@
     		margin-top: 10%
 		}
 
+		.pure-menu-link {
+			color: white;
+		}
+
 		.contenitore2{
 			margin-left: 34%;
 			margin-right: 34%;
