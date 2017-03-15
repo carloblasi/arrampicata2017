@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/classifica.css" type="text/css">
 	<title>Classifica</title>
 </head>
-<body>
+<body onload="">
 	<div>
 		<div class="pure-g">
 			<div class="pure-u-1-2" id="classifica1"> </div>
@@ -17,14 +17,21 @@
 		</div>
 	</div>
 	<script>
+
 		function refreshData()
 		{
 	  	// Load the content of "path/to/script.php" into an element with ID "#container".
 	  		$('#classifica1').load('generaClassifica/giovanissimiM');
 			$('#classifica2').load('generaClassifica/giovanissimiF');
 		}
-			// Execute every 5 seconds
+
+		$(document).ready(function(){
+			refreshData();
+		});
+  			
+		// Execute every 5 seconds
 		window.setInterval(refreshData, 5000);
+
 	</script>
 </body>
 </html>
