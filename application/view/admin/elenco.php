@@ -4,10 +4,10 @@
 				<div class="pure-control-group">
 					<label for="elenco">Elenco</label>
 					<select name="elenco">
-						<option value="m-giovanissimi">Maschi giovanissimi</option>
-						<option value="m-juniores">Maschi juniores</option>
-						<option value="f-giovanissime">Femmine giovanissime</option>
-						<option value="f-juniores">Femmine juniores</option>
+						<option value="m-allievi">Maschi - Allievi</option>
+						<option value="m-juniores">Maschi - Juniores</option>
+						<option value="f-allievi">Femmine - Allievi</option>
+						<option value="f-juniores">Femmine - Juniores</option>
 					</select>
 				</div>
 				<div class="pure-controls">
@@ -20,16 +20,20 @@
 		
 	</div>
 	<script type="text/javascript">
-		$('#form-elenco').submit(function(e){
+
+		$('#form-elenco').submit(function(e) {
+
 			e.preventDefault();
 			$.ajax({
+
 				url: 'prova',
 				type: 'POST',
 				data: $(this).serialize(),
 				dataType: 'html'
 			})
-			.done(function(data){
-				$('#elenco').fadeOut('slow',function(){
+			.done(function(data) {
+
+				$('#elenco').fadeOut('slow', function() {
 					$('#elenco').fadeIn('slow').html(data);
 				});
 			})
@@ -37,6 +41,7 @@
 				alert('Failed');
 			});
 		});
+
 	</script>
 </body>
 </html>
