@@ -22,15 +22,15 @@
 		{
 	  	// Load the content of "path/to/script.php" into an element with ID "#container".
 	  		$('#classifica1').load('generaClassifica/giovanissimiM');
-			$('#classifica2').load('generaClassifica/giovanissimiF');
+			$('#classifica2').load('generaClassifica/giovanissimiM');
 		}
 
 		$(document).ready(function(){
 			refreshData();
 		});
-  			
+
 		// Execute every 5 seconds
-		window.setInterval(refreshData, 5000);
+		window.setInterval(refreshData, 1000);
 
 	</script>
 </body>

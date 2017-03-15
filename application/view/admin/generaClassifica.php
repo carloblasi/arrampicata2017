@@ -1,6 +1,7 @@
 <table class="pure-table">
   <thead>
     <tr>
+      <th>Pettorina</th>
       <th>Nome</th>
       <th>Cognome</th>
       <th>Anno</th>
@@ -13,6 +14,7 @@
       {
         echo <<<EOT
         <tr>
+          <td>$row->pettorina</td>
           <td>$row->nome</td>
           <td>$row->cognome</td>
           <td>$row->anno</td>

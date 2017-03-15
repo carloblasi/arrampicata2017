@@ -81,6 +81,7 @@ class Model
 
 	/**
 	 * Ritorna classifica dato un certo sesso e range di anni
+	 * da sostituire con getClassificaGlobal una volta fintia
 	 */
 	public function getClassifica($anno_min, $anno_max, $sesso)
 	{
@@ -101,6 +102,7 @@ class Model
 
 	/**
 	 * Aggiunge il punteggio a un dato atleta partendo dal numero della casacca
+	 * non più necessaria per il calcolo della classifica, rimuovere?
 	 */
 	public function addPunteggio($casacca, $punteggio)
 	{
@@ -176,6 +178,7 @@ class Model
 	/**
 	 * Ritorna un array contenente TUTTI boulder e i rispettivi "valori" array(NumeroBoulder=>Valore)
 	 * il "valore" di un boulder è dato dalla formula: 100/numero atleti che hanno passato quel boulder
+	 * Non più necessaria si può rimuovere?
 	 */
 	public function getValBoulders()
 	{
@@ -187,6 +190,7 @@ class Model
 
 	/**
 	 * Ritorna un array con il n° di tentativi per ogni boulder che un determinato atleta ha passato, SOLO quelli che ha passato
+	 * Non più usata per la classifica si può cancellare?
 	 */
 	public function getTentativi($casacca)
 	{
@@ -201,6 +205,17 @@ class Model
 		$parameters = array(':casacca' => $casacca);
 		$query->execute($parameters);
 
+		return $query->fetchAll();
+	}
+
+	/**
+	 * Ritorna la classifica globale(tutti i partecipanti senza distinzioni)
+	 * Devo aggiungere parametri alla funzione per scegliere la categoria
+	 */
+	public function getClassificaGlobal()
+	{
+		$sql = 'SELECT * FROM classifica_global';
+		$query = $this->db->query($sql);
 		return $query->fetchAll();
 	}
 

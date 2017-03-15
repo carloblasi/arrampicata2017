@@ -52,30 +52,18 @@ class Admin extends Controller
 	 */
 	public function generaClassifica($categoria)
 	{
-		$valBoulders = $this->model->getValBoulders();
+		/**$valBoulders = $this->model->getValBoulders();
 		$pettorine=$this->model->getAllPettorine();
 		foreach ( $pettorine as $pettorina)
 		{
 			$this->aggiornaPunteggioAtleta($pettorina->casacca,$valBoulders);
-		}
+		}*/
 
 		// Un switch no, eh?
-		switch ($categoria) 
+		switch ($categoria)
 		{
 			case "giovanissimiM":
-				$classifica = $this->model->getClassifica(1997, 1999, "M");
-				break;
-
-			case "giovanissimiF":
-				$classifica = $this->model->getClassifica(1997, 1999, "F");
-				break;
-
-			case "junioresM":
-				$classifica = $this->model->getClassifica(2000, 2001, "M");
-				break;
-
-			case "junioresF":
-				$classifica = $this->model->getClassifica(2000, 2001, "F");
+				$classifica = $this->model->getClassificaGlobal();
 				break;
 		}
 
@@ -84,16 +72,17 @@ class Admin extends Controller
 
 	/**
 	 * Funzione che calcola il punteggio di un atleta data una casacca e un array nome_boulder=>valore come parametri
+	 * Non più necessaria si può rimuovere?
 	 */
-	public function aggiornaPunteggioAtleta($casacca,$valBoulders)
+		public function aggiornaPunteggioAtleta($casacca,$valBoulders)
 	{
 		$tentativi = $this->model->getTentativi($casacca);
 		$punteggio = 0;
-		foreach ($tentativi as $prova) 
+		foreach ($tentativi as $prova)
 		{
 			$punteggio += $valBoulders[$prova->boulder] / $prova->tentativi;
 			// in caso serva vedere come vengono eseguiti i calcoli
-			 //echo "boulder".$prova->boulder."  valore:".$valBoulders[$prova->boulder]."  Punteggio atleta:".$punteggio."</br>";
+			//echo "boulder".$prova->boulder."  valore:".$valBoulders[$prova->boulder]."  Punteggio atleta:".$punteggio."</br>";
 		}
 		//echo $punteggio;
 		$this->model->addPunteggio($casacca, $punteggio);
@@ -138,7 +127,7 @@ class Admin extends Controller
 	 * CODICE PER LA POPOLAZIONE AUTOMATICA DEL DB
 	 * NON USARE! NON GUARDARE! NON TOCCARE!
 	 */
-	private function test_populate()
+	public function test_populate()
 	{
 		$names_m = 'Francesco Alessandro Mattia Lorenzo Leonardo Andrea Gabriele Matteo Tommaso Riccardo Davide Giuseppe Edoardo Antonio Federico Giovanni Marco Diego Samuele Pietro Christian Nicolo\' Luca Simone Filippo Alessio Gabriel Michele Emanuele Jacopo Daniele Cristian Giacomo Vincenzo Salvatore Gioele Giulio Manuel Thomas Samuel Daniel Giorgio Stefano Elia Luigi Nicola Angelo Mario Raffaele Domenico';
 
