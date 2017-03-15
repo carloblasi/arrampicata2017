@@ -76,7 +76,7 @@ class Admin extends Controller
 	}
 
 	/**
-	 * Funzione che calcola il punteggio di un atleta data una casacca e un array nome_boulder=>valore come parametri nell'URL
+	 * Funzione che calcola il punteggio di un atleta data una casacca e un array nome_boulder=>valore come parametri
 	 */
 	public function aggiornaPunteggioAtleta($casacca,$valBoulders)
 	{
