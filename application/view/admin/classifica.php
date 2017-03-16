@@ -20,7 +20,13 @@
 			<div class="pure-u-1-2" id="table4"></div>
 		</div>
 	</div>
+	<div id="end">
+
+	</div>
 	<script>
+	/**	$('html, body').animate({
+			scrollTop: $("#end").offset().top
+		}, 2000);*/
 		function refreshData()
 		{
 	  	// Load the content of "path/to/script.php" into an element with ID "#container".
@@ -34,7 +40,7 @@
 			refreshData();
 		});
 		// Execute every 5 seconds
-		window.setInterval(refreshData, 10000);
+		window.setInterval(refreshData, 1000);
 	</script>
 </body>
 </html>

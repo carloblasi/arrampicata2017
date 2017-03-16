@@ -48,7 +48,7 @@ class Admin extends Controller
 	}
 
 	/**
-	 * La funzione permette di generare la classifica
+	 * La funzione che genera una tabella html contente i dati della classifica
 	 */
 	public function generaClassifica($categoria)
 	{
@@ -124,40 +124,23 @@ class Admin extends Controller
 	}
 
 	/**
-	 * CODICE PER LA POPOLAZIONE AUTOMATICA DEL DB
-	 * NON USARE! NON GUARDARE! NON TOCCARE!
+	 * -->FUNZIONE DA CHIAMARE PRIMA DELLA GARA<----
+	 * Funzione necessaria ad inizializzare la tabella atleta_boulder
+	 * in modo da poter visualizzare in classifica anche gli atleti
+	 * che non hanno passato alcun boulder
+	 * ATTENZIONE NON CHIAMARE LA FUNZIONE A GARA INIZIATA, PENA AZZERAMENTO DELLA CLASSIFICA
 	 */
-	public function test_populate()
+	private function initializeGara()
 	{
-		$names_m = 'Francesco Alessandro Mattia Lorenzo Leonardo Andrea Gabriele Matteo Tommaso Riccardo Davide Giuseppe Edoardo Antonio Federico Giovanni Marco Diego Samuele Pietro Christian Nicolo\' Luca Simone Filippo Alessio Gabriel Michele Emanuele Jacopo Daniele Cristian Giacomo Vincenzo Salvatore Gioele Giulio Manuel Thomas Samuel Daniel Giorgio Stefano Elia Luigi Nicola Angelo Mario Raffaele Domenico';
-
-		$names_f = 'Sofia Aurora Giulia Giorgia Alice Martina Emma Greta Chiara Anna Sara Ginevra Gaia Beatrice Noemi Francesca Nicole Alessia Vittoria Matilde Arianna Viola Giada Rebecca Camilla Elena Elisa Mia Bianca Maria Marta Ludovica Gioia Adele Asia Melissa Miriam Eleonora Irene Benedetta Caterina Serena Carlotta Angelica Margherita Ilaria Anita Emily Alessandra Rachele';
-
-		$surnames = 'Rossi Russo Ferrari Esposito Bianchi Romano Colombo Ricci Marino Greco Bruno Gallo Conti De Luca Mancini Costa Giordano Rizzo Lombardi Moretti Barbieri Fontana Santoro Mariani Rinaldi Caruso Ferrara Galli Martini Leone Longo Gentile Martinelli Vitale Lombardo Serra Coppola De Santis D\'angelo Marchetti Parisi Villa Conte Ferraro Ferri Fabbri Bianco Marini Grasso Valentini Messina Sala De Angelis Gatti Pellegrini Palumbo Sanna Farina Rizzi Monti Cattaneo Morelli Amato Silvestri Mazza Testa Grassi Pellegrino Carbone Giuliani Benedetti Barone Rossetti Caputo Montanari Guerra Palmieri Bernardi Martino Fiore De Rosa Ferretti Bellini Basile Riva Donati Piras Vitali Battaglia Sartori Neri Costantini Milani Pagano Ruggiero Sorrentino D\'amico Orlando Damico Negri';
-
-		$array = explode(' ', $names_m);
-		$array1 = explode(' ', $surnames);
-		for ($i = 1; $i <= 200; $i++)
+		$atleti=$this->model->getAllAtleti();
+		foreach ($atleti as $atleta)
 		{
-			/** $nome=$array[rand(0,count($array))];
-			*$cognome=$array1[rand(0,count($array1))];
-			*$id_scuola=rand(1,5);
-			*$sesso = "M";
-			*$g=rand(1,28);
-			*$m=rand(1,12);
-			*$a=rand(1997,2002);
-			*$data_nascita = $a."-".$m."-".$g;
-			*$this->model->addAtleta($nome, $cognome, $data_nascita, $sesso, $id_scuola);*/
-			//$this->model->addCasacca($i, $i);
-			$tentativi = rand(1, 5);
-			$passato = rand(0, 1);
-
-			if ($passato == 1)
-				$passato = 'Y';
-			else
-				$passato = 'N';
-
-			$this->model->addTentativo(rand(1, 10), rand(1, 99), (string) $tentativi, $passato);
+			for ($i=1; $i <=10 ; $i++)
+			{
+				$this->model->addTentativo($i,$atleta->casacca,1,'N');
+			}
 		}
+		echo "finito :)" ;
 	}
+
 }

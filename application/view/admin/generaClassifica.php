@@ -1,9 +1,5 @@
-
 <table class="pure-table pure-table-horizontal">
     <thead>
-      <tr>
-        <th colspan="4">Categoria</th>
-      </tr>
       <tr>
         <th>Pos.</th>
         <th>Nome</th>
@@ -28,8 +24,3 @@ EOT;
       ?>
     </tbody>
 </table>
-<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo URL; ?>js/jquery.stickytableheaders.min.js"></script>
-<script>
-  	$(".pure-table").stickyTableHeaders();
-</script>
