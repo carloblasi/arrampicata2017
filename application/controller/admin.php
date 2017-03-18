@@ -74,9 +74,19 @@ class Admin extends Controller
 			case "junioresF":
 				$classifica = $this->model->getClassifica(1997,1998,"F");
 				break;
-		}
 
-		require APP . 'view/admin/generaclassifica.php';
+		}
+		foreach ($classifica as $row)
+		{
+			echo <<<EOT
+			<tr>
+				<td>$row->posizione</td>
+				<td>$row->cognome</td>
+				<td>$row->nome</td>
+				<td>$row->punteggio</td>
+			</tr>
+EOT;
+		}
 	}
 
 	/**

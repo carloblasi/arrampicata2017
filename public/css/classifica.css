@@ -1,10 +1,8 @@
-.center
-{
-  margin: auto;
-  width: 80%;
+.center table{
+    margin: auto;
+    width: 50%;
 }
 
-th
-{
-  text-align: center;
+.centerText{
+    text-align: center;
 }
