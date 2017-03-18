@@ -27,6 +27,37 @@ class Model
 	}
 
 	/**
+	* Permette l'assegnamento delle pettorine ad ogni atleta presente
+	*/
+	public function setAllPettorine()
+	{
+		$sql = 'CREATE TABLE pettorine AS 
+			(
+			SELECT atleta.nome as Nome, atleta.cognome as Cognome, atleta.sesso as Sesso, 
+			atleta.data_nascita as \'Data di nascita\',scuola.nome_scuola as Scuola, atleta.id as \'id_origi\' 
+			FROM atleta, scuola WHERE scuola.id = atleta.id_scuola ORDER BY scuola.nome_scuola
+			)';
+		$query = $this->db->prepare($sql);
+		$query -> execute();
+		
+		$sql = 'ALTER TABLE pettorine ADD id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY FIRST, 
+			AUTO_INCREMENT = 1';
+		$query = $this->db->prepare($sql);
+		$query -> execute();
+
+		$sql = "UPDATE atleta JOIN pettorine 
+				ON atleta.id = pettorine.id_origi
+				SET atleta.casacca = pettorine.id";
+		$query = $this->db->prepare($sql);
+		$query -> execute();
+
+		$sql = "DROP TABLE pettorine";
+		$query = $this->db->prepare($sql);
+		$query -> execute();
+		
+	}
+
+	/**
 	 * Prende il nome di tutte le scuole dal database
 	 */
 	public function getAllScuole()
