@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Admin Menu</title>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
