@@ -13,9 +13,8 @@
         {
           echo <<<EOT
           <tr>
-            <td>$row->posizione</td>
-            <td>$row->nome</td>
             <td>$row->cognome</td>
+            <td>$row->nome</td>
             <td>$row->punteggio</td>
           </tr>
 EOT;

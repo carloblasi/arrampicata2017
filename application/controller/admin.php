@@ -62,8 +62,17 @@ class Admin extends Controller
 		// Un switch no, eh?
 		switch ($categoria)
 		{
-			case "giovanissimiM":
-				$classifica = $this->model->getClassificaGlobal();
+			case "allieviM":
+				$classifica = $this->model->getClassifica(1999,2001,"M");
+				break;
+			case "allieviF":
+				$classifica = $this->model->getClassifica(1999,2001,"F");
+				break;
+			case "junioresM":
+				$classifica = $this->model->getClassifica(1997,1998,"M");
+				break;
+			case "junioresF":
+				$classifica = $this->model->getClassifica(1997,1998,"F");
 				break;
 		}
 

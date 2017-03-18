@@ -85,16 +85,16 @@ class Model
 	 */
 	public function getClassifica($anno_min, $anno_max, $sesso)
 	{
-	   $sql = 'SELECT nome, cognome, punteggio
-			   FROM atleta
-			   WHERE YEAR(data_nascita) BETWEEN :anno_min and :anno_max
-			   AND sesso=:sesso
-			   ORDER BY punteggio DESC';
+	   $sql = 'SELECT classifica_global.cognome as cognome,classifica_global.nome as nome,classifica_global.punteggio
+		 				 FROM classifica_global
+						 WHERE YEAR(classifica_global.data_nascita) BETWEEN :anno_min AND :anno_max
+						 AND classifica_global.sesso=:sesso
+										';
 
 	   $query = $this->db->prepare($sql);
 	   $parameters = array(':anno_min' => $anno_min,
-							':anno_max' => $anno_max,
-							':sesso' => $sesso);
+												 ':anno_max' => $anno_max,
+												 ':sesso' => $sesso);
 
 	   $query->execute($parameters);
 	   return $query->fetchAll();

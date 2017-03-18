@@ -30,17 +30,17 @@
 		function refreshData()
 		{
 	  	// Load the content of "path/to/script.php" into an element with ID "#container".
-	  	$('#table1').load('generaClassifica/giovanissimiM');
-			$('#table2').load('generaClassifica/giovanissimiM');
-			$('#table3').load('generaClassifica/giovanissimiM');
-			$('#table4').load('generaClassifica/giovanissimiM');
+	  	$('#table1').load('generaClassifica/allieviM');
+			$('#table2').load('generaClassifica/allieviF');
+			$('#table3').load('generaClassifica/junioresM');
+			$('#table4').load('generaClassifica/junioresF');
 		}
 
 		$(document).ready(function(){
 			refreshData();
 		});
-		// Execute every 5 seconds
-		window.setInterval(refreshData, 1000);
+		// Execute every n seconds
+		window.setInterval(refreshData, 70000);
 	</script>
 </body>
 </html>
