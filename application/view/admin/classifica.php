@@ -9,6 +9,11 @@
 	<title>Classifica</title>
 </head>
 <body>
+	<div class="fixed">
+		<button onclick="pageScroll()">start</button>
+		<button onclick="pageScrollStop()">stop</button>
+	</div>
+
 	</div>
 	<div class="center">
 
@@ -74,13 +79,32 @@
 					</thead>
 					<tbody  id="content4"></tbody>
 				</table>
-
+	</div>
+	<div >
+		patata
 	</div>
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.stickytableheaders.min.js"></script>
+
 	<script>
-	/**	$('html, body').animate({
-			scrollTop: $("#end").offset().top
-		}, 2000);*/
+		$('table').stickyTableHeaders();
+	</script>
+
+	<script>
+		var scrolldelay;
+		function pageScroll()
+		{
+		window.scrollBy(0,2);
+		scrolldelay = setTimeout('pageScroll()',45);
+		}
+
+		function pageScrollStop()
+		{
+		clearTimeout(scrolldelay);
+		}
+	</script>
+
+	<script>
 		function refreshData()
 		{
 	  	// Load the content of "path/to/script.php" into an element with ID "#container".
@@ -89,10 +113,10 @@
 			$('#content3').load('generaClassifica/junioresM');
 			$('#content4').load('generaClassifica/junioresF');
 		}
-
 		$(document).ready(function(){
 			refreshData();
 		});
+		
 		// Execute every n seconds
 		window.setInterval(refreshData, 5000);
 	</script>

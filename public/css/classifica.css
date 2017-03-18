@@ -3,6 +3,10 @@
     width: 50%;
 }
 
+.fixed{
+  position: fixed;
+}
+
 .centerText{
     text-align: center;
 }
