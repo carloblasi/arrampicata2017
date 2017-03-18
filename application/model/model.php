@@ -86,11 +86,12 @@ class Model
 	 */
 	public function getAllPettorine()
 	{
-		$sql = 'SELECT casacca FROM atleta';
+		$sql = 'SELECT casacca FROM atleta ORDER BY casacca';
 		$query = $this->db->query($sql);
 
 		return $query->fetchAll();
 	}
+
 
 	/**
 	 * Aggiunge un atleta nel database
@@ -327,9 +328,13 @@ class Model
 	/**
 	 * Funzione che corregge il punteggio di un atleta
 	 */
-	public function aggiustaPunteggio($idAtleta, $n_boulder, $n_tentativi, $passato)
+	public function aggiustaPunteggio($id_atleta, $n_boulder, $n_tentativi, $passato)
 	{
-
+		$sql = 'UPDATE atleta_boulder SET n_tentativi = :tentativi, passato = :passato  
+		WHERE id_atleta = :id AND id_boulder = :boulder_id';
+		$query = $this->db->prepare();
+		$parameters = array(':tentativi'=>$n_tentativi, ':passato'=>$passato,':id'=>$id_atleta,':boulder_id'=>$n_boulder);
+		$query ->execute($parameters);
 	}
 
 	/**

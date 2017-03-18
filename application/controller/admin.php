@@ -59,7 +59,6 @@ class Admin extends Controller
 			$this->aggiornaPunteggioAtleta($pettorina->casacca,$valBoulders);
 		}*/
 
-		// Un switch no, eh?
 		switch ($categoria)
 		{
 			case "allieviM":
@@ -130,6 +129,7 @@ EOT;
 	 */
 	public function correzione()
 	{
+		$prova = $this->model->getAllPettorine();
 		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/correzione.php';
 	}

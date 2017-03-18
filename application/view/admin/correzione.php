@@ -19,7 +19,9 @@
 				<div class="pure-control-group">
 					<label for="n-pettorina">Numero di pettorina</label>
 					<select name="numero-pettorina">
-						
+						<?php foreach ($prova as $lista) : ?>
+						<option value="<?php echo $lista->casacca; ?>"> <?php echo $lista->casacca; ?> </option>
+					<?php endforeach; ?>
 					</select>
 				</div>
 				<div class="pure-control-group">
