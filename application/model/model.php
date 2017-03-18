@@ -85,21 +85,21 @@ class Model
 	 */
 	public function getClassifica($anno_min, $anno_max, $sesso)
 	{
-		 $sql = 'SET @rank=0';
-		 $query = $this->db->query($sql);
-	   $sql = 'SELECT @rank:=@rank+1 AS posizione,classifica_global.cognome as cognome,classifica_global.nome as nome,classifica_global.punteggio
-		 				 FROM classifica_global
-						 WHERE YEAR(classifica_global.data_nascita) BETWEEN :anno_min AND :anno_max
-						 AND classifica_global.sesso=:sesso
-						 ORDER BY punteggio DESC,cognome';
+		$sql = 'SET @rank=0';
+		$query = $this->db->query($sql);
+		$sql = 'SELECT @rank:=@rank+1 AS posizione, classifica_global.cognome as cognome, classifica_global.nome as nome, classifica_global.punteggio
+				FROM classifica_global
+				WHERE YEAR(classifica_global.data_nascita) BETWEEN :anno_min AND :anno_max
+				AND classifica_global.sesso=:sesso
+				ORDER BY punteggio DESC, cognome';
 
-	   $query = $this->db->prepare($sql);
-	   $parameters = array(':anno_min' => $anno_min,
-												 ':anno_max' => $anno_max,
-												 ':sesso' => $sesso);
+		$query = $this->db->prepare($sql);
+		$parameters = array(':anno_min' => $anno_min,
+							':anno_max' => $anno_max,
+							':sesso' => $sesso);
 
-	   $query->execute($parameters);
-	   return $query->fetchAll();
+		$query->execute($parameters);
+		return $query->fetchAll();
 	}
 
 	/**
@@ -108,15 +108,15 @@ class Model
 	 */
 	public function addPunteggio($casacca, $punteggio)
 	{
-	  $sql = 'UPDATE atleta
-			  SET punteggio=:punteggio
-			  WHERE casacca=:casacca';
+		$sql = 'UPDATE atleta
+				SET punteggio=:punteggio
+				WHERE casacca=:casacca';
 
-	  $query = $this->db->prepare($sql);
-	  $parameters = array(':punteggio' => $punteggio,
-						  ':casacca' => $casacca);
+		$query = $this->db->prepare($sql);
+		$parameters = array(':punteggio' => $punteggio,
+							':casacca' => $casacca);
 
-	  $query->execute($parameters);
+		$query->execute($parameters);
 	}
 
 	/**
@@ -230,7 +230,6 @@ class Model
 	*/
 	public function getTentativoAtleta($casacca, $boulder)
 	{
-		// DOMANDA: nella tabella atleta_boulder il n_tentativi è il numero di tentativi già usati, no? Se è cosi, il n_tentativi passati alla vista deve essere incrementato di 1, così come fa adesso
 		$sql = "SELECT n_tentativi as tentativi
 				FROM atleta_boulder
 				WHERE atleta_boulder.id_atleta=(SELECT id FROM atleta WHERE casacca=:casacca)
@@ -255,7 +254,6 @@ class Model
 	*/
 	public function getEsitoAtleta($casacca, $boulder)
 	{
-		// DOMANDA: nella tabella atleta_boulder il n_tentativi è il numero di tentativi già usati, no? Se è cosi, il n_tentativi passati alla vista deve essere incrementato di 1, così come fa adesso
 		$sql = "SELECT passato
 				FROM atleta_boulder
 				WHERE atleta_boulder.id_atleta=(SELECT id FROM atleta WHERE casacca=:casacca)
