@@ -161,3 +161,28 @@ FROM atleta, scuola
 WHERE scuola.id = atleta.id_scuola AND atleta.sesso = 'M' 
 AND (YEAR(CURDATE())-YEAR(atleta.data_nascita)>16 AND YEAR(CURDATE())-YEAR(atleta.data_nascita)<=19);
 
+
+//query per la creazione dei numeri di pettorine
+
+CREATE TABLE pettorine AS 
+(
+	SELECT atleta.nome as Nome, atleta.cognome as Cognome, atleta.sesso as Sesso, 
+	atleta.data_nascita as 'Data di nascita',scuola.nome_scuola as Scuola, atleta.id as 'id_origi' 
+	FROM atleta, scuola WHERE scuola.id = atleta.id_scuola ORDER BY scuola.nome_scuola
+);
+
+ALTER TABLE pettorine ADD id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY FIRST, 
+AUTO_INCREMENT = 1;
+
+DROP TABLE atleta;
+
+ALTER TABLE pettorine RENAME atleta;
+
+UPDATE atleta JOIN pettorine 
+	ON atleta.id = pettorine.id_origi
+SET atleta.casacca = pettorine.id
+
+select atleta.casacca, atleta.nome, atleta.cognome,atleta.data_nascita,atleta.sesso,scuola.nome_scuola
+FROM atleta,scuola WHERE atleta.id_scuola = scuola.id ORDER by atleta.casacca
+
+
