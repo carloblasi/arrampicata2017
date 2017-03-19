@@ -7,7 +7,7 @@ label {
 }
 
 body {
-    background-color: #FEFDFC;
+	background-color: #FEFDFC;
 }
 
 a {
@@ -67,37 +67,37 @@ input[type="radio"]:checked + label {
 #npas:checked + label {
 
 	-khtml-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
-    -webkit-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
-    -moz-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
-    box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
-    border-color: #000\9;
+	-webkit-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
+	-moz-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
+	box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
+	border-color: #000\9;
 }
 
 #npas:active + label {
 	
 	-khtml-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
-    -webkit-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
-    -moz-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
-    box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
-    border-color: #000\9;
+	-webkit-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
+	-moz-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
+	box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
+	border-color: #000\9;
 }
 
 #pas:checked + label {
 
 	-khtml-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
-    -webkit-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
-    -moz-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
-    box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
-    border-color: #000\9;
+	-webkit-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
+	-moz-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
+	box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
+	border-color: #000\9;
 }
 
 #pas:active + label {
 	
 	-khtml-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
-    -webkit-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
-    -moz-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
-    box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
-    border-color: #000\9;
+	-webkit-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
+	-moz-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
+	box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
+	border-color: #000\9;
 }
 
 .padding {
@@ -139,31 +139,41 @@ input[type="radio"]:checked + label {
 }*/
 
 .description {
-    
-    font-size: 4vh;
-    margin-top: 0.6vh;
-    margin-bottom: 0.6vh;
-    padding-bottom: 2px;
-    text-align: center;
-    color: #666;
-    font-weight: 800;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	
+	font-size: 4vh;
+	margin-top: 0.6vh;
+	margin-bottom: 0.6vh;
+	padding-bottom: 2px;
+	text-align: center;
+	color: #666;
+	font-weight: 800;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .description-top {
 	
 	font-size: 4vh;
-    text-align: center;
-    color: #666;
-    font-weight: 800;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	color: #666;
+	font-weight: 800;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .tentativo {
 
-	margin-top: -6vh;
-	font-size: 50vh;
+	margin-top: -3vh;
+	font-size: 42vh;
 	color: #666;
+}
+
+@media only screen and (max-device-width: 320px) {
+
+	.tentativo {
+
+		margin-top: -5vh;
+		font-size: 42vh;
+		color: #666;
+	}
 }
 
 .esito {

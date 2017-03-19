@@ -12,7 +12,7 @@
 
 	<!-- Script per scorrere all'elemento precedentemente selezionato -->
 	<!-- $('html, body').animate({
-    	scrollTop: $("#target-element").offset().top
+		scrollTop: $("#target-element").offset().top
 	}, 1000); -->
 
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
@@ -52,9 +52,8 @@
 					<div class="padding">
 						<input type="radio" id="npas" name="passato" value="0" required>
 						<label class="pure-button button-non-passato" for="npas">
-							NON PASSATO
+							<span style="font-size: 90%; margin-left: -16px; margin-right: -16px; pointer-events: none; vertical-align: 1px;">NON PASSATO</span>
 						</label>
-						<!-- <span style="font-size: 90%; margin-left: -16px; margin-right: -16px;">NON PASSATO</span> -->
 					</div>
 				</div>
 
@@ -86,8 +85,8 @@
 
 		// Per qualche motivo il link per tornare indietro lo apre in safari invece che restare nella web app, questa funzione risolve il problema
 		$("a").click(function (event) {
-    		event.preventDefault();
-    		window.location = $(this).attr("href");
+			event.preventDefault();
+			window.location = $(this).attr("href");
 		});
 
 		// Controlla che sia stato selezionato un radio button, perché Apple merda non supporta ancora l'attributo 'required'
