@@ -28,43 +28,55 @@
 <body>
 	<?php //echo 'boulder: ' . $selected_boulder . ' atleta: ' .  $selected_atleta; ?>
 
-	<div class='container-tentativo'>
-		<p class='description-top'>TENTATIVO ATTUALE</p>
-		<h1 class='tentativo'><?php echo ($tentativo + 1); ?></h1>
-	</div>
+	<!-- Ora il passato o non passato (1 o 0) sarà mandato nel vettore $_POST -->
+	<form action="<?php echo URL; ?>gara/aggiornapunteggioatleta/<?php echo $selected_atleta; ?>/<?php echo $selected_boulder; ?>/<?php echo $tentativo; ?>" method="POST">
 
-	<div class="navbar">
-		<div class="pure-g">
-
-			<div class="pure-u-1-2">
-				<div class="padding">
-					<a class="pure-button button-passato" href="<?php echo URL; ?>gara/aggiornapunteggioatleta/<?php echo $selected_atleta; ?>/<?php echo $selected_boulder; ?>/<?php echo $tentativo; ?>/1">
-						<!-- <i class="fa fa-check fa-sm"></i> -->PASSATO
-					</a>
-				</div>
-			</div>
-
-			<div class="pure-u-1-2">
-				<div class="padding">
-					<a class="pure-button button-non-passato" href="<?php echo URL; ?>gara/aggiornapunteggioatleta/<?php echo $selected_atleta; ?>/<?php echo $selected_boulder; ?>/<?php echo $tentativo; ?>/0">
-						<!-- <i class="fa fa-times fa-sm"></i> -->
-						<span style="font-size: 90%; margin-left: -16px; margin-right: -16px;">NON PASSATO</span>
-					</a>
-				</div>
-			</div>
-
-			<div class="pure-u-1">
-				<div class="padding">
-					<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
-				</div>
-			</div>
-			
-			<div class="pure-u-1">
-				<p class="description">SELEZIONA ESITO</p>
-			</div>
-
+		<div class='container-tentativo'>
+			<p class='description-top'>TENTATIVO ATTUALE</p>
+			<h1 class='tentativo'><?php echo ($tentativo + 1); ?></h1>
 		</div>
-	</div>
+
+		<div class="navbar">
+			<div class="pure-g">
+
+				<div class="pure-u-1-2">
+					<div class="padding">
+						<input type="radio" id="pas" name="passato" value="1" required>
+						<label class="pure-button button-passato" for="pas">
+							PASSATO
+						</label>
+					</div>
+				</div>
+
+				<div class="pure-u-1-2">
+					<div class="padding">
+						<input type="radio" id="npas" name="passato" value="0" required>
+						<label class="pure-button button-non-passato" for="npas">
+							NON PASSATO
+						</label>
+						<!-- <span style="font-size: 90%; margin-left: -16px; margin-right: -16px;">NON PASSATO</span> -->
+					</div>
+				</div>
+
+				<div class="pure-u-1-2">
+					<div class="padding">
+						<a class="pure-button" href="<?php echo URL; ?>gara/selezionaatleta/<?php echo $selected_boulder;?>"><i class="fa fa-chevron-left fa-sm"></i> INDIETRO</a>
+					</div>
+				</div>
+
+				<div class="pure-u-1-2">
+					<div class="padding">
+						<button type="submit" class="pure-button" name="submit_punteggio">CONFERMA <i class="fa fa-check fa-sm" aria-hidden="true"></i></button>
+					</div>
+				</div>
+				
+				<div class="pure-u-1">
+					<p class="description">SELEZIONA ESITO</p>
+				</div>
+
+			</div>
+		</div>
+	</form>
 
 	<script type="text/javascript">
 

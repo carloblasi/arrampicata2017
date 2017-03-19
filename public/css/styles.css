@@ -49,15 +49,55 @@ input[type="radio"]:checked + label {
 }
 
 .button-passato {
-
-	/*font-size: 130%;*/
 	background: #79D863;
 }
 
 .button-non-passato {
-
 	background: #F25454;
-	/*font-size: 130%;*/
+}
+
+#pas, #npas {
+	visibility: hidden;
+}
+
+#pas:checked + label, #npas:checked + label {
+	color: #F6F1ED;
+}
+
+#npas:checked + label {
+
+	-khtml-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
+    -webkit-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
+    -moz-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
+    box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
+    border-color: #000\9;
+}
+
+#npas:active + label {
+	
+	-khtml-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
+    -webkit-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
+    -moz-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
+    box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
+    border-color: #000\9;
+}
+
+#pas:checked + label {
+
+	-khtml-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
+    -webkit-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
+    -moz-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
+    box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
+    border-color: #000\9;
+}
+
+#pas:active + label {
+	
+	-khtml-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
+    -webkit-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
+    -moz-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
+    box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
+    border-color: #000\9;
 }
 
 .padding {
@@ -83,7 +123,7 @@ input[type="radio"]:checked + label {
 	margin-left: -6px;
 }
 
-.fa-chevron-right {
+.fa-chevron-right, .fa-check {
 	margin-right: -10px;
 }
 

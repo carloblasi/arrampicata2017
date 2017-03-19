@@ -91,11 +91,14 @@ class Gara extends Controller
 	 * Questo metodo aggiorna il punteggio di un atleta, questo metodo viene chiamato dalla pagina selezionapunteggio, non cambia 
 	 * pagina, inserisce il punteggio e poi reindirizza l'arbitro alla selezione dell'atleta
 	 */
-	public function aggiornaPunteggioAtleta($selected_atleta, $selected_boulder, $tentativo, $passato)
+	public function aggiornaPunteggioAtleta($selected_atleta, $selected_boulder, $tentativo)
 	{
-		$e = ($passato == 1) ? 'Y' : 'N'; // Se $passato è 1, $e 'Y', altrimenti è 'N'
-		$t = (String) ($tentativo + 1);
-		$this->model->addTentativo($selected_boulder, $selected_atleta, $t, $e);
+		if (isset($_POST['submit_punteggio']))
+		{
+			$e = ($_POST['passato'] == 1) ? 'Y' : 'N'; // Se $_POST['passato'] è 1, $e 'Y', altrimenti è 'N'
+			$t = (String) ($tentativo + 1);
+			$this->model->addTentativo($selected_boulder, $selected_atleta, $t, $e);
+		}
 
 		header('location: ' . URL . 'gara/selezionaatleta/' . $selected_boulder);
 	}	
