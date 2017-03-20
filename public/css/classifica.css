@@ -1,3 +1,8 @@
+body{
+  background-color: #FFFFFF;
+}
+
+
 .center{
    margin-bottom: 15%;
 }
@@ -5,7 +10,7 @@
 
 .center table{
     margin: auto;
-    width: 50%;
+    width: 60%;
 }
 .fixed-top{
   position: fixed;
@@ -18,4 +23,23 @@
 
 .centerText{
     text-align: center;
+}
+
+.passed{
+  color: #00A8E8;
+}
+
+.notpassed{
+  color: #00171F;
+}
+
+
+
+th {
+    background-color: #F45B69;
+    color: #FFFFFF;
+}
+
+#noborder{
+  border: none;
 }

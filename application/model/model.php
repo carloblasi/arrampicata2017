@@ -31,21 +31,21 @@ class Model
 	*/
 	public function setAllPettorine()
 	{
-		$sql = 'CREATE TABLE pettorine AS 
+		$sql = 'CREATE TABLE pettorine AS
 			(
-			SELECT atleta.nome as Nome, atleta.cognome as Cognome, atleta.sesso as Sesso, 
-			atleta.data_nascita as \'Data di nascita\',scuola.nome_scuola as Scuola, atleta.id as \'id_origi\' 
+			SELECT atleta.nome as Nome, atleta.cognome as Cognome, atleta.sesso as Sesso,
+			atleta.data_nascita as \'Data di nascita\',scuola.nome_scuola as Scuola, atleta.id as \'id_origi\'
 			FROM atleta, scuola WHERE scuola.id = atleta.id_scuola ORDER BY scuola.nome_scuola
 			)';
 		$query = $this->db->prepare($sql);
 		$query -> execute();
-		
-		$sql = 'ALTER TABLE pettorine ADD pettorina INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY FIRST, 
+
+		$sql = 'ALTER TABLE pettorine ADD pettorina INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY FIRST,
 			AUTO_INCREMENT = 1';
 		$query = $this->db->prepare($sql);
 		$query -> execute();
 
-		$sql = "UPDATE atleta JOIN pettorine 
+		$sql = "UPDATE atleta JOIN pettorine
 				ON atleta.id = pettorine.id_origi
 				SET atleta.casacca = pettorine.pettorina";
 		$query = $this->db->prepare($sql);
@@ -54,7 +54,7 @@ class Model
 		$sql = "DROP TABLE pettorine";
 		$query = $this->db->prepare($sql);
 		$query -> execute();
-		
+
 	}
 
 	/**
@@ -119,10 +119,12 @@ class Model
 	{
 		$sql = 'SET @rank=0';
 		$query = $this->db->query($sql);
-		$sql = 'SELECT @rank:=@rank+1 AS posizione, classifica_global.cognome as cognome, classifica_global.nome as nome, classifica_global.punteggio
-				FROM classifica_global
-				WHERE YEAR(classifica_global.data_nascita) BETWEEN :anno_min AND :anno_max
-				AND classifica_global.sesso=:sesso
+		$sql = 'SELECT @rank:=@rank+1 AS posizione, classifica_pivot.cognome as cognome, classifica_pivot.nome as nome, classifica_pivot.punteggio,classifica_pivot.1,
+				classifica_pivot.2,classifica_pivot.3,classifica_pivot.4,classifica_pivot.5,classifica_pivot.6,classifica_pivot.7,classifica_pivot.8,classifica_pivot.9,
+				classifica_pivot.10
+				FROM classifica_pivot
+				WHERE YEAR(classifica_pivot.data_nascita) BETWEEN :anno_min AND :anno_max
+				AND classifica_pivot.sesso=:sesso
 				ORDER BY punteggio DESC, cognome';
 
 		$query = $this->db->prepare($sql);
@@ -243,21 +245,6 @@ class Model
 	}
 
 	/**
-	 * Ritorna la classifica globale(tutti i partecipanti senza distinzioni)
-	 * Devo aggiungere parametri alla funzione per scegliere la categoria
-	 */
-	public function getClassificaGlobal()
-	{
-		$sql = 'SET @rank=0';
-		$query = $this->db->query($sql);
-		$sql = 'SELECT @rank:=@rank+1 AS posizione,
-						nome,cognome,punteggio
-						FROM classifica_global';
-		$query = $this->db->query($sql);
-		return $query->fetchAll();
-	}
-
-	/**
 	* Funzione che ritorna il numero di tentativi di un determinato atleta in un determinato boulder
 	*/
 	public function getTentativoAtleta($casacca, $boulder)
@@ -330,7 +317,7 @@ class Model
 	 */
 	public function aggiustaPunteggio($id_atleta, $n_boulder, $n_tentativi, $passato)
 	{
-		$sql = 'UPDATE atleta_boulder SET n_tentativi = :tentativi, passato = :passato  
+		$sql = 'UPDATE atleta_boulder SET n_tentativi = :tentativi, passato = :passato
 		WHERE id_atleta = :id AND id_boulder = :boulder_id';
 		$query = $this->db->prepare();
 		$parameters = array(':tentativi'=>$n_tentativi, ':passato'=>$passato,':id'=>$id_atleta,':boulder_id'=>$n_boulder);

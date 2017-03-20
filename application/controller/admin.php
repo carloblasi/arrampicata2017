@@ -79,12 +79,29 @@ class Admin extends Controller
 		{
 			echo <<<EOT
 			<tr>
-				<td>$row->posizione</td>
-				<td>$row->cognome</td>
-				<td>$row->nome</td>
-				<td>$row->punteggio</td>
-			</tr>
+				<td><strong>$row->posizione</strong></td>
+				<td><strong>$row->cognome</strong></td>
+				<td><strong>$row->nome</strong></td>
+				<td><strong>$row->punteggio</strong></td>
 EOT;
+			echo "<td>";
+			for ($i = 1; $i <= 10 ; $i++)
+			{
+				if($row->$i==1)
+					echo "<span class=\"fa-stack fa-1x\">
+  								<i class=\"fa fa-circle fa-stack-2x passed\"></i>
+  								<strong class=\"fa-stack-1x fa-inverse\">".$i."</strong>
+								</span>";
+				else
+				{
+					echo "<span class=\"fa-stack fa-1x\">
+  								<i class=\"fa fa-circle fa-stack-2x notpassed\"></i>
+  								<strong class=\"fa-stack-1x fa-inverse\">".$i."</strong>
+								</span>";
+				}
+
+			}
+			echo "</td></tr>";
 		}
 	}
 
