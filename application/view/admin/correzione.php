@@ -1,9 +1,9 @@
 	<div class="contenitore-ultimo">
-		<form class="pure-form pure-form-aligned" action="" method="POST">
+		<form class="pure-form pure-form-aligned" action="<?php echo URL; ?>admin/correzione" method="POST">
 			<fieldset>
 				<div class="pure-control-group">
 					<label for="boulder">Boulder</label>
-					<select name="id-boulder">
+					<select name="id_boulder">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -17,16 +17,16 @@
 					</select>
 				</div>
 				<div class="pure-control-group">
-					<label for="n-pettorina">Numero di pettorina</label>
-					<select name="numero-pettorina">
+					<label for="n_pettorina">Numero di pettorina</label>
+					<select name="numero_pettorina">
 						<?php foreach ($prova as $lista) : ?>
 						<option value="<?php echo $lista->casacca; ?>"> <?php echo $lista->casacca; ?> </option>
 					<?php endforeach; ?>
 					</select>
 				</div>
 				<div class="pure-control-group">
-					<label for="n-tentativi">Numero di tentativi</label>
-					<select name="n-tentativi">
+					<label for="n_tentativi">Numero di tentativi</label>
+					<select name="n_tentativi">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -35,7 +35,7 @@
 					</select>
 				</div>
 				<div class="pure-control-group">
-					<label for="data_nascita">E' passato?</label>
+					<label for="passato">E' passato?</label>
 					<select name="passato">
 						<option value="Y">Si</option>
 						<option value="N">No</option>
