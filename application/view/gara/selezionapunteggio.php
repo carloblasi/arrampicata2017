@@ -43,7 +43,7 @@
 					<div class="padding">
 						<input type="radio" id="pas" name="passato" value="1" required>
 						<label class="pure-button button-passato" for="pas">
-							PASSATO
+							<span style="font-size: 90%; margin-left: -16px; margin-right: -16px; pointer-events: none; vertical-align: 1px;">PASSATO</span>
 						</label>
 					</div>
 				</div>
@@ -65,7 +65,9 @@
 
 				<div class="pure-u-1-2">
 					<div class="padding">
-						<button type="submit" class="pure-button" name="submit_punteggio">CONFERMA <i class="fa fa-check fa-sm" aria-hidden="true"></i></button>
+						<button type="submit" class="pure-button" name="submit_punteggio">
+							<span class="fa-check-span">CONFERMA </span><i class="fa fa-check fa-sm" aria-hidden="true"></i>
+						</button>
 					</div>
 				</div>
 				

@@ -66,39 +66,37 @@ input[type="radio"]:checked + label {
 
 #npas:checked + label {
 
-	-khtml-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
-	-webkit-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
-	-moz-box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;
-	/*box-shadow: 0px 0px 40px 2px rgb(132, 46, 46) inset;*/
-	box-shadow: 0px 0px 40px 2px #662323 inset;
+	-khtml-box-shadow: 0px 0px 40px 2px #702727 inset;
+	-webkit-box-shadow: 0px 0px 40px 2px #702727 inset;
+	-moz-box-shadow: 0px 0px 40px 2px #702727 inset;
+	box-shadow: 0px 0px 40px 2px #702727 inset;
 	border-color: #000\9;
 }
 
 #npas:active + label {
 
-	-khtml-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
-	-webkit-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
-	-moz-box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;
-	/*box-shadow: 0px 0px 40px 2px rgb(110, 40, 40) inset;*/
-	box-shadow: 0px 0px 40px 2px #4F1C1C inset;
+	-khtml-box-shadow: 0px 0px 40px 2px #592020 inset;
+	-webkit-box-shadow: 0px 0px 40px 2px #592020 inset;
+	-moz-box-shadow: 0px 0px 40px 2px #592020 inset;
+	box-shadow: 0px 0px 40px 2px #592020 inset;
 	border-color: #000\9;
 }
 
 #pas:checked + label {
 
-	-khtml-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
-	-webkit-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
-	-moz-box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
-	box-shadow: 0px 0px 40px 2px rgb(66, 118, 54) inset;
+	-khtml-box-shadow: 0px 0px 40px 2px #36602C inset;
+	-webkit-box-shadow: 0px 0px 40px 2px #36602C inset;
+	-moz-box-shadow: 0px 0px 40px 2px #36602C inset;
+	box-shadow: 0px 0px 40px 2px #36602C inset;
 	border-color: #000\9;
 }
 
 #pas:active + label {
 	
-	-khtml-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
-	-webkit-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
-	-moz-box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
-	box-shadow: 0px 0px 40px 2px rgb(56, 100, 44) inset;
+	-khtml-box-shadow: 0px 0px 40px 2px #2C4F22 inset;
+	-webkit-box-shadow: 0px 0px 40px 2px #2C4F22 inset;
+	-moz-box-shadow: 0px 0px 40px 2px #2C4F22 inset;
+	box-shadow: 0px 0px 40px 2px #2C4F22 inset;
 	border-color: #000\9;
 }
 
@@ -125,16 +123,21 @@ input[type="radio"]:checked + label {
 	margin-left: -6px;
 }
 
-.fa-chevron-right, .fa-check {
+.fa-chevron-right {
 	margin-right: -10px;
 }
 
-/*.fa-check {
-
-	margin-left: -10px;
-	margin-right: -0px;
+.fa-check {
+	margin-left: -4px;
+	margin-right: -18px;
 }
 
+.fa-check-span {
+	font-size: 96%;
+	margin-left: -17px;
+}
+
+/*
 .fa-times {
 	margin-left: -12px;
 	margin-right: 
