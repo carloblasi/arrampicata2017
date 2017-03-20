@@ -26,6 +26,19 @@ class Model
 		return $query->fetchAll();
 	}
 
+
+	/**
+	* Permette di avere un elenco di tutti i partecipant con le loro pettorine
+	*/
+	public function getElencoPettorine()
+	{
+		$sql = 'SELECT atleta.casacca, atleta.nome, atleta.cognome, scuola.nome_scuola 
+				FROM atleta, scuola WHERE atleta.id_scuola = scuola.id ORDER BY atleta.casacca';
+		$query = $this->db->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+	}
+
 	/**
 	* Permette l'assegnamento delle pettorine ad ogni atleta presente
 	*/

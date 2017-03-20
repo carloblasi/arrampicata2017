@@ -128,8 +128,9 @@ EOT;
 	 */
 	public function generaPettorine()
 	{
+		$lista_pettorine = $this->model->getElencoPettorine();
 		require APP . 'view/admin/menu.php';
-		require APP . 'view/admin/generapettorine.php';
+		require APP . 'view/admin/pettorine.php';
 	}
 
 	/**
@@ -156,7 +157,7 @@ EOT;
 	*/
 	public function prova()
 	{
-		require APP . 'view/admin/generaelenco.php';
+		require APP . 'view/admin/generaElenco.php';
 	}
 
 	/**
