@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 16, 2017 alle 19:42
+-- Creato il: Mar 20, 2017 alle 09:20
 -- Versione del server: 10.1.16-MariaDB
 -- Versione PHP: 7.0.9
 
@@ -33,84 +33,83 @@ CREATE TABLE `atleta` (
   `data_nascita` date NOT NULL,
   `sesso` enum('M','F') NOT NULL,
   `id_scuola` int(10) UNSIGNED DEFAULT NULL,
-  `casacca` int(10) UNSIGNED NOT NULL,
-  `punteggio` float UNSIGNED NOT NULL
+  `casacca` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `atleta`
 --
 
-INSERT INTO `atleta` (`id`, `nome`, `cognome`, `data_nascita`, `sesso`, `id_scuola`, `casacca`, `punteggio`) VALUES
-(1, 'Jacopo', 'Mutti', '2000-07-29', 'M', 1, 1, 0),
-(2, 'Nicola', 'Jacotti', '2000-11-30', 'M', 1, 2, 0),
-(3, 'Jacopo', 'Gatta', '1999-03-02', 'M', 1, 3, 0),
-(4, 'Andrea', 'Malandra', '1999-11-09', 'M', 1, 4, 0),
-(5, 'Davide', 'Tracino', '2000-09-06', 'M', 1, 5, 0),
-(6, 'Tommaso', 'Meccia', '1996-08-02', 'M', 1, 6, 0),
-(7, 'Matteo', 'Marcolini', '1998-02-27', 'M', 1, 7, 0),
-(8, 'Giovanni', 'Buizza', '1997-07-22', 'M', 1, 8, 0),
-(9, 'Andrea', 'Soave', '1998-04-01', 'M', 1, 9, 0),
-(10, 'Giuditta', 'De Lorenzi', '2000-04-08', 'M', 1, 10, 0),
-(11, 'Greta', 'Baroni', '2001-11-08', 'M', 1, 11, 0),
-(12, 'Ester', 'Rubiano', '2001-08-26', 'M', 1, 12, 0),
-(13, 'Martina', 'Piccaroletti', '1997-03-22', 'M', 1, 13, 0),
-(14, 'Silvia', 'Giovita', '1997-12-31', 'M', 1, 14, 0),
-(15, 'Elena', 'Migliorati', '1996-02-06', 'M', 1, 15, 0),
-(16, 'Francesca', 'Carinando', '1997-07-02', 'M', 1, 16, 0),
-(17, 'Elena', 'Brognoli', '1997-09-25', 'M', 1, 17, 0),
-(18, 'Sara', 'Antonelli', '1996-11-12', 'M', 1, 18, 0),
-(19, 'Alice', 'Luterotti', '1997-04-11', 'M', 1, 19, 0),
-(20, 'Fabio', 'Parolari', '1999-06-10', 'M', 2, 20, 0),
-(21, 'Marco', 'Forno', '2000-01-05', 'M', 2, 21, 0),
-(22, 'Michele', 'Borzaga', '1999-07-05', 'M', 2, 22, 0),
-(23, 'Luca', 'Baitelli', '1999-02-02', 'M', 2, 23, 0),
-(24, 'Jury', 'Boninchi', '1998-05-29', 'M', 2, 24, 0),
-(25, 'Daniele', 'Lo Russo', '1997-05-06', 'M', 2, 25, 0),
-(26, 'Matteo', 'Morandini', '1998-08-04', 'M', 2, 26, 0),
-(27, 'Matteo', 'Silini', '1997-01-01', 'M', 2, 27, 0),
-(28, 'Marco', 'Toselli', '1997-12-18', 'M', 2, 28, 0),
-(29, 'Paola', 'Sacchetto', '1999-05-05', 'M', 2, 29, 0),
-(30, 'Marianna', 'Mondini', '1999-06-12', 'M', 2, 30, 0),
-(31, 'Matteo', 'Cenini', '2000-07-08', 'M', 2, 31, 0),
-(32, 'William', 'Cretti', '2001-01-01', 'M', 2, 32, 0),
-(33, 'Miriam', 'Bozzi', '1998-01-06', 'M', 2, 33, 0),
-(34, 'Federico', 'Agostini', '2001-05-23', 'M', 3, 34, 0),
-(35, 'Andrea', 'Spadacini', '2000-10-16', 'M', 3, 35, 0),
-(36, 'Franco', 'Sacristani', '2000-06-27', 'M', 3, 36, 0),
-(37, 'Matteo', 'Gregorini', '1997-01-10', 'M', 3, 37, 0),
-(38, 'Giovanni', 'Gheza', '1997-05-07', 'M', 3, 38, 0),
-(39, 'Angela', 'Pedretti', '1999-07-09', 'M', 3, 39, 0),
-(40, 'Francesca', 'Pedretti', '1999-07-09', 'M', 3, 40, 0),
-(41, 'Giulia', 'Grazioli', '2000-03-18', 'M', 3, 41, 0),
-(42, 'Lorenzo', 'Moreschi', '2000-02-28', 'M', 4, 42, 0),
-(43, 'Michele', 'Tagliani', '2001-03-28', 'M', 4, 43, 0),
-(44, 'Giulian', 'Signorini', '2001-03-12', 'M', 4, 44, 0),
-(45, 'Stefano', 'Belleri', '1998-05-18', 'M', 4, 45, 0),
-(46, 'Nicolò', 'Ciusani', '1998-05-05', 'M', 4, 46, 0),
-(47, 'Andrea', 'Zanetti', '1998-11-24', 'M', 4, 47, 0),
-(48, 'Paolo', 'Ribola', '1998-12-09', 'M', 4, 48, 0),
-(49, 'Luca', 'Rosa', '1997-03-04', 'M', 4, 49, 0),
-(50, 'Carola', 'Calabrese', '2001-11-13', 'M', 5, 50, 0),
-(51, 'Sara', 'Morandini', '2001-04-02', 'M', 5, 51, 0),
-(52, 'Gaia', 'Abeni', '2001-05-08', 'M', 5, 52, 0),
-(53, 'Andrea', 'Dallolio', '2001-01-08', 'M', 6, 53, 0),
-(54, 'Giorgio', 'Isoli', '2001-02-12', 'M', 6, 54, 0),
-(55, 'Nicolò', 'Poffa', '2001-10-03', 'M', 6, 55, 0),
-(56, 'Elena', 'Amaglio', '2000-06-02', 'M', 6, 56, 0),
-(57, 'Giovanna', 'Mori', '1999-03-04', 'M', 6, 57, 0),
-(58, 'Giada', 'Poma', '2000-12-10', 'M', 6, 58, 0),
-(59, 'Lorenzo', 'Pelizzari', '1997-11-29', 'M', 6, 59, 0),
-(60, 'Gianluca', 'Virgenti', '1997-01-03', 'M', 6, 60, 0),
-(61, 'Lorenzo', 'Borghini', '1997-04-21', 'M', 6, 61, 0),
-(62, 'Silvia', 'Arici', '1997-04-13', 'M', 6, 62, 0),
-(63, 'Elmelissa', 'Velaj', '1998-09-21', 'M', 6, 63, 0),
-(64, 'Giulio', 'Peloso', '2000-01-01', 'M', 7, 65, 0),
-(65, 'Leonardo', 'Sabbadini', '2000-04-01', 'M', 7, 66, 0),
-(66, 'Nicola', 'Scotti', '2000-04-01', 'M', 7, 67, 0),
-(67, 'Alessandro', 'Pasqualini', '1998-04-04', 'M', 7, 68, 0),
-(68, 'Gabriele', 'Taboni', '1998-04-10', 'M', 7, 69, 0),
-(69, 'Manuel', 'Pe', '1998-04-04', 'M', 7, 70, 0);
+INSERT INTO `atleta` (`id`, `nome`, `cognome`, `data_nascita`, `sesso`, `id_scuola`, `casacca`) VALUES
+(1, 'Jacopo', 'Mutti', '2000-07-29', 'M', 1, 1),
+(2, 'Nicola', 'Jacotti', '2000-11-30', 'M', 1, 2),
+(3, 'Jacopo', 'Gatta', '1999-03-02', 'M', 1, 3),
+(4, 'Andrea', 'Malandra', '1999-11-09', 'M', 1, 4),
+(5, 'Davide', 'Tracino', '2000-09-06', 'M', 1, 5),
+(6, 'Tommaso', 'Meccia', '1996-08-02', 'M', 1, 6),
+(7, 'Matteo', 'Marcolini', '1998-02-27', 'M', 1, 7),
+(8, 'Giovanni', 'Buizza', '1997-07-22', 'M', 1, 8),
+(9, 'Andrea', 'Soave', '1998-04-01', 'M', 1, 9),
+(10, 'Giuditta', 'De Lorenzi', '2000-04-08', 'F', 1, 10),
+(11, 'Greta', 'Baroni', '2001-11-08', 'F', 1, 11),
+(12, 'Ester', 'Rubiano', '2001-08-26', 'F', 1, 12),
+(13, 'Martina', 'Piccaroletti', '1997-03-22', 'F', 1, 13),
+(14, 'Silvia', 'Giovita', '1997-12-31', 'F', 1, 14),
+(15, 'Elena', 'Migliorati', '1996-02-06', 'F', 1, 15),
+(16, 'Francesca', 'Carinando', '1997-07-02', 'F', 1, 16),
+(17, 'Elena', 'Brognoli', '1997-09-25', 'F', 1, 17),
+(18, 'Sara', 'Antonelli', '1996-11-12', 'F', 1, 18),
+(19, 'Alice', 'Luterotti', '1997-04-11', 'F', 1, 19),
+(20, 'Fabio', 'Parolari', '1999-06-10', 'M', 2, 20),
+(21, 'Marco', 'Forno', '2000-01-05', 'M', 2, 21),
+(22, 'Michele', 'Borzaga', '1999-07-05', 'M', 2, 22),
+(23, 'Luca', 'Baitelli', '1999-02-02', 'M', 2, 23),
+(24, 'Jury', 'Boninchi', '1998-05-29', 'M', 2, 24),
+(25, 'Daniele', 'Lo Russo', '1997-05-06', 'M', 2, 25),
+(26, 'Matteo', 'Morandini', '1998-08-04', 'M', 2, 26),
+(27, 'Matteo', 'Silini', '1997-01-01', 'M', 2, 27),
+(28, 'Marco', 'Toselli', '1997-12-18', 'M', 2, 28),
+(29, 'Paola', 'Sacchetto', '1999-05-05', 'F', 2, 29),
+(30, 'Marianna', 'Mondini', '1999-06-12', 'F', 2, 30),
+(31, 'Matteo', 'Cenini', '2000-07-08', 'M', 2, 31),
+(32, 'William', 'Cretti', '2001-01-01', 'M', 2, 32),
+(33, 'Miriam', 'Bozzi', '1998-01-06', 'F', 2, 33),
+(34, 'Federico', 'Agostini', '2001-05-23', 'M', 3, 34),
+(35, 'Andrea', 'Spadacini', '2000-10-16', 'M', 3, 35),
+(36, 'Franco', 'Sacristani', '2000-06-27', 'M', 3, 36),
+(37, 'Matteo', 'Gregorini', '1997-01-10', 'M', 3, 37),
+(38, 'Giovanni', 'Gheza', '1997-05-07', 'M', 3, 38),
+(39, 'Angela', 'Pedretti', '1999-07-09', 'M', 3, 39),
+(40, 'Francesca', 'Pedretti', '1999-07-09', 'M', 3, 40),
+(41, 'Giulia', 'Grazioli', '2000-03-18', 'F', 3, 41),
+(42, 'Lorenzo', 'Moreschi', '2000-02-28', 'M', 4, 42),
+(43, 'Michele', 'Tagliani', '2001-03-28', 'M', 4, 43),
+(44, 'Giulian', 'Signorini', '2001-03-12', 'M', 4, 44),
+(45, 'Stefano', 'Belleri', '1998-05-18', 'M', 4, 45),
+(46, 'Nicolò', 'Ciusani', '1998-05-05', 'M', 4, 46),
+(47, 'Andrea', 'Zanetti', '1998-11-24', 'M', 4, 47),
+(48, 'Paolo', 'Ribola', '1998-12-09', 'M', 4, 48),
+(49, 'Luca', 'Rosa', '1997-03-04', 'M', 4, 49),
+(50, 'Carola', 'Calabrese', '2001-11-13', 'F', 5, 50),
+(51, 'Sara', 'Morandini', '2001-04-02', 'F', 5, 51),
+(52, 'Gaia', 'Abeni', '2001-05-08', 'F', 5, 52),
+(53, 'Andrea', 'Dallolio', '2001-01-08', 'M', 6, 53),
+(54, 'Giorgio', 'Isoli', '2001-02-12', 'M', 6, 54),
+(55, 'Nicolò', 'Poffa', '2001-10-03', 'M', 6, 55),
+(56, 'Elena', 'Amaglio', '2000-06-02', 'F', 6, 56),
+(57, 'Giovanna', 'Mori', '1999-03-04', 'F', 6, 57),
+(58, 'Giada', 'Poma', '2000-12-10', 'F', 6, 58),
+(59, 'Lorenzo', 'Pelizzari', '1997-11-29', 'M', 6, 59),
+(60, 'Gianluca', 'Virgenti', '1997-01-03', 'M', 6, 60),
+(61, 'Lorenzo', 'Borghini', '1997-04-21', 'M', 6, 61),
+(62, 'Silvia', 'Arici', '1997-04-13', 'F', 6, 62),
+(63, 'Elmelissa', 'Velaj', '1998-09-21', 'F', 6, 63),
+(64, 'Giulio', 'Peloso', '2000-01-01', 'M', 7, 65),
+(65, 'Leonardo', 'Sabbadini', '2000-04-01', 'M', 7, 66),
+(66, 'Nicola', 'Scotti', '2000-04-01', 'M', 7, 67),
+(67, 'Alessandro', 'Pasqualini', '1998-04-04', 'M', 7, 68),
+(68, 'Gabriele', 'Taboni', '1998-04-10', 'M', 7, 69),
+(69, 'Manuel', 'Pe', '1998-04-04', 'M', 7, 70);
 
 -- --------------------------------------------------------
 
@@ -866,11 +865,12 @@ INSERT INTO `boulder` (`id`, `nome`) VALUES
 -- Struttura stand-in per le viste `classifica_global`
 --
 CREATE TABLE `classifica_global` (
-`pettorina` int(10) unsigned
-,`nome` varchar(60)
+`nome` varchar(60)
 ,`cognome` varchar(60)
-,`anno` int(4)
-,`punteggio` decimal(33,8)
+,`data_nascita` date
+,`sesso` enum('M','F')
+,`pettorina` int(10) unsigned
+,`punteggio` decimal(28,2)
 );
 
 -- --------------------------------------------------------
@@ -926,7 +926,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `classifica_global`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `classifica_global`  AS  select `atleta`.`casacca` AS `pettorina`,`atleta`.`nome` AS `nome`,`atleta`.`cognome` AS `cognome`,year(`atleta`.`data_nascita`) AS `anno`,sum(`atleta_boulder_punteggio`.`punteggio`) AS `punteggio` from (`atleta_boulder_punteggio` join `atleta`) where (`atleta_boulder_punteggio`.`atletaID` = `atleta`.`id`) group by `atleta_boulder_punteggio`.`atletaID` order by sum(`atleta_boulder_punteggio`.`punteggio`) desc ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `classifica_global`  AS  select `atleta`.`nome` AS `nome`,`atleta`.`cognome` AS `cognome`,`atleta`.`data_nascita` AS `data_nascita`,`atleta`.`sesso` AS `sesso`,`atleta`.`casacca` AS `pettorina`,round(sum(`atleta_boulder_punteggio`.`punteggio`),2) AS `punteggio` from (`atleta_boulder_punteggio` join `atleta`) where (`atleta_boulder_punteggio`.`atletaID` = `atleta`.`id`) group by `atleta_boulder_punteggio`.`atletaID` order by sum(`atleta_boulder_punteggio`.`punteggio`) desc ;
 
 -- --------------------------------------------------------
 
@@ -935,7 +935,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `valboulders`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `valboulders`  AS  select `boulder`.`nome` AS `boulder`,sum((case when (`atleta_boulder`.`passato` = 'Y') then 1 else 0 end)) AS `atleti_passati`,(100 / sum((case when (`atleta_boulder`.`passato` = 'Y') then 1 else 0 end))) AS `valboulder` from (`atleta_boulder` join `boulder`) where (`atleta_boulder`.`id_boulder` = `boulder`.`id`) group by `boulder`.`nome` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `valboulders`  AS  select `boulder`.`nome` AS `boulder`,sum((case when (`atleta_boulder`.`passato` = 'Y') then 1 else 0 end)) AS `atleti_passati`,(100 / sum((case when (`atleta_boulder`.`passato` = 'Y') then 1 else 0 end))) AS `valboulder` from ((`atleta_boulder` join `boulder`) join `atleta`) where ((`atleta_boulder`.`id_boulder` = `boulder`.`id`) and (`atleta_boulder`.`id_atleta` = `atleta`.`id`) and (year(`atleta`.`data_nascita`) >= 1997)) group by `boulder`.`id` ;
 
 --
 -- Indici per le tabelle scaricate
@@ -975,7 +975,7 @@ ALTER TABLE `scuola`
 -- AUTO_INCREMENT per la tabella `atleta`
 --
 ALTER TABLE `atleta`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT per la tabella `boulder`
 --
