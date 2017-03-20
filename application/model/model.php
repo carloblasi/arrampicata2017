@@ -185,6 +185,29 @@ class Model
 		$query->execute($parameters);
 	}
 
+
+	/**
+	* Funzione che aggiusta il tentativo
+	*/
+	public function aggiustaTentativo($id_boulder, $casacca, $tentativo, $passato)
+	{	
+		/*
+		$sql = 'UPDATE atleta_boulder SET n_tentativi = :tentativi, passato = :passato
+				WHERE ';
+		*/
+		$sql = 'SELECT id FROM atleta where casacca = :casacca';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':casacca'=>$casacca);
+		$query->execute($parameters);
+		$result = $query->fetchAll();
+		$sql = 'UPDATE atleta_boulder SET n_tentativi = :tentativi, passato = :passato
+				WHERE id_atleta = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':tentativi'=>$tentativo, ':passato'=>$passato,':id'=>$result);
+		$query->execute($sql);
+
+	}
+
 	/**
 	 * Associa una casacca ad un dato id
 	 */
