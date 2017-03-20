@@ -174,10 +174,6 @@ CREATE TABLE pettorine AS
 ALTER TABLE pettorine ADD id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY FIRST, 
 AUTO_INCREMENT = 1;
 
-DROP TABLE atleta;
-
-ALTER TABLE pettorine RENAME atleta;
-
 UPDATE atleta JOIN pettorine 
 	ON atleta.id = pettorine.id_origi
 SET atleta.casacca = pettorine.id
