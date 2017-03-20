@@ -9,9 +9,14 @@
 	<title>Classifica</title>
 </head>
 <body>
-	<div class="fixed">
-		<button onclick="pageScroll()">start</button>
-		<button onclick="pageScrollStop()">stop</button>
+	<div class="fixed-top">
+		<div class="pure-button-group" role="group" aria-label="...">
+			<button class="pure-button" onclick="pageScrollStop()"><i class="fa fa-backward" aria-hidden="true"></i></button>
+			<button class="pure-button" onclick="pageScroll()"><i class="fa fa-forward" aria-hidden="true"></i></button>
+		</div>
+	</div>
+	<div class="fixed-bottom">
+		<a class="pure-button" href="<?php echo URL; ?>admin/aggiungistudente"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 	</div>
 
 	</div>
@@ -79,9 +84,6 @@
 					</thead>
 					<tbody  id="content4"></tbody>
 				</table>
-	</div>
-	<div >
-		patata
 	</div>
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.stickytableheaders.min.js"></script>
