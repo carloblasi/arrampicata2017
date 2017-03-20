@@ -11,12 +11,12 @@
 <body>
 	<div class="fixed-top">
 		<div class="pure-button-group" role="group" aria-label="...">
-			<button class="pure-button" onclick="pageScrollStop()"><i class="fa fa-backward" aria-hidden="true"></i></button>
-			<button class="pure-button" onclick="pageScroll()"><i class="fa fa-forward" aria-hidden="true"></i></button>
+			<button class="pure-button" onclick="pageScrollStop()"><i class="fa fa-backward fa-2x" aria-hidden="true"></i></button>
+			<button class="pure-button" onclick="pageScroll()"><i class="fa fa-forward fa-2x" aria-hidden="true"></i></button>
 		</div>
 	</div>
 	<div class="fixed-bottom">
-		<a class="pure-button" href="<?php echo URL; ?>admin/aggiungistudente"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+		<a class="pure-button" href="<?php echo URL; ?>admin/aggiungistudente"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
 	</div>
 
 	</div>
