@@ -40,14 +40,14 @@ class Model
 		$query = $this->db->prepare($sql);
 		$query -> execute();
 		
-		$sql = 'ALTER TABLE pettorine ADD id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY FIRST, 
+		$sql = 'ALTER TABLE pettorine ADD pettorina INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY FIRST, 
 			AUTO_INCREMENT = 1';
 		$query = $this->db->prepare($sql);
 		$query -> execute();
 
 		$sql = "UPDATE atleta JOIN pettorine 
 				ON atleta.id = pettorine.id_origi
-				SET atleta.casacca = pettorine.id";
+				SET atleta.casacca = pettorine.pettorina";
 		$query = $this->db->prepare($sql);
 		$query -> execute();
 
