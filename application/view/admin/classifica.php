@@ -94,14 +94,22 @@
 		var scrolldelay;
 		function pageScroll()
 		{
-		window.scrollBy(0,2);
-		scrolldelay = setTimeout('pageScroll()',45);
+		window.scrollBy(0,1);
+		scrolldelay = setTimeout('pageScroll()',15);
 		}
 
 		function pageScrollStop()
 		{
 		clearTimeout(scrolldelay);
 		}
+	</script>
+
+	<script>
+		$(window).scroll(function() {
+			if($(window).scrollTop() + $(window).height() > $(document).height()-5) {
+				 window.scrollTo(0, 0);
+		 }
+		});
 	</script>
 
 	<script>
@@ -116,7 +124,7 @@
 		$(document).ready(function(){
 			refreshData();
 		});
-		
+
 		// Execute every n seconds
 		window.setInterval(refreshData, 5000);
 	</script>

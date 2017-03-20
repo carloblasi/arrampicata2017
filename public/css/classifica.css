@@ -1,8 +1,11 @@
+.center{
+   margin-bottom: 15%;
+}
+
 .center table{
     margin: auto;
     width: 50%;
 }
-
 .fixed{
   position: fixed;
 }
