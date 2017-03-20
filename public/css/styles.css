@@ -123,16 +123,21 @@ input[type="radio"]:checked + label {
 	margin-left: -6px;
 }
 
-.fa-chevron-right, .fa-check {
+.fa-chevron-right {
 	margin-right: -10px;
 }
 
-/*.fa-check {
-
-	margin-left: -10px;
-	margin-right: -0px;
+.fa-check {
+	margin-left: -4px;
+	margin-right: -18px;
 }
 
+.fa-check-span {
+	font-size: 96%;
+	margin-left: -17px;
+}
+
+/*
 .fa-times {
 	margin-left: -12px;
 	margin-right: 
