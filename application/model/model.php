@@ -115,13 +115,13 @@ class Model
 	 * Ritorna classifica dato un certo sesso e range di anni
 	 * da sostituire con getClassificaGlobal una volta fintia
 	 */
-	public function getClassifica($anno_min, $anno_max, $sesso)
+	public function getClassificaPivot($anno_min, $anno_max, $sesso)
 	{
 		$sql = 'SET @rank=0';
 		$query = $this->db->query($sql);
 		$sql = 'SELECT @rank:=@rank+1 AS posizione, classifica_pivot.cognome as cognome, classifica_pivot.nome as nome, classifica_pivot.punteggio,classifica_pivot.1,
 				classifica_pivot.2,classifica_pivot.3,classifica_pivot.4,classifica_pivot.5,classifica_pivot.6,classifica_pivot.7,classifica_pivot.8,classifica_pivot.9,
-				classifica_pivot.10
+				classifica_pivot.10,
 				FROM classifica_pivot
 				WHERE YEAR(classifica_pivot.data_nascita) BETWEEN :anno_min AND :anno_max
 				AND classifica_pivot.sesso=:sesso
@@ -135,6 +135,40 @@ class Model
 		$query->execute($parameters);
 		return $query->fetchAll();
 	}
+
+	public function getClassificaGlobal($anno_min, $anno_max,$sesso)
+	{
+		$sql = 'SET @rank=0';
+		$query = $this->db->query($sql);
+		$sql = 'SELECT @rank:=@rank+1 AS posizione,nome,cognome,scuola
+					FROM `classifica_global`
+					WHERE (YEAR(data_nascita) BETWEEN :anno_min and :anno_max) AND sesso=:sesso
+					ORDER BY punteggio DESC,cognome';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':anno_min' => $anno_min,
+												':anno_max' => $anno_max,
+												':sesso' => $sesso);
+		$query->execute($parameters);
+		return $query->fetchAll();
+
+	}
+
+	public function getIscritti($scuola,$anno_min,$anno_max,$sesso)
+	{
+		$sql='SELECT count(id) as iscritti
+					FROM atleta
+					WHERE id_scuola=:scuola
+					and YEAR(data_nascita) BETWEEN :anno_min and :anno_max and sesso=:sesso';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':scuola' => $scuola,
+												':anno_min' => $anno_min,
+												':anno_max' => $anno_max,
+												':sesso' => $sesso);
+		$query->execute($parameters);
+		$n = $query -> fetch();
+		return $n->iscritti;
+	}
+
 
 	/**
 	 * Aggiunge il punteggio a un dato atleta partendo dal numero della casacca

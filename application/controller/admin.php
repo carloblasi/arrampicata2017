@@ -47,6 +47,17 @@ class Admin extends Controller
 		require APP . 'view/admin/classifica.php';
 	}
 
+	public function classificaSquadre()
+	{
+		foreach ( $this->model->getClassificaGlobal(1999,2001,"M") as $value)
+		{
+			echo $value->posizione." ";
+			echo $value->scuola." ";
+			echo $value->nome."<br>";
+		}
+
+	}
+
 	/**
 	 * La funzione che genera una tabella html contente i dati della classifica
 	 */
@@ -159,6 +170,7 @@ EOT;
 		require APP . 'view/admin/generaelenco.php';
 	}
 
+
 	/**
 	 * -->FUNZIONE DA CHIAMARE PRIMA DELLA GARA<----
 	 * Funzione necessaria ad inizializzare la tabella atleta_boulder
@@ -166,14 +178,14 @@ EOT;
 	 * che non hanno passato alcun boulder
 	 * ATTENZIONE NON CHIAMARE LA FUNZIONE A GARA INIZIATA, PENA AZZERAMENTO DELLA CLASSIFICA
 	 */
-	private function initializeGara()
+	public function initializeGara()
 	{
 		$atleti=$this->model->getAllAtleti();
 		foreach ($atleti as $atleta)
 		{
 			for ($i=1; $i <=10 ; $i++)
 			{
-				$this->model->addTentativo($i,$atleta->casacca,1,'N');
+				$this->model->addTentativo($i,$atleta->casacca,0,'N');
 			}
 		}
 		echo "finito :)" ;
