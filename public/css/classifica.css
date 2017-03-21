@@ -35,10 +35,15 @@ th {
     background-color: rgb(66, 184, 221);
     color: #FFFFFF;
     text-align: center;
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 td {
 	text-align: center;
+}
+
+.femminile {
+	background-color: #FFBCCC;
 }
 
 #noborder{

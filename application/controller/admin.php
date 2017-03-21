@@ -102,7 +102,7 @@ class Admin extends Controller
 
 		}
 		require APP . 'view/admin/menu.php';
-		require APP . 'view/admin/classificaSquadre.php';
+		require APP . 'view/admin/classificasquadre.php';
 }
 
 	/**
@@ -222,7 +222,7 @@ EOT;
 	*/
 	public function prova()
 	{
-		require APP . 'view/admin/generaElenco.php';
+		require APP . 'view/admin/generaelenco.php';
 	}
 
 

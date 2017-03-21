@@ -22,72 +22,69 @@
 	</div>
 	<div class="center">
 
-				<table class="pure-table pure-table-horizontal">
-					<thead class="table-header">
-						<tr>
-							<th id="noborder" colspan="5" class="centerText">Allievi Maschile</th>
-						</tr>
-						<tr>
-							<th>Pos.</th>
-							<th>Cognome</th>
-							<th>Nome</th>
-							<th>Punteggio</th>
-							<th>Boulder passati</th>
-						</tr>
-					</thead>
-					<tbody  id="content1"></tbody>
-				</table>
+		<table class="pure-table pure-table-horizontal pure-table-bordered">
+			<thead class="table-header">
+				<tr>
+					<th id="noborder" colspan="5" class="centerText">Allievi Maschile</th>
+				</tr>
+				<tr>
+					<th>Pos.</th>
+					<th>Cognome</th>
+					<th>Nome</th>
+					<th>Punteggio</th>
+					<th style="width: 40%;">Boulder passati</th>
+				</tr>
+			</thead>
+			<tbody  id="content1"></tbody>
+		</table>
 
+		<table class="pure-table pure-table-horizontal pure-table-bordered">
+			<thead>
+				<tr>
+					<th id="noborder" colspan="5" class="centerText femminile">Allievi Femminile</th>
+				</tr>
+				<tr>
+					<th class="femminile">Pos.</th>
+					<th class="femminile">Cognome</th>
+					<th class="femminile">Nome</th>
+					<th class="femminile">Punteggio</th>
+					<th class="femminile">Boulder passati</th>
+				</tr>
+			</thead>
+			<tbody  id="content2"></tbody>
+		</table>
 
-				<table class="pure-table pure-table-horizontal">
-					<thead>
-						<tr>
-							<th id="noborder" colspan="5" class="centerText">Allievi Femminile</th>
-						</tr>
-						<tr>
-							<th>Pos.</th>
-							<th>Cognome</th>
-							<th>Nome</th>
-							<th>Punteggio</th>
-							<th>Boulder passati</th>
-						</tr>
-					</thead>
-					<tbody  id="content2"></tbody>
-				</table>
+		<table class="pure-table pure-table-horizontal pure-table-bordered">
+			<thead>
+				<tr>
+					<th id="noborder" colspan="5" class="centerText">Juniores Maschile</th>
+				</tr>
+				<tr>
+					<th>Pos.</th>
+					<th>Cognome</th>
+					<th>Nome</th>
+					<th>Punteggio</th>
+					<th>Boulder passati</th>
+				</tr>
+			</thead>
+			<tbody  id="content3"></tbody>
+		</table>
 
-
-				<table class="pure-table pure-table-horizontal">
-					<thead>
-						<tr>
-							<th id="noborder" colspan="5" class="centerText">Juniores Maschile</th>
-						</tr>
-						<tr>
-							<th>Pos.</th>
-							<th>Cognome</th>
-							<th>Nome</th>
-							<th>Punteggio</th>
-							<th>Boulder passati</th>
-						</tr>
-					</thead>
-					<tbody  id="content3"></tbody>
-				</table>
-
-
-				<table class="pure-table pure-table-horizontal">
-					<thead>
-						<tr>
-							<th id="noborder" colspan="5" class="centerText">Juniores Femminile</th>
-						</tr>
-						<tr>
-							<th>Pos.</th>
-							<th>Cognome</th>
-							<th>Nome</th>
-							<th>Punteggio</th>
-							<th>Boulder passati</th>
-						</tr>
-					</thead>
-					<tbody  id="content4"></tbody>
-				</table>
+		<table class="pure-table pure-table-horizontal pure-table-bordered">
+			<thead>
+				<tr>
+					<th id="noborder" colspan="5" class="centerText femminile">Juniores Femminile</th>
+				</tr>
+				<tr>
+					<th class="femminile">Pos.</th>
+					<th class="femminile">Cognome</th>
+					<th class="femminile">Nome</th>
+					<th class="femminile">Punteggio</th>
+					<th class="femminile">Boulder passati</th>
+				</tr>
+			</thead>
+			<tbody  id="content4"></tbody>
+		</table>
 	</div>
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.stickytableheaders.min.js"></script>
@@ -100,29 +97,29 @@
 		var scrolldelay;
 		function pageScroll()
 		{
-		window.scrollBy(0,1);
-		scrolldelay = setTimeout('pageScroll()',13);
+			window.scrollBy(0,1);
+			scrolldelay = setTimeout('pageScroll()',13);
 		}
 
 		function pageScrollStop()
 		{
-		clearTimeout(scrolldelay);
+			clearTimeout(scrolldelay);
 		}
 	</script>
 
 	<script>
 		$(window).scroll(function() {
 			if($(window).scrollTop() + $(window).height() > $(document).height()-5) {
-				 window.scrollTo(0, 0);
-		 }
+				window.scrollTo(0, 0);
+			}
 		});
 	</script>
 
 	<script>
 		function refreshData()
 		{
-	  	// Load the content of "path/to/script.php" into an element with ID "#container".
-	  	$('#content1').load('generaClassifica/allieviM');
+		// Load the content of "path/to/script.php" into an element with ID "#container".
+		$('#content1').load('generaClassifica/allieviM');
 			$('#content2').load('generaClassifica/allieviF');
 			$('#content3').load('generaClassifica/junioresM');
 			$('#content4').load('generaClassifica/junioresF');
