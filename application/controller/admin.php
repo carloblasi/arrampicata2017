@@ -47,16 +47,63 @@ class Admin extends Controller
 		require APP . 'view/admin/classifica.php';
 	}
 
-	public function classificaSquadre()
+	public function classificaSquadre($categoria)
 	{
-		foreach ( $this->model->getClassificaGlobal(1999,2001,"M") as $value)
-		{
-			echo $value->posizione." ";
-			echo $value->scuola." ";
-			echo $value->nome."<br>";
-		}
 
-	}
+		switch ($categoria)
+		{
+			case "allieviM":
+			{
+				$anno_min = 1999;
+				$anno_max = 2001;
+				$sesso = "M";
+				break;
+			}
+			case "allieviF":
+			{
+				$anno_min = 1999;
+				$anno_max = 2001;
+				$sesso = "F";
+				break;
+			}
+			case "junioresM":
+			{
+				$anno_min = 1997;
+				$anno_max = 1998;
+				$sesso = "M";
+				break;
+			}
+			case "junioresF":
+			{
+				$anno_min = 1997;
+				$anno_max = 1998;
+				$sesso = "F";
+				break;
+			}
+		}
+		$punteggi = array();
+		for ($i=1; $i <=7; $i++)
+		{
+			if( $this->model->getIscritti($i,$anno_min,$anno_max,$sesso)>=3)
+			{
+				$podio = $this->model->getPodio($i,$anno_min,$anno_max,$sesso);
+				$pos1=$podio->fetch();
+				$pos2=$podio->fetch();
+				$pos3=$podio->fetch();
+				$sum=0;
+				$classifica=$this->model->getClassificaGlobal($anno_min,$anno_max,$sesso);
+				foreach ( $classifica as $row)
+				{
+					if($row->id==$pos1->id or $row->id==$pos2->id or $row->id==$pos3->id)
+						$sum+=$row->posizione;
+				}
+				$punteggi[$i]=$sum;
+			}
+
+		}
+		require APP . 'view/admin/menu.php';
+		require APP . 'view/admin/classificaSquadre.php';
+}
 
 	/**
 	 * La funzione che genera una tabella html contente i dati della classifica
@@ -73,16 +120,16 @@ class Admin extends Controller
 		switch ($categoria)
 		{
 			case "allieviM":
-				$classifica = $this->model->getClassifica(1999,2001,"M");
+				$classifica = $this->model->getClassificaPivot(1999,2001,"M");
 				break;
 			case "allieviF":
-				$classifica = $this->model->getClassifica(1999,2001,"F");
+				$classifica = $this->model->getClassificaPivot(1999,2001,"F");
 				break;
 			case "junioresM":
-				$classifica = $this->model->getClassifica(1997,1998,"M");
+				$classifica = $this->model->getClassificaPivot(1997,1998,"M");
 				break;
 			case "junioresF":
-				$classifica = $this->model->getClassifica(1997,1998,"F");
+				$classifica = $this->model->getClassificaPivot(1997,1998,"F");
 				break;
 
 		}

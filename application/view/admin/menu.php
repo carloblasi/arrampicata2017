@@ -14,7 +14,7 @@
 		}
 
 		.pure-menu {
-			
+
 			text-align: center;
 			background-color: #F6F1ED;
 			padding: 6px;
@@ -66,6 +66,9 @@
 			</li>
 			<li class="pure-menu-item">
 				<a href="<?php echo URL; ?>admin/classifica" class="pure-button">Classifica</a>
+			</li>
+			<li class="pure-menu-item">
+				<a href="<?php echo URL; ?>admin/classificaSquadre/allieviM" class="pure-button">Classifica Scuole</a>
 			</li>
 			<li class="pure-menu-item">
 				<a href="<?php echo URL; ?>admin/generaPettorine" class="pure-button">Pettorine</a>
