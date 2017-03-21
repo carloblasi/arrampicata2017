@@ -26,6 +26,19 @@ class Model
 		return $query->fetchAll();
 	}
 
+
+	/**
+	* Permette di avere un elenco di tutti i partecipant con le loro pettorine
+	*/
+	public function getElencoPettorine()
+	{
+		$sql = 'SELECT atleta.casacca, atleta.nome, atleta.cognome, scuola.nome_scuola 
+				FROM atleta, scuola WHERE atleta.id_scuola = scuola.id ORDER BY atleta.casacca';
+		$query = $this->db->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+	}
+
 	/**
 	* Permette l'assegnamento delle pettorine ad ogni atleta presente
 	*/
@@ -203,6 +216,29 @@ class Model
 							':n_tentativi' => $tentativo,
 							':passato' => $passato);
 
+		$query->execute($parameters);
+	}
+
+
+	/**
+	* Funzione che aggiusta il tentativo
+	*/
+	public function aggiustaTentativo($id_boulder, $casacca, $tentativo, $passato)
+	{	
+		/*
+		$sql = 'UPDATE atleta_boulder SET n_tentativi = :tentativi, passato = :passato
+				WHERE ';
+		*/
+		$sql = 'SELECT id FROM atleta where casacca = :casacca';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':casacca'=>$casacca);
+		$query->execute($parameters);
+		$result = $query->fetchAll();
+		$id = $result[0]->id;
+		$sql = 'UPDATE atleta_boulder SET n_tentativi = :tentativi, passato = :passato
+				WHERE id_atleta = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':tentativi'=>$tentativo,':passato'=>$passato,':id'=>$id);
 		$query->execute($parameters);
 	}
 

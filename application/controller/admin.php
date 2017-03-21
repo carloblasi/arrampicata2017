@@ -139,8 +139,9 @@ EOT;
 	 */
 	public function generaPettorine()
 	{
+		$lista_pettorine = $this->model->getElencoPettorine();
 		require APP . 'view/admin/menu.php';
-		require APP . 'view/admin/generapettorine.php';
+		require APP . 'view/admin/pettorine.php';
 	}
 
 	/**
@@ -157,6 +158,13 @@ EOT;
 	 */
 	public function correzione()
 	{
+		if(isset($_POST['correzione_dati'])){
+			$pettorina = $_POST['numero_pettorina'];
+			$tentativi = $_POST['n_tentativi'];
+			$id_boulder = $_POST['id_boulder'];
+			$passato = $_POST['passato'];
+			$this->model->aggiustaTentativo($id_boulder,$pettorina,$tentativi,$passato);
+		}
 		$prova = $this->model->getAllPettorine();
 		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/correzione.php';
@@ -167,7 +175,7 @@ EOT;
 	*/
 	public function prova()
 	{
-		require APP . 'view/admin/generaelenco.php';
+		require APP . 'view/admin/generaElenco.php';
 	}
 
 
