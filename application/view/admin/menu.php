@@ -7,56 +7,7 @@
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/font-awesome.min.css" type="text/css">
-	<style type="text/css">
-
-		body {
-			background-color: #F6F1ED;
-		}
-
-		.pure-menu {
-
-			text-align: center;
-			background-color: #F6F1ED;
-			padding: 6px;
-		}
-
-		.pure-menu-item {
-			margin-right: 2px;
-			margin-left: 2px;
-		}
-
-		.contenitore1, .contenitore-ultimo {
-
-			margin-left: 30%;
-			margin-right: 30%;
-			margin-top: 10%;
-		}
-
-		.pure-button {
-
-			color: #F6F1ED;
-			border-radius: 6px;
-			text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-			background: rgb(66, 184, 221);
-			font-size: 110%;
-			font-weight: 800;
-			text-align: center;
-		}
-
-		.contenitore2 {
-
-			margin-left: 34%;
-			margin-right: 34%;
-			text-align: center;
-			margin-top: 2%;
-			margin-bottom: 1%;
-		}
-
-		tr, td {
-			text-align: center;
-		}
-
-	</style>
+	<link rel="stylesheet" href="<?php echo URL; ?>css/admin.css">
 </head>
 <body>
 	<div class="pure-menu pure-menu-horizontal">
