@@ -1,16 +1,14 @@
 body{
-  background-color: #FFFFFF;
+  background-color: #FEFDFC;
 }
-
 
 .center{
    margin-bottom: 15%;
 }
 
-
 .center table{
     margin: auto;
-    width: 60%;
+    width: 80%;
 }
 .fixed-top{
   position: fixed;
@@ -26,20 +24,24 @@ body{
 }
 
 .passed{
-  color: #00A8E8;
+  color: #79D863;
 }
 
 .notpassed{
-  color: #00171F;
+  color: #F25454;
 }
 
-
-
 th {
-    background-color: #F45B69;
+    background-color: rgb(66, 184, 221);
     color: #FFFFFF;
+    text-align: center;
+}
+
+td {
+	text-align: center;
 }
 
 #noborder{
   border: none;
+  font-size: 140%;
 }
