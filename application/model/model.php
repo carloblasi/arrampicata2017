@@ -134,7 +134,7 @@ class Model
 		$query = $this->db->query($sql);
 		$sql = 'SELECT @rank:=@rank+1 AS posizione, classifica_pivot.cognome as cognome, classifica_pivot.nome as nome, classifica_pivot.punteggio,classifica_pivot.1,
 				classifica_pivot.2,classifica_pivot.3,classifica_pivot.4,classifica_pivot.5,classifica_pivot.6,classifica_pivot.7,classifica_pivot.8,classifica_pivot.9,
-				classifica_pivot.10,
+				classifica_pivot.10
 				FROM classifica_pivot
 				WHERE YEAR(classifica_pivot.data_nascita) BETWEEN :anno_min AND :anno_max
 				AND classifica_pivot.sesso=:sesso

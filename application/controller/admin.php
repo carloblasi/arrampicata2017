@@ -73,16 +73,16 @@ class Admin extends Controller
 		switch ($categoria)
 		{
 			case "allieviM":
-				$classifica = $this->model->getClassifica(1999,2001,"M");
+				$classifica = $this->model->getClassificaPivot(1999,2001,"M");
 				break;
 			case "allieviF":
-				$classifica = $this->model->getClassifica(1999,2001,"F");
+				$classifica = $this->model->getClassificaPivot(1999,2001,"F");
 				break;
 			case "junioresM":
-				$classifica = $this->model->getClassifica(1997,1998,"M");
+				$classifica = $this->model->getClassificaPivot(1997,1998,"M");
 				break;
 			case "junioresF":
-				$classifica = $this->model->getClassifica(1997,1998,"F");
+				$classifica = $this->model->getClassificaPivot(1997,1998,"F");
 				break;
 
 		}
