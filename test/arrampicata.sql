@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 20, 2017 alle 19:02
+-- Creato il: Mar 21, 2017 alle 16:37
 -- Versione del server: 10.1.16-MariaDB
 -- Versione PHP: 7.0.9
 
@@ -478,7 +478,7 @@ INSERT INTO `atleta_boulder` (`id_boulder`, `id_atleta`, `n_tentativi`, `passato
 (6, 2, 0, 'N'),
 (6, 3, 0, 'N'),
 (6, 4, 0, 'N'),
-(6, 5, 0, 'N'),
+(6, 5, 1, 'Y'),
 (6, 6, 2, 'N'),
 (6, 7, 0, 'N'),
 (6, 8, 0, 'N'),
@@ -866,6 +866,7 @@ INSERT INTO `boulder` (`id`, `nome`) VALUES
 --
 CREATE TABLE `classifica_global` (
 `id` int(10) unsigned
+,`scuola` int(10) unsigned
 ,`nome` varchar(60)
 ,`cognome` varchar(60)
 ,`data_nascita` date
@@ -951,7 +952,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `classifica_global`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `classifica_global`  AS  select `atleta`.`id` AS `id`,`atleta`.`nome` AS `nome`,`atleta`.`cognome` AS `cognome`,`atleta`.`data_nascita` AS `data_nascita`,`atleta`.`sesso` AS `sesso`,`atleta`.`casacca` AS `pettorina`,round(sum(`atleta_boulder_punteggio`.`punteggio`),2) AS `punteggio` from (`atleta_boulder_punteggio` join `atleta`) where (`atleta_boulder_punteggio`.`atletaID` = `atleta`.`id`) group by `atleta_boulder_punteggio`.`atletaID` order by sum(`atleta_boulder_punteggio`.`punteggio`) desc ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `classifica_global`  AS  select `atleta`.`id` AS `id`,`atleta`.`id_scuola` AS `scuola`,`atleta`.`nome` AS `nome`,`atleta`.`cognome` AS `cognome`,`atleta`.`data_nascita` AS `data_nascita`,`atleta`.`sesso` AS `sesso`,`atleta`.`casacca` AS `pettorina`,round(sum(`atleta_boulder_punteggio`.`punteggio`),2) AS `punteggio` from (`atleta_boulder_punteggio` join `atleta`) where (`atleta_boulder_punteggio`.`atletaID` = `atleta`.`id`) group by `atleta_boulder_punteggio`.`atletaID` order by sum(`atleta_boulder_punteggio`.`punteggio`) desc ;
 
 -- --------------------------------------------------------
 
