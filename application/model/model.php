@@ -213,10 +213,10 @@ class Model
 
   public function getNumeroScuole()
 	{
-		$sql='SELECT COUNT(id) from scuola';
+		$sql='SELECT COUNT(id) as count from scuola';
 		$query = $this->db->query($sql);
-		$n = $query() -> fetch();
-		return $n;
+		$n = $query -> fetch();
+		return $n->count;
 		# code...
 	}
 
