@@ -82,7 +82,7 @@ class Admin extends Controller
 			}
 		}
 		$punteggi = array();
-		for ($i=1; $i <=7; $i++)
+		for ($i=1; $i <= 7 ; $i++)
 		{
 			if( $this->model->getIscritti($i,$anno_min,$anno_max,$sesso)>=3)
 			{

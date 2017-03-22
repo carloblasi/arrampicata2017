@@ -211,6 +211,15 @@ class Model
 		return $n->iscritti;
 	}
 
+  public function getNumeroScuole()
+	{
+		$sql='SELECT COUNT(id) from scuola';
+		$query = $this->db->query($sql);
+		$n = $query() -> fetch();
+		return $n;
+		# code...
+	}
+
 
 	/**
 	 * Aggiunge il punteggio a un dato atleta partendo dal numero della casacca
