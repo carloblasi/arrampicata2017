@@ -32,7 +32,6 @@ input[type="radio"]:checked + label {
 	width: 100%;
 	z-index: 9999;
 	background-color: #FEFDFC;
-	/*box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.2);*/
 }
 
 .pure-button {
@@ -165,6 +164,7 @@ input[type="radio"]:checked + label {
 }
 
 .description-atleta {
+
 	font-size: 3vh;
 	margin-bottom: -2vh;
 }
@@ -176,6 +176,7 @@ input[type="radio"]:checked + label {
 	color: #666;
 }
 
+/* Sugli schermi più piccoli (4 pollici) il numero di tentativo è più elevato per non essere coperto dalla navbar */
 @media only screen and (max-device-width: 320px) {
 
 	.tentativo {
