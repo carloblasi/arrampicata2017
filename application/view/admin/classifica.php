@@ -11,12 +11,12 @@
 <body>
 	<div class="fixed-top">
 		<div class="pure-button-group" role="group" aria-label="...">
-			<button class="pure-button" onclick="pageScrollStop()"><i class="fa fa-backward fa-lg" aria-hidden="true"></i></button>
-			<button class="pure-button" onclick="pageScroll()"><i class="fa fa-forward fa-lg" aria-hidden="true"></i></button>
+			<button class="pure-button" onclick="pageScrollStop()"><i class="fa fa-backward fa-lg" aria-hidden="true" style="color: #666;"></i></button>
+			<button class="pure-button" onclick="pageScroll()"><i class="fa fa-forward fa-lg" aria-hidden="true" style="color: #666;"></i></button>
 		</div>
 	</div>
 	<div class="fixed-bottom">
-		<a class="pure-button" href="<?php echo URL; ?>admin/aggiungistudente"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+		<a class="pure-button" href="<?php echo URL; ?>admin/aggiungistudente"><i class="fa fa-arrow-left fa-2x"  style="color: #666;" aria-hidden="true"></i></a>
 	</div>
 
 	</div>
@@ -32,7 +32,7 @@
 					<th>Cognome</th>
 					<th>Nome</th>
 					<th>Punteggio</th>
-					<th style="width: 40%;">Boulder passati</th>
+					<th class="boulder-passati">Boulder passati</th>
 				</tr>
 			</thead>
 			<tbody  id="content1"></tbody>
@@ -48,7 +48,7 @@
 					<th class="femminile">Cognome</th>
 					<th class="femminile">Nome</th>
 					<th class="femminile">Punteggio</th>
-					<th class="femminile">Boulder passati</th>
+					<th class="femminile boulder-passati">Boulder passati</th>
 				</tr>
 			</thead>
 			<tbody  id="content2"></tbody>
@@ -64,7 +64,7 @@
 					<th>Cognome</th>
 					<th>Nome</th>
 					<th>Punteggio</th>
-					<th>Boulder passati</th>
+					<th class="boulder-passati">Boulder passati</th>
 				</tr>
 			</thead>
 			<tbody  id="content3"></tbody>
@@ -80,7 +80,7 @@
 					<th class="femminile">Cognome</th>
 					<th class="femminile">Nome</th>
 					<th class="femminile">Punteggio</th>
-					<th class="femminile">Boulder passati</th>
+					<th class="femminile boulder-passati">Boulder passati</th>
 				</tr>
 			</thead>
 			<tbody  id="content4"></tbody>
@@ -119,12 +119,12 @@
 		function refreshData()
 		{
 		// Load the content of "path/to/script.php" into an element with ID "#container".
-		$('#content1').load('generaClassifica/allieviM');
+			$('#content1').load('generaClassifica/allieviM');
 			$('#content2').load('generaClassifica/allieviF');
 			$('#content3').load('generaClassifica/junioresM');
 			$('#content4').load('generaClassifica/junioresF');
 		}
-		$(document).ready(function(){
+		$(document).ready(function() {
 			refreshData();
 		});
 
