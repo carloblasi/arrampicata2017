@@ -50,3 +50,16 @@ td {
   border: none;
   font-size: 140%;
 }
+
+.table-squadre {
+	margin: auto;
+
+}
+
+tr:nth-child(even) {
+	background: #F2F2F2;
+}
+
+.boulder-passati {
+	width: 40%;
+}

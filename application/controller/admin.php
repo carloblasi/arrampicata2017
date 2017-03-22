@@ -57,6 +57,7 @@ class Admin extends Controller
 				$anno_min = 1999;
 				$anno_max = 2001;
 				$sesso = "M";
+				$cat = "Allievi Maschile";
 				break;
 			}
 			case "allieviF":
@@ -64,6 +65,7 @@ class Admin extends Controller
 				$anno_min = 1999;
 				$anno_max = 2001;
 				$sesso = "F";
+				$cat = "Allievi Femminile";
 				break;
 			}
 			case "junioresM":
@@ -71,6 +73,7 @@ class Admin extends Controller
 				$anno_min = 1997;
 				$anno_max = 1998;
 				$sesso = "M";
+				$cat = "Juniores Maschile";
 				break;
 			}
 			case "junioresF":
@@ -78,6 +81,7 @@ class Admin extends Controller
 				$anno_min = 1997;
 				$anno_max = 1998;
 				$sesso = "F";
+				$cat = "Juniores Femminile";
 				break;
 			}
 		}
@@ -101,7 +105,6 @@ class Admin extends Controller
 			}
 
 		}
-		require APP . 'view/admin/menu.php';
 		require APP . 'view/admin/classificasquadre.php';
 }
 
