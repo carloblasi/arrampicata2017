@@ -164,6 +164,11 @@ input[type="radio"]:checked + label {
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+.description-atleta {
+	font-size: 3vh;
+	margin-bottom: -2vh;
+}
+
 .tentativo {
 
 	margin-top: -3vh;

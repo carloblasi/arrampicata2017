@@ -32,6 +32,7 @@
 	<form action="<?php echo URL; ?>gara/aggiornapunteggioatleta/<?php echo $selected_atleta; ?>/<?php echo $selected_boulder; ?>/<?php echo $tentativo; ?>" method="POST">
 
 		<div class='container-tentativo'>
+			<p class='description-top description-atleta'>ATLETA: <?php echo $selected_atleta; ?></p>
 			<p class='description-top'>TENTATIVO ATTUALE</p>
 			<h1 class='tentativo'><?php echo ($tentativo + 1); ?></h1>
 		</div>

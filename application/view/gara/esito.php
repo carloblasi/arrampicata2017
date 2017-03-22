@@ -27,6 +27,7 @@
 		if ($esito == 'N') {
 			
 			echo "<div class='container-tentativo'>",
+					 "<p class='description-top description-atleta'>ATLETA: $selected_atleta;</p>",
 				     "<p class='description-top'>TENTATIVI FINITI</p>",
 					 "<h1 class='esito esito-negativo'>NON<br>PASSATO</h1>",
 				 '</div>';
@@ -34,7 +35,7 @@
 		else {
 
 			echo "<div class='container-tentativo'>",
-				     //"<p class='description-top'>PASSATO</p>",
+					 "<p class='description-top description-atleta'>ATLETA: $selected_atleta</p>",
 					 "<h1 class='esito esito-positivo'>PASSATO</h1>",
 				 '</div>';
 		}
