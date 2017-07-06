@@ -1,2 +1,3 @@
--Crea il db arrampicata
--importa il file .sql (PHPmyAdmin o query "SOURCE arrampicata.sql")
+-Crea il db arrampicata.
+-Unzippa il file arrampicata.zip inserendo la password.
+-Importa il file .sql (PHPmyAdmin o query "SOURCE arrampicata.sql”).
